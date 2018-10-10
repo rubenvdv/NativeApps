@@ -9,6 +9,17 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom"/>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical">
+            <Button Click="Button_Click" HorizontalAlignment="Center" Background="Blue" Content="Start"/>
+            <TextBlock Tapped="login" Text="Registreer of log in"/>
+            <TextBlock Tapped="zakelijk" Text="Ik ben een zakelijke gebruiker"/>
+        </StackPanel>
+        <Frame x:Name="mainFrame"/>
     </Grid>
 </Page>

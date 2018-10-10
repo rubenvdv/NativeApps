@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NativeApps2.xaml_pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,21 @@ namespace NativeApps2
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void login(object sender, TappedRoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Login));
+        }
+
+        private void zakelijk(object sender, TappedRoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(LoginZakelijk));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(StartschermAnoniem));
         }
     }
 }

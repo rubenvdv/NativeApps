@@ -92,13 +92,33 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="xaml pages\App.xaml.cs">
+    <Compile Include="Domain\Evenement.cs" />
+    <Compile Include="Domain\Gebruiker.cs" />
+    <Compile Include="Domain\IngelogdeGebruiker.cs" />
+    <Compile Include="Domain\Ondernemer.cs" />
+    <Compile Include="Domain\Onderneming.cs" />
+    <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml pages\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml pages\LoginZakelijk.xaml.cs">
+      <DependentUpon>LoginZakelijk.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
+      <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml pages\StartschermBusiness.xaml.cs">
+      <DependentUpon>StartschermBusiness.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml pages\StartSchermIngelogd.xaml.cs">
+      <DependentUpon>StartSchermIngelogd.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -117,13 +137,33 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="xaml pages\App.xaml">
+    <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="xaml pages\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\LoginZakelijk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="xaml pages\StartschermAnoniem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\StartschermBusiness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\StartSchermIngelogd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -131,9 +171,7 @@
       <Version>6.1.7</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
