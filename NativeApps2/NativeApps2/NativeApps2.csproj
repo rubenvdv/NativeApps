@@ -110,6 +110,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xaml pages\Overzicht.xaml.cs">
+      <DependentUpon>Overzicht.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
       <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,10 @@
     <Page Include="xaml pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="xaml pages\Overzicht.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\StartschermAnoniem.xaml">
       <SubType>Designer</SubType>

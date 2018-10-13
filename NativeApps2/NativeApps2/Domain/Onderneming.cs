@@ -14,18 +14,18 @@ namespace NativeApps2.Domain
         #endregion
 
         #region properties
-        public string _naam { get; set; }
-        public string _categorie { get; set; }
-        public string _adres { get; set; }
-        public string _openingsuren { get; set; } 
+        public string Naam { get; set; }
+        public string Categorie { get; set; }
+        public string Adres { get; set; }
+        public string Openingsuren { get; set; } 
         #endregion
 
         public Onderneming(string naam, string cat, string adres, string openingsuren)
         {
-            _naam = naam;
-            _categorie = cat;
-            _adres = adres;
-            _openingsuren = openingsuren;
+            Naam = naam;
+            Categorie = cat;
+            Adres = adres;
+            Openingsuren = openingsuren;
         }
     }
 }

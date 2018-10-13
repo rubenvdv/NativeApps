@@ -25,6 +25,7 @@ namespace NativeApps2.xaml_pages
         public StartschermAnoniem()
         {
             this.InitializeComponent();
+            frameAnoniem.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers
         private void Button_Click_1(object sender, RoutedEventArgs e)
