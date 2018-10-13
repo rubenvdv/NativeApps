@@ -35,7 +35,7 @@ namespace NativeApps2
 
         private void zakelijk(object sender, TappedRoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(LoginZakelijk));
+            mainFrame.Navigate(typeof(Login));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

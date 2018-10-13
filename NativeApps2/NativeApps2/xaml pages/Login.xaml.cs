@@ -26,5 +26,10 @@ namespace NativeApps2.xaml_pages
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frameLogIn.Navigate(typeof(StartschermAnoniem));
+        }
     }
 }

@@ -26,5 +26,40 @@ namespace NativeApps2.xaml_pages
         {
             this.InitializeComponent();
         }
+        //Eigen event-handlers
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            SplitViewAnoniem.IsPaneOpen = !SplitViewAnoniem.IsPaneOpen;
+        }
+
+        private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+        }
+
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+        }
+
+        private void StackPanel_Tapped_2(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+        }
+
+        private void StackPanel_Tapped_3(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+        }
+
+        private void StackPanel_Tapped_4(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+        }
+
+        private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e)
+        {
+            frameAnoniem.Navigate(typeof(help));
+        }
     }
 }

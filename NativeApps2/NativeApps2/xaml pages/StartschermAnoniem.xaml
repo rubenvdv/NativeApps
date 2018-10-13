@@ -7,7 +7,54 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <SplitView CompactPaneLength="50" x:Name="SplitViewAnoniem" IsPaneOpen="true" DisplayMode="CompactInline">
+        <SplitView.Pane>
+            <StackPanel Background="Gray" >
+                <Button Click="Button_Click_1" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                        
+                        Width="50"
+                        Height="50"/>
+                <StackPanel Tapped="StackPanel_Tapped" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE71E;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Zoeken" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Tapped="StackPanel_Tapped_1" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE787;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE716;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Geabboneerd" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Instellingen" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+                
+                <StackPanel Tapped="StackPanel_Tapped_5" Orientation="Horizontal">
+                    <Button FontFamily="Segoe MDL2 Assets" Content="&#xE897;"
+                            Width="50"
+                            Height="50"/>
+                    <TextBlock Text="Help" FontSize="18" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Frame x:Name="frameAnoniem"/>
+        </SplitView.Content>
+    </SplitView>
 </Page>
