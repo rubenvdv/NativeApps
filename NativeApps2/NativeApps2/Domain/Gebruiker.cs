@@ -8,11 +8,5 @@ namespace NativeApps2.Domain
 {
     class Gebruiker
     {
-
-        public Gebruiker()
-        {
-            //Anonieme gebruiker
-
-        }
     }
 }
