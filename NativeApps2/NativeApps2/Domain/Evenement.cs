@@ -8,17 +8,19 @@ namespace NativeApps2.Domain
 {
     class Evenement
     {
-        public string _naam { get; set; }
-        public string _omschrijving { get; set; }
-        public DateTime _begindatum { get; set; }
-        public DateTime _einddatum { get; set; }
+        public int EvenementID { get; set; }
+        public string Naam { get; set; }
+        public string Omschrijving { get; set; }
+        public DateTime Begindatum { get; set; }
+        public DateTime Einddatum { get; set; }
+        public int OndernemingID { get; set; }
 
         public Evenement(string naam, string omschrijving, DateTime start, DateTime einde)
         {
-            _naam = naam;
-            _omschrijving = omschrijving;
-            _begindatum = start;
-            _einddatum = einde;
+            Naam = naam;
+            Omschrijving = omschrijving;
+            Begindatum = start;
+            Einddatum = einde;
         }
     }
 }

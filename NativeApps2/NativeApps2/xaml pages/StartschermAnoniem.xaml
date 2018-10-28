@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <SplitView x:Name="SplitViewAnoniem" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" IsPaneOpen="True" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="Inline">
+    <SplitView x:Name="SplitViewAnoniem" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" IsPaneOpen="True" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactInline">
         <SplitView.Pane>
             <StackPanel Background="Gray" >
                 <Button Click="Button_Click_1" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
@@ -55,6 +55,8 @@
                 </StackPanel>
             </StackPanel>
         </SplitView.Pane>
-        <Frame x:Name="frameAnoniem"/>
+        <SplitView.Content>
+            <Frame x:Name="frameAnoniem"/>
+        </SplitView.Content>
     </SplitView>
 </Page>

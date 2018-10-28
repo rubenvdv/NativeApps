@@ -28,37 +28,37 @@ namespace NativeApps2.xaml_pages
             frameAnoniem.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e) //Sluit/open pane (links scherm)
         {
             SplitViewAnoniem.IsPaneOpen = !SplitViewAnoniem.IsPaneOpen;
         }
 
-        private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e) //Home-scherm
         {
-            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+            frameAnoniem.Navigate(typeof(Overzicht));
         }
 
-        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) //Zoeken
         {
-            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+            frameAnoniem.Navigate(typeof(Zoeken));
         }
 
-        private void StackPanel_Tapped_2(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped_2(object sender, TappedRoutedEventArgs e) //Evenementen
         {
-            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+            frameAnoniem.Navigate(typeof(OverzichtEvenementen));
         }
 
-        private void StackPanel_Tapped_3(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped_3(object sender, TappedRoutedEventArgs e) //Geabboneerd
         {
-            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+            frameAnoniem.Navigate(typeof(OverzichtAbonnees));
         }
 
-        private void StackPanel_Tapped_4(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped_4(object sender, TappedRoutedEventArgs e) //Instellingen
         {
-            frameAnoniem.Navigate(typeof(StartschermAnoniem));
+            frameAnoniem.Navigate(typeof(Instellingen));
         }
 
-        private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e)
+        private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e) //Help
         {
             frameAnoniem.Navigate(typeof(help));
         }

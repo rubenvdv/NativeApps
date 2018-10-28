@@ -12,11 +12,11 @@ namespace NativeApps2.Domain
         private ObservableCollection<string> meldingen;
         private ObservableCollection<Onderneming> bedrijven;
         #region properties
-        public string _naam { get; set; }
-        public string _voornaam { get; set; }
-        public string _gebruikersnaam { get; set; }
-        public string _wachtwoord { get; set; }
-        public string _mail { get; set; }
+        public string Naam { get; set; }
+        public string Voornaam { get; set; }
+        public string Gebruikersnaam { get; set; }
+        public string Wachtwoord { get; set; }
+        public string Mail { get; set; }
         #endregion
         #region Constructors
         public IngelogdeGebruiker()
@@ -25,11 +25,11 @@ namespace NativeApps2.Domain
         }
         public IngelogdeGebruiker(string naam, string voornaam, string gebruikersnaam, string wachtwoord, string mail)
         {
-            _naam = naam;
-            _voornaam = voornaam;
-            _gebruikersnaam = gebruikersnaam;
-            _wachtwoord = wachtwoord;
-            _mail = mail;
+            Naam = naam;
+            Voornaam = voornaam;
+            Gebruikersnaam = gebruikersnaam;
+            Wachtwoord = wachtwoord;
+            Mail = mail;
         } 
         #endregion
     }

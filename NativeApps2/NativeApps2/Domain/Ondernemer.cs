@@ -11,10 +11,10 @@ namespace NativeApps2.Domain
     {
         public ObservableCollection<Onderneming> bedrijven = new ObservableCollection<Onderneming>();
         #region properties
-        public string _naam { get; set; }
-        public string _gebruikersnaam { get; set; }
-        public string _wachtwoord { get; set; }
-        public string _mail { get; set; }
+        public string Naam { get; set; }
+        public string Gebruikersnaam { get; set; }
+        public string Wachtwoord { get; set; }
+        public string Mail { get; set; }
         #endregion
         #region Constructors
         public Ondernemer()
@@ -23,10 +23,10 @@ namespace NativeApps2.Domain
         }
         public Ondernemer(string naam, string gebruikersnaam, string wachtwoord, string mail)
         {
-            _naam = naam;
-            _gebruikersnaam = gebruikersnaam;
-            _wachtwoord = wachtwoord;
-            _mail = mail;
+            Naam = naam;
+            Gebruikersnaam = gebruikersnaam;
+            Wachtwoord = wachtwoord;
+            Mail = mail;
         }
         #endregion
     }

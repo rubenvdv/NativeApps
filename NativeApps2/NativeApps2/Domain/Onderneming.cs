@@ -14,6 +14,7 @@ namespace NativeApps2.Domain
         #endregion
 
         #region properties
+        public int OndernemingID { get; set; }
         public string Naam { get; set; }
         public string Categorie { get; set; }
         public string Adres { get; set; }

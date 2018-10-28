@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="NativeApps2.xaml_pages.Zoeken"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NativeApps2.xaml_pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel>
+        <TextBox TextChanged="TextBox_TextChanged" Text="Zoek hier naar ondernemingen"/>
+        <ListView x:Name="lvZoeken">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Naam}"/>
+                        <TextBlock Text="{Binding Categorie}"/>
+                        <TextBlock Text="{Binding Adres}"/>
+                        <TextBlock Text="{Binding Openingsuren}"/>
+                        <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/> 
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Page>
