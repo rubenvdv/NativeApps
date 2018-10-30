@@ -10,16 +10,29 @@
     <Frame x:Name="mainFrame">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </Grid.Background>
 
-            <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom"/>
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Vertical">
-                <Button Click="Button_Click" HorizontalAlignment="Center" Background="Blue" Content="Start"/>
-                <TextBlock Tapped="login" Text="Registreer of log in"/>
-                <TextBlock Tapped="zakelijk" Text="Ik ben een zakelijke gebruiker"/>
+            <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <Image Grid.Row="1" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="127" Source="/Images/location_icon.png"/>
+            <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
+                <Button Click="Button_Click" HorizontalAlignment="Stretch" Content="Start" Style="{ThemeResource AccentButtonStyle}">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock Tapped="login" Text="Registreer of log in" Style="{ThemeResource BodyTextBlockStyle}"/>
+                <TextBlock Tapped="zakelijk" Text="Ik ben een zakelijke gebruiker" Style="{ThemeResource CaptionTextBlockStyle}"/>
             </StackPanel>
+            
 
         </Grid>
     </Frame>

@@ -9,15 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </StackPanel.Background>
         <ListView x:Name="myLV" ItemsSource="{Binding}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!-- Kan eender wat zijn-->
                     <StackPanel>
-                        <TextBlock Text="{Binding Naam}"/>
-                        <TextBlock Text="{Binding Categorie}"/>
-                        <TextBlock Text="{Binding Adres}"/>
-                        <TextBlock Text="{Binding Openingsuren}"/>
+                        <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}"/>
                         <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/>
                     </StackPanel>
                 </DataTemplate>

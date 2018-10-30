@@ -8,6 +8,9 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Frame x:Name="frameLogIn">
+        <Frame.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </Frame.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -53,15 +56,29 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
 
-            <Button Background="Blue" Content="Registreer" 
+            <Button Content="Registreer" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Right"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
 
-            <Button Click="Button_Click" Background="LightGreen" Content="Meld aan" 
+            <Button Click="Button_Click" Content="Meld aan" 
                 Grid.Row="5" Grid.Column="1" 
                 HorizontalAlignment="Left"
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </Grid>
     </Frame>
 </Page>

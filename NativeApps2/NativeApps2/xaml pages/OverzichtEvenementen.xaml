@@ -9,15 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <ListView x:Name="lvEvenementen">
+        <ListView.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </ListView.Background>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <StackPanel>
-                    <TextBlock Text="{Binding Naam}"/>
-                    <TextBlock Text="{Binding Omschrijving}"/>
+                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                    <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}"/>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding Begindatum}"/>
-                        <TextBlock Text=" - "/>
-                        <TextBlock Text="{Binding Einddatum}"/>
+                        <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}"/>
                     </StackPanel>
                     <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/>
                 </StackPanel>
