@@ -7,17 +7,25 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <StackPanel>
-        <TextBlock Text="Wat wilt u doen?"/>
+    <Frame>
+        <Frame.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </Frame.Background>
         <StackPanel>
-            <TextBlock Text="Naam veranderen"/>
-        </StackPanel>
-        <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/>
-        <StackPanel>
-            <TextBlock Text="Onderneming toevoegen"/>
-        </StackPanel>
-        <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Instellingen" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <TextBlock Text="Wat wilt u doen?" Foreground="White" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}"/>
+            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Naam veranderen" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            </StackPanel>
+            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Onderneming toevoegen" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
+            </StackPanel>
+            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
 
-    </StackPanel>
+        </StackPanel>
+    </Frame>
 </Page>

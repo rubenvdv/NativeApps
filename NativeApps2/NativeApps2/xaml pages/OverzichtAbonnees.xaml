@@ -7,21 +7,27 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <ListView x:Name="lvAbonnees">
-        <ListView.Background>
+    <Frame>
+        <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
-        </ListView.Background>
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <StackPanel>
-                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                    <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}"/>
-                    <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}"/>
-                    <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                    <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/>
-                </StackPanel>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+        </Frame.Background>
+        <StackPanel>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Abonnees" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <ListView x:Name="lvAbonnees" HorizontalAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Frame>
 </Page>

@@ -11,67 +11,59 @@
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+        <StackPanel VerticalAlignment="Center">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Login" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Naam:"/>
-            <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Voornaam:"/>
-            <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="E-mailadres:"/>
-            <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                   Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Gebruikersnaam:"/>
-            <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
+                   Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Wachtwoord:"/>
+                   Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="10"
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="10"
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="10"
+                <TextBox Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Margin="10"
+                <TextBox Grid.Row="4" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-
-            <Button Content="Registreer" 
-                Grid.Row="0" Grid.Column="1" 
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="Green" Offset="0.0" />
-                        <GradientStop Color="LimeGreen" Offset="0.75" />
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-
+            </Grid>
             <Button Click="Button_Click" Content="Meld aan" 
                 Grid.Row="5" Grid.Column="1" 
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top">
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="Green" Offset="0.0" />
@@ -79,6 +71,20 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-        </Grid>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="of" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
+            <Button Content="Registreer" 
+                Grid.Row="0" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" Margin="0" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
     </Frame>
 </Page>

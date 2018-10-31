@@ -7,21 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <StackPanel>
-        <TextBox TextChanged="TextBox_TextChanged" Text="Zoek hier naar ondernemingen"/>
-        <ListView x:Name="lvZoeken">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Naam}"/>
-                        <TextBlock Text="{Binding Categorie}"/>
-                        <TextBlock Text="{Binding Adres}"/>
-                        <TextBlock Text="{Binding Openingsuren}"/>
-                        <Line Stroke="Red" X1="0" X2="300" Y1="5" Y2="5"/> 
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+    <Frame>
+        <Frame.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </Frame.Background>
+        <StackPanel>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Zoeken" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <TextBox TextChanged="TextBox_TextChanged" Text="Zoek hier naar ondernemingen" Margin="20" Foreground="White" HorizontalAlignment="Center"/>
+            <ListView x:Name="lvZoeken" HorizontalAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Naam}" Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                            <TextBlock Text="{Binding Categorie}" Foreground="White" Style="{ThemeResource BaseTextBlockStyle}"/>
+                            <TextBlock Text="{Binding Adres}" Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
+                            <TextBlock Text="{Binding Openingsuren}" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Frame>
 </Page>

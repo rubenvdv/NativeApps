@@ -122,6 +122,9 @@
     <Compile Include="xaml pages\OverzichtEvenementen.xaml.cs">
       <DependentUpon>OverzichtEvenementen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml pages\SplashScreen.xaml.cs">
+      <DependentUpon>SplashScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
       <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
     </Compile>
@@ -138,7 +141,9 @@
   <ItemGroup>
     <Content Include="Images\background.jpg" />
     <Content Include="Images\gravensteen.jpg" />
+    <Content Include="Images\loading.png" />
     <Content Include="Images\location_icon.png" />
+    <Content Include="Images\splash_screen.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -181,6 +186,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="xaml pages\SplashScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml pages\StartschermAnoniem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,7 +207,6 @@
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

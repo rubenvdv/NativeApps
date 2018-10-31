@@ -7,43 +7,53 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <ListView>
-            <ListViewItem>
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Margin="10" Symbol="Zoom"/>
-                    <TextBlock Margin="10" Text="Dit is de knop voor zoeken. Hier kan je zoeken tussen alle ondernemingen in de app."/>
-                </StackPanel>
-            </ListViewItem>
+    <Frame>
+        <Frame.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </Frame.Background>
+        <StackPanel VerticalAlignment="Stretch">
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Help" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <ListView HorizontalAlignment="Center">
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Zoom" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop voor zoeken. Hier kan je zoeken tussen alle ondernemingen in de app."/>
+                    </StackPanel>
+                </ListViewItem>
 
-        <ListViewItem>
-            <StackPanel Orientation="Horizontal">
-            <SymbolIcon Margin="10" Symbol="Home"/>
-            <TextBlock Margin="10" Text="Via deze knop kom je terug in het overzicht (startscherm)"/>
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Orientation="Horizontal">
-                <SymbolIcon Margin="10" Symbol="Calendar"/>
-                <TextBlock Margin="10" Text="Op deze pagina wordt een overzicht weergeven van alle aankomende evenementen."/>
-            </StackPanel>
-            </ListViewItem>
-            <ListViewItem>
-            <StackPanel Orientation="Horizontal">
-                <SymbolIcon Margin="10" Symbol="People"/>
-            <TextBlock Margin="10" Text="Hier kan u alle ondernemingen waarop u geabonneerd bent terugvinden."/>
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Orientation="Horizontal">
-            <SymbolIcon Margin="10" Symbol="Setting"/>
-            <TextBlock Margin="10" Text="Dit is de knop voor instellingen. Hier kan u uw algemene gegevens (naam, voornaam etc.) wijzigen."/>
-            </StackPanel>
-        </ListViewItem>
-        <ListViewItem>
-            <StackPanel Orientation="Horizontal">
-            <SymbolIcon Margin="10" Symbol="Next"/>
-            <TextBlock Margin="10" Text="To be continued..."/>
-            </StackPanel>
-        </ListViewItem>
-    </ListView>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Home" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop kom je terug in het overzicht (startscherm)"/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Calendar" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Op deze pagina wordt een overzicht weergeven van alle aankomende evenementen."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="People" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Hier kan u alle ondernemingen waarop u geabonneerd bent terugvinden."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Setting" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop voor instellingen. Hier kan u uw algemene gegevens (naam, voornaam etc.) wijzigen."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Next" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="To be continued..."/>
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
+        </StackPanel>
+    </Frame>
 </Page>
