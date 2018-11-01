@@ -21,7 +21,6 @@ namespace NativeApps2.Domain
         #region Constructors
         public IngelogdeGebruiker()
         {
-            //constructor van gebruiker
         }
         public IngelogdeGebruiker(string naam, string voornaam, string gebruikersnaam, string wachtwoord, string mail)
         {

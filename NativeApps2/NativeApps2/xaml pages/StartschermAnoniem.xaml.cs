@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NativeApps2.Domain;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,11 @@ namespace NativeApps2.xaml_pages
         public StartschermAnoniem()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);   
             frameAnoniem.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers

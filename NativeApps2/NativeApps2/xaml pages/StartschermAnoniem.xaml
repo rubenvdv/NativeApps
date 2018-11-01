@@ -7,6 +7,28 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState x:Name="narrowView">
+                <!-- Wanneer? (trigger) -->
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0" />
+                </VisualState.StateTriggers>
+                <!-- Wat? (setter) -->
+                <VisualState.Setters>
+                  </VisualState.Setters>
+            </VisualState>
+            <VisualState x:Name="wideView">
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="650" />
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="evenementen.(Visibility)" Value="Visibility.Hidden"/>
+                     </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
     <SplitView x:Name="SplitViewAnoniem" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" IsPaneOpen="False" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactInline">
         <SplitView.Pane>
             <StackPanel Background="Gray" >
@@ -14,40 +36,40 @@
                         
                         Width="50"
                         Height="50"/>
-                <StackPanel Tapped="StackPanel_Tapped_1" Orientation="Horizontal">
+                <StackPanel x:Name="home" Tapped="StackPanel_Tapped_1" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"
                             Width="50"
                             Height="50"/>
                     <TextBlock Text="Home" FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Tapped="StackPanel_Tapped" Orientation="Horizontal">
+                <StackPanel x:Name="zoeken" Tapped="StackPanel_Tapped" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE71E;"
                             Width="50"
                             Height="50"/>
                     <TextBlock Text="Zoeken" FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <StackPanel Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
+                <StackPanel x:Name="evenementen" Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE787;"
                             Width="50"
                             Height="50"/>
                     <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <StackPanel Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
+                <StackPanel x:Name="abo" Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE716;"
                             Width="50"
                             Height="50"/>
                     <TextBlock Text="Geabboneerd" FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
-                <StackPanel Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
+                <StackPanel x:Name="instellingen" Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
                             Width="50"
                             Height="50"/>
                     <TextBlock Text="Instellingen" FontSize="18" VerticalAlignment="Center"/>
                 </StackPanel>
 
-                <StackPanel Tapped="StackPanel_Tapped_5" Orientation="Horizontal">
+                <StackPanel x:Name="help" Tapped="StackPanel_Tapped_5" Orientation="Horizontal">
                     <Button FontFamily="Segoe MDL2 Assets" Content="&#xE897;"
                             Width="50"
                             Height="50"/>

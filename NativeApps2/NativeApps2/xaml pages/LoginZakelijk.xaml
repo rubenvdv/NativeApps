@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.Login"
+    x:Class="NativeApps2.xaml_pages.LoginZakelijk"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NativeApps2.xaml_pages"
@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame x:Name="frameLogIn">
+
+    <Frame x:Name="frameZakelijk">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
@@ -22,7 +23,6 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -31,37 +31,31 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="vnaam" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox x:Name="mail" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+                <TextBox x:Name="gebruikersnaam" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
-                <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
+                <TextBox x:Name="wachtwoord" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
             <Button Click="Button_Click" Content="Meld aan" 
-                Grid.Row="5" Grid.Column="1" 
+                Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
                 <Button.Background>

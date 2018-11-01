@@ -12,7 +12,7 @@
         <StackPanel.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </StackPanel.Background>
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Overzicht" 
+        <TextBlock x:Name="welkom" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
         <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">

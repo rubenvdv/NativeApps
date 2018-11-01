@@ -1,4 +1,5 @@
-﻿using NativeApps2.xaml_pages;
+﻿using NativeApps2.Domain;
+using NativeApps2.xaml_pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,7 +36,7 @@ namespace NativeApps2
 
         private void zakelijk(object sender, TappedRoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(Login));
+            mainFrame.Navigate(typeof(LoginZakelijk));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -27,10 +27,12 @@ namespace NativeApps2.xaml_pages
         {
             this.InitializeComponent();
 
+            DomeinController dc = new DomeinController();
             //Test-fase
             List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
+            ondernemingen.Add(new Onderneming(dc.CurrentUser.ToString(), "", "", ""));
 
 
             //Lijst als datacontext (of itemsource) van listview
