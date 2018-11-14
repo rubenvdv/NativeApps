@@ -43,5 +43,6 @@ namespace NativeApps2
         {
             mainFrame.Navigate(typeof(StartschermAnoniem));
         }
+
     }
 }
