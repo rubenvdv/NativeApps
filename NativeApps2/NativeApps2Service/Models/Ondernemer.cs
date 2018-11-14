@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
@@ -18,6 +19,7 @@ namespace NativeApps2Service.Models
         public string Wachtwoord { get; set; } //Hierbij gaan we nog moeten kijken hoe we dit opslaan, want mag geen cleartext zijn
         public string Email { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Onderneming> Ondernemingen { get; set; }
     }
 }

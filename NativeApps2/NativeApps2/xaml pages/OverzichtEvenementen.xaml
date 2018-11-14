@@ -15,7 +15,7 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <ListView x:Name="lvEvenementen" HorizontalAlignment="Center">
+            <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel HorizontalAlignment="Center">

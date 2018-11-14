@@ -20,6 +20,8 @@ namespace NativeApps2Service.Models
         
         public virtual Ondernemer Ondernemer { get; set; }
         public int OndernemerID { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<Evenement> Evenementen { get; set; }
     }
 }

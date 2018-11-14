@@ -9,16 +9,16 @@ namespace NativeApps2.Domain
 {
     class Onderneming
     {
-        #region attributen
-        private ObservableCollection<Evenement> evenementen;
-        #endregion
-
         #region properties
         public int OndernemingID { get; set; }
         public string Naam { get; set; }
         public string Categorie { get; set; }
         public string Adres { get; set; }
-        public string Openingsuren { get; set; } 
+        public string Openingsuren { get; set; }
+
+        public virtual Ondernemer Ondernemer { get; set; }
+        public int OndernemerID { get; set; }
+        public virtual ICollection<Evenement> Evenementen { get; set; }
         #endregion
 
         public Onderneming(string naam, string cat, string adres, string openingsuren)

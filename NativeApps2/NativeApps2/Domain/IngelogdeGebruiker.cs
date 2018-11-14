@@ -9,14 +9,15 @@ namespace NativeApps2.Domain
 {
     class IngelogdeGebruiker : Gebruiker
     {
-        private ObservableCollection<string> meldingen;
-        private ObservableCollection<Onderneming> bedrijven;
         #region properties
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
-        public string Mail { get; set; }
+        public string Email { get; set; }
+        public virtual ICollection<Onderneming> VolgendeOndernemingen { get; set; } //Ondernemingen die de gebruiker volgt
+
+
         #endregion
         #region Constructors
         public IngelogdeGebruiker()
@@ -28,7 +29,7 @@ namespace NativeApps2.Domain
             Voornaam = voornaam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Mail = mail;
+            Email = mail;
         } 
         #endregion
     }

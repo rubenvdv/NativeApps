@@ -9,12 +9,15 @@ namespace NativeApps2.Domain
 {
     class Ondernemer : Gebruiker
     {
-        public ObservableCollection<Onderneming> bedrijven = new ObservableCollection<Onderneming>();
         #region properties
+        public ObservableCollection<Onderneming> bedrijven = new ObservableCollection<Onderneming>();
+
+        public int OndernemerID { get; set; }
         public string Naam { get; set; }
+        public string Voornaam { get; set; }
         public string Gebruikersnaam { get; set; }
-        public string Wachtwoord { get; set; }
-        public string Mail { get; set; }
+        public string Wachtwoord { get; set; } //Hierbij gaan we nog moeten kijken hoe we dit opslaan, want mag geen cleartext zijn
+        public string Email { get; set; }
         #endregion
         #region Constructors
         public Ondernemer()
@@ -26,7 +29,7 @@ namespace NativeApps2.Domain
             Naam = naam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Mail = mail;
+            Email = mail;
         }
         #endregion
     }

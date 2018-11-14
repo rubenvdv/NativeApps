@@ -15,6 +15,8 @@ namespace NativeApps2.Domain
         public DateTime Einddatum { get; set; }
         public int OndernemingID { get; set; }
 
+        public virtual Onderneming Onderneming { get; set; }
+
         public Evenement(string naam, string omschrijving, DateTime start, DateTime einde)
         {
             Naam = naam;
