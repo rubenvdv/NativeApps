@@ -30,9 +30,12 @@ namespace NativeApps2.xaml_pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DomeinController dc = new DomeinController();
-            dc.MaakNieuweGebruiker(naam.Text,vnaam.Text,gebruikersnaam.Text,wachtwoord.Text,mail.Text);
-            frameLogIn.Navigate(typeof(StartschermAnoniem));
+            
+            if(naam.Text!="" && mail.Text!="" && gebruikersnaam.Text!="" && wachtwoord.Text != "")
+            {
+                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                frameLogIn.Navigate(typeof(StartschermAnoniem));
+            }
         }
     }
 }

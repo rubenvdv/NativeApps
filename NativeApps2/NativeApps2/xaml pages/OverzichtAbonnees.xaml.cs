@@ -39,8 +39,8 @@ namespace NativeApps2.xaml_pages
 
             /* Wordt zoiets met databank ->
             HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:61012/api/ToDoLists/"));
-            var lijstAbonnees = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
+            var lijstAbonnees = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
             */
             lvAbonnees.ItemsSource = lijstAbonnees;
         }

@@ -31,10 +31,7 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
@@ -47,10 +44,7 @@
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="vnaam" Grid.Row="1" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
-                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+               <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                 <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"

@@ -41,6 +41,7 @@ namespace NativeApps2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ((App)Application.Current).huidigeGebruiker = new Gebruiker();
             mainFrame.Navigate(typeof(StartschermAnoniem));
         }
 

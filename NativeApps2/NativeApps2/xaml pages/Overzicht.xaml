@@ -19,12 +19,15 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!-- Kan eender wat zijn-->
-                    <StackPanel>
-                        <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                        <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
-                        <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
-                        <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                        <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                            <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                        </StackPanel>
+                        <Button Click="Button_Click" >Abonneer</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

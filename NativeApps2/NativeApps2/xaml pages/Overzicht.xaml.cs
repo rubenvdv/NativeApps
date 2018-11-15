@@ -30,35 +30,50 @@ namespace NativeApps2.xaml_pages
         {
             this.InitializeComponent();
 
-            DomeinController dc = new DomeinController();
             //Test-fase
-            /*List<Onderneming> ondernemingen = new List<Onderneming>();
+            List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
-            ondernemingen.Add(new Onderneming(dc.CurrentUser.ToString(), "", "", ""));
-            */
-
+            Type t = ((App)Application.Current).huidigeGebruiker.GetType();
+            if (t == typeof(IngelogdeGebruiker))
+            {
+                ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, "", "", ""));
+            }
             //Lijst als datacontext (of itemsource) van listview
             /*
-            myLV.ItemsSource = spelers; of
-            myLV.DataContext = ondernemingen;*/
-
-            /*HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            var lst = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
-            myLV.ItemsSource = lst;
-            */
-
+            myLV.ItemsSource = spelers; of*/
+            myLV.DataContext = ondernemingen;
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            Onderneming o = b.DataContext as Onderneming;
+            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+
+            if (gebruiker.VolgendeOndernemingen.Contains(o))
+            {
+                gebruiker.VolgendeOndernemingen.Remove(o);
+                b.Content = "Abonneren";
+            }
+            else
+            {
+                gebruiker.VolgendeOndernemingen.Remove(o);
+                b.Content = "Geabonneerd";
+            }
+        }
+
+
+        /*protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
+            /*HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri(""));
             var lst = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
-            myLV.ItemsSource = lst;
-        }
+            myLV.ItemsSource = lst
+            
+        }*/
+
     }
 }

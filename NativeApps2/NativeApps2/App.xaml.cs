@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NativeApps2.Domain;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace NativeApps2
     /// </summary>
     sealed partial class App : Application
     {
+        public Gebruiker huidigeGebruiker;
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

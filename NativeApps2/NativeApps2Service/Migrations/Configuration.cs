@@ -28,7 +28,6 @@ namespace NativeApps2Service.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
             var ondernemers = new List<Ondernemer>
             {
                 new Ondernemer{Naam="Ondernemer1Naam", Voornaam="Ondernemer1Voornaam", Gebruikersnaam="Ondernemer1", Wachtwoord="password", Email="Ondernemer1@gmail.com"},
@@ -64,7 +63,6 @@ namespace NativeApps2Service.Migrations
             };
             evenementen.ForEach(s => context.Evenements.AddOrUpdate(e => e.EvenementID, s));
             context.SaveChanges();
-
         }
     }
 }
