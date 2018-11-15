@@ -17,7 +17,7 @@ namespace NativeApps2.Domain
 
         public Gebruiker()
         {
-            Naam = "";
+            Naam = "Anoniem";
             Gebruikersnaam = "";
             Wachtwoord = "";
             Email = "";

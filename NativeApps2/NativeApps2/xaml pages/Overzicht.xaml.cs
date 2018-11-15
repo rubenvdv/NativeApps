@@ -49,16 +49,16 @@ namespace NativeApps2.xaml_pages
         {
             Button b = sender as Button;
             Onderneming o = b.DataContext as Onderneming;
-            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+            //IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
 
-            if (gebruiker.VolgendeOndernemingen.Contains(o))
+            if (b.Content.ToString()=="Geabonneerd")
             {
-                gebruiker.VolgendeOndernemingen.Remove(o);
+                //  gebruiker.VolgendeOndernemingen.Remove(o);
                 b.Content = "Abonneren";
             }
             else
             {
-                gebruiker.VolgendeOndernemingen.Remove(o);
+                //gebruiker.VolgendeOndernemingen.Remove(o);
                 b.Content = "Geabonneerd";
             }
         }

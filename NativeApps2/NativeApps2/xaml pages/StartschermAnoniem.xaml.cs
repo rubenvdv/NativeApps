@@ -42,6 +42,7 @@ namespace NativeApps2.xaml_pages
         private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e) //Home-scherm
         {
             frameAnoniem.Navigate(typeof(Overzicht));
+            
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) //Zoeken

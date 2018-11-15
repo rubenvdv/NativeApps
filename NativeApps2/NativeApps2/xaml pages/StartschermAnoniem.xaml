@@ -20,11 +20,11 @@
             </VisualState>
             <VisualState x:Name="wideView">
                 <VisualState.StateTriggers>
-                    <AdaptiveTrigger MinWindowWidth="650" />
+                    <AdaptiveTrigger MinWindowWidth="300" />
                 </VisualState.StateTriggers>
                 <VisualState.Setters>
-                    <Setter Target="evenementen.(Visibility)" Value="Visibility.Hidden"/>
-                     </VisualState.Setters>
+                    <Setter Target="evenementen.(Visibility)" Value="Visibility.Collapsed"/>
+                </VisualState.Setters>
             </VisualState>
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
