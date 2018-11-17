@@ -30,7 +30,7 @@ namespace NativeApps2.xaml_pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);   
+            base.OnNavigatedTo(e);
             frameAnoniem.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers

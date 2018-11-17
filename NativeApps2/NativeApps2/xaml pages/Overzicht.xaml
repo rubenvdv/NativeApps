@@ -9,12 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="minView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SetButtonVisible.Visible" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="wideView">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="500" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <StackPanel.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </StackPanel.Background>
         <TextBlock x:Name="welkom" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+
+        <TextBlock Name="SetButtonVisible" Visibility="Collapsed"/>
         <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -27,7 +49,7 @@
                             <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                             <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
                         </StackPanel>
-                        <Button Click="Button_Click" >Abonneer</Button>
+                        <Button x:Name="abonneer" Visibility="{Binding Path=Visible, ElementName=SetButtonVisible}" Click="Button_Click" >Abonneer</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

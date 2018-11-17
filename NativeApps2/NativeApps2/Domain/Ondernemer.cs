@@ -24,12 +24,12 @@ namespace NativeApps2.Domain
         {
             //constructor van gebruiker
         }
-        public Ondernemer(string naam, string gebruikersnaam, string wachtwoord, string mail)
+        public Ondernemer(string naam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
         {
-            Naam = naam;
+            /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Email = mail;
+            Email = mail;*/
         }
         #endregion
     }

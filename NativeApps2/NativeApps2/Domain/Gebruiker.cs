@@ -15,12 +15,12 @@ namespace NativeApps2.Domain
         public string Email { get; set; }
         #endregion
 
-        public Gebruiker()
+        public Gebruiker(string naam="Anon", string gebruikersnaam="", string ww="", string mail="")
         {
-            Naam = "Anoniem";
-            Gebruikersnaam = "";
-            Wachtwoord = "";
-            Email = "";
+            Naam = naam;
+            Gebruikersnaam = gebruikersnaam;
+            Wachtwoord = ww;
+            Email = mail;
         }
     }
 }

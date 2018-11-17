@@ -19,15 +19,13 @@ namespace NativeApps2.Domain
 
         #endregion
         #region Constructors
-        public IngelogdeGebruiker()
+        public IngelogdeGebruiker(string naam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
         {
-        }
-        public IngelogdeGebruiker(string naam, string gebruikersnaam, string wachtwoord, string mail)
-        {
-            Naam = naam;
+            /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Email = mail;
+            Email = mail;*/
+            VolgendeOndernemingen = new List<Onderneming>();
         } 
         #endregion
     }

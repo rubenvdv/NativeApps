@@ -34,11 +34,9 @@ namespace NativeApps2.xaml_pages
             List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
-            Type t = ((App)Application.Current).huidigeGebruiker.GetType();
-            if (t == typeof(IngelogdeGebruiker))
-            {
-                ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, "", "", ""));
-            }
+
+            ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, ((App)Application.Current).huidigeGebruiker.GetType().ToString(), "", ""));
+
             //Lijst als datacontext (of itemsource) van listview
             /*
             myLV.ItemsSource = spelers; of*/
@@ -51,7 +49,7 @@ namespace NativeApps2.xaml_pages
             Onderneming o = b.DataContext as Onderneming;
             //IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
 
-            if (b.Content.ToString()=="Geabonneerd")
+            if (b.Content.ToString() == "Geabonneerd")
             {
                 //  gebruiker.VolgendeOndernemingen.Remove(o);
                 b.Content = "Abonneren";
