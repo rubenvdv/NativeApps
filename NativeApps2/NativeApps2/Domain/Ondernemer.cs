@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NativeApps2.Domain
 {
-    class Ondernemer : Gebruiker
+    public class Ondernemer : Gebruiker
     {
         #region properties
         public ObservableCollection<Onderneming> bedrijven = new ObservableCollection<Onderneming>();

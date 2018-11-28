@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NativeApps2.Domain
 {
-    class Onderneming
+    public class Onderneming
     {
         #region properties
         public int OndernemingID { get; set; }

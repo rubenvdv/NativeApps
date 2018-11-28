@@ -36,19 +36,19 @@ namespace NativeApps2.xaml_pages
 
             if(check == typeof(Gebruiker))
             {
-                VisualStateManager.GoToState(this, anoniem.Name, false);
+                VisualStateManager.GoToState(this, "anoniem", false);
             }
             else if(check == typeof(IngelogdeGebruiker))
             {
-                VisualStateManager.GoToState(this, aangemeld.Name, false);
+                VisualStateManager.GoToState(this, "aangemeld", false);
             }
             else
             {
-                VisualStateManager.GoToState(this, zakelijk.Name, false);
+                VisualStateManager.GoToState(this, "zakelijk", false);
             }
 
 
-            frameAnoniem.Navigate(typeof(Overzicht));
+            frameRechts.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers
         private void Button_Click_1(object sender, RoutedEventArgs e) //Sluit/open pane (links scherm)
@@ -58,38 +58,43 @@ namespace NativeApps2.xaml_pages
 
         private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e) //Home-scherm
         {
-            frameAnoniem.Navigate(typeof(Overzicht));
+            frameRechts.Navigate(typeof(Overzicht));
             
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) //Zoeken
         {
-            frameAnoniem.Navigate(typeof(Zoeken));
+            frameRechts.Navigate(typeof(Zoeken));
         }
 
         private void StackPanel_Tapped_2(object sender, TappedRoutedEventArgs e) //Evenementen
         {
-            frameAnoniem.Navigate(typeof(OverzichtEvenementen));
+            frameRechts.Navigate(typeof(OverzichtEvenementen));
         }
 
         private void StackPanel_Tapped_3(object sender, TappedRoutedEventArgs e) //Geabboneerd
         {
-            frameAnoniem.Navigate(typeof(OverzichtAbonnees));
+            frameRechts.Navigate(typeof(OverzichtAbonnees));
         }
 
         private void StackPanel_Tapped_4(object sender, TappedRoutedEventArgs e) //Instellingen
         {
-            frameAnoniem.Navigate(typeof(Instellingen));
+            frameRechts.Navigate(typeof(Instellingen));
         }
 
         private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e) //Help
         {
-            frameAnoniem.Navigate(typeof(help));
+            frameRechts.Navigate(typeof(help));
         }
 
         private void aanmelden_Tapped(object sender, TappedRoutedEventArgs e)
         {
             volledigscherm.Navigate(typeof(Login));
+        }
+
+        private void maakOnderneming_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(OndernemingAanmaken));
         }
     }
 }

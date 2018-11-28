@@ -26,14 +26,14 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Overzicht : Page
     {
+        public List<Onderneming> ondernemingen = new List<Onderneming>();
         public Overzicht()
         {
             this.InitializeComponent();
 
             //Test-fase
-            List<Onderneming> ondernemingen = new List<Onderneming>();
-            ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
-            ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
+            VoegOndernemingToe("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30");
+            VoegOndernemingToe("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00");
 
             ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, ((App)Application.Current).huidigeGebruiker.GetType().ToString(), "", ""));
 
@@ -59,6 +59,11 @@ namespace NativeApps2.xaml_pages
                 //gebruiker.VolgendeOndernemingen.Remove(o);
                 b.Content = "Geabonneerd";
             }
+        }
+
+        public void VoegOndernemingToe(string naam, string cat, string adres, string uren)
+        {
+            ondernemingen.Add(new Onderneming(naam, cat, adres, uren));
         }
 
 

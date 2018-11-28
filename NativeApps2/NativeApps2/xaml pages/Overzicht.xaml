@@ -49,7 +49,7 @@
                             <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                             <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
                         </StackPanel>
-                        <Button x:Name="abonneer" Visibility="{Binding Path=Visible, ElementName=SetButtonVisible}" Click="Button_Click" >Abonneer</Button>
+                        <Button x:Name="abonneer" Click="Button_Click" >Abonneer</Button>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
