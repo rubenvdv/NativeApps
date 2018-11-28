@@ -100,6 +100,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml pages\Aanmelden.xaml.cs">
+      <DependentUpon>Aanmelden.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\help.xaml.cs">
       <DependentUpon>help.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="xaml pages\Aanmelden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml pages\help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

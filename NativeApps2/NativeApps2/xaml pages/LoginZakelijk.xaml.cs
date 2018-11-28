@@ -36,5 +36,10 @@ namespace NativeApps2.xaml_pages
                 frameZakelijk.Navigate(typeof(StartschermAnoniem));
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            frameZakelijk.Navigate(typeof(Aanmelden));
+        }
     }
 }

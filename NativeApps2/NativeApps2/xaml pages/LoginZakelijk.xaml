@@ -71,6 +71,7 @@
             <Button Content="Meld Aan" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Center"
+                    Click="Button_Click_1"
                 VerticalAlignment="Top" Margin="0" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">

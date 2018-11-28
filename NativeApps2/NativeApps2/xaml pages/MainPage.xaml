@@ -30,6 +30,7 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
+                <TextBlock Tapped="meldaan" Text="Meld aan" HorizontalAlignment="Center" Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
                 <TextBlock Tapped="login" Text="Registreer of log in" HorizontalAlignment="Center" Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
                 <TextBlock Tapped="zakelijk" Text="Ik ben een zakelijke gebruiker" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
             </StackPanel>

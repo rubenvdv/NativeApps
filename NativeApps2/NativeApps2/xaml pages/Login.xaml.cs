@@ -40,5 +40,10 @@ namespace NativeApps2.xaml_pages
 
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            frameLogIn.Navigate(typeof(Aanmelden));
+        }
     }
 }
