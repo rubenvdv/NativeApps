@@ -31,6 +31,23 @@ namespace NativeApps2.xaml_pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
+
+            if(check == typeof(Gebruiker))
+            {
+                VisualStateManager.GoToState(this, anoniem.Name, false);
+            }
+            else if(check == typeof(IngelogdeGebruiker))
+            {
+                VisualStateManager.GoToState(this, aangemeld.Name, false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, zakelijk.Name, false);
+            }
+
+
             frameAnoniem.Navigate(typeof(Overzicht));
         }
         //Eigen event-handlers
@@ -68,6 +85,11 @@ namespace NativeApps2.xaml_pages
         private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e) //Help
         {
             frameAnoniem.Navigate(typeof(help));
+        }
+
+        private void aanmelden_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            volledigscherm.Navigate(typeof(Login));
         }
     }
 }
