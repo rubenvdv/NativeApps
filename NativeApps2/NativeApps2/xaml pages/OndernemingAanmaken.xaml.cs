@@ -1,5 +1,4 @@
-﻿using NativeApps2.Domain;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,25 +20,18 @@ namespace NativeApps2.xaml_pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class LoginZakelijk : Page
+    public sealed partial class OndernemingAanmaken : Page
     {
-        public LoginZakelijk()
+        public OndernemingAanmaken()
         {
             this.InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (naam.Text != "" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
-            {
-                ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
-                frameZakelijk.Navigate(typeof(StartschermAnoniem));
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            frameZakelijk.Navigate(typeof(Aanmelden));
+            Overzicht oz = new Overzicht();
+            oz.VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
+            frameOnderneming.Navigate(typeof(Overzicht));
         }
     }
 }

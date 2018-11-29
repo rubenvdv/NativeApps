@@ -54,7 +54,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
-            <Button Click="Button_Click" Content="Meld aan" 
+            <Button Click="Button_Click" Content="Registreer" 
                 Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
@@ -68,9 +68,10 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="of" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <Button Content="Registreer" 
+            <Button Content="Meld Aan" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Center"
+                    Click="Button_Click_1"
                 VerticalAlignment="Top" Margin="0" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">

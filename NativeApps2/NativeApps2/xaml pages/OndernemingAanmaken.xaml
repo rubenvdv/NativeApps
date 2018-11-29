@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.Login"
+    x:Class="NativeApps2.xaml_pages.OndernemingAanmaken"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NativeApps2.xaml_pages"
@@ -7,17 +7,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame x:Name="frameLogIn">
+
+    <Frame x:Name="frameOnderneming">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Login" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Maak een onderneming" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -31,48 +31,33 @@
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Categorie:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Adres:" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Openingsuren:" Foreground="White" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-               <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+                <TextBox x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
+                <TextBox x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
+                <TextBox x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
-            <Button Click="Button_Click" Content="Registreer" 
-                Grid.Row="5" Grid.Column="1" 
+            <Button Click="Button_Click" Content="Toevoegen" 
+                Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="Green" Offset="0.0" />
-                        <GradientStop Color="LimeGreen" Offset="0.75" />
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="of" 
-                       Margin="20"
-                       Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <Button Content="Meld aan" 
-                Grid.Row="0" Grid.Column="1" 
-                HorizontalAlignment="Center"
-                Click="Button_Click_1"
-                VerticalAlignment="Top" Margin="0" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="Green" Offset="0.0" />

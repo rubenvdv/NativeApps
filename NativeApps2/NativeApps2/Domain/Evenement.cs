@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NativeApps2.Domain
 {
-    class Evenement
+    public class Evenement
     {
         public int EvenementID { get; set; }
         public string Naam { get; set; }

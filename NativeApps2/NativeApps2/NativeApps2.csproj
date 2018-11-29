@@ -101,6 +101,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml pages\Aanmelden.xaml.cs">
+      <DependentUpon>Aanmelden.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HashAlgProviderApp.cs" />
     <Compile Include="Services.cs" />
     <Compile Include="xaml pages\help.xaml.cs">
@@ -119,6 +122,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xaml pages\OndernemingAanmaken.xaml.cs">
+      <DependentUpon>OndernemingAanmaken.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\Overzicht.xaml.cs">
       <DependentUpon>Overzicht.xaml</DependentUpon>
     </Compile>
@@ -164,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="xaml pages\Aanmelden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml pages\help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -183,6 +193,10 @@
     <Page Include="xaml pages\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="xaml pages\OndernemingAanmaken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\Overzicht.xaml">
       <SubType>Designer</SubType>

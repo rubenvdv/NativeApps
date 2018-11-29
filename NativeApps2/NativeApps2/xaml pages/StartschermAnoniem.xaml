@@ -7,36 +7,43 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        
+
+    <Frame x:Name="volledigscherm">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="anoniem">
+
+                    <VisualState.Setters>
+                        <Setter Target="evenementen.Visibility" Value="Collapsed"/>
+                        <Setter Target="abo.Visibility" Value="Collapsed"/>
+                        <Setter Target="instellingen.Visibility" Value="Collapsed"/>
+                        <Setter Target="maakOnderneming.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="aangemeld">
+
+                    <VisualState.Setters>
+                        <Setter Target="evenementen.Visibility" Value="Visible"/>
+                        <Setter Target="abo.Visibility" Value="Visible"/>
+                        <Setter Target="instellingen.Visibility" Value="Visible"/>
+                        <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
+                        <Setter Target="maakOnderneming.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="zakelijk">
+                    <VisualState.Setters>
+                        <Setter Target="evenementen.Visibility" Value="Visible"/>
+                        <Setter Target="abo.Visibility" Value="Collapsed"/>
+                        <Setter Target="instellingen.Visibility" Value="Visible"/>
+                        <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
+                        <Setter Target="maakOnderneming.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <SplitView x:Name="SplitViewAnoniem" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" IsPaneOpen="False" OpenPaneLength="256" CompactPaneLength="48" DisplayMode="CompactInline">
-
-            <VisualStateManager.VisualStateGroups>
-                <VisualStateGroup>
-                    <VisualState x:Name="minView">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="0" />
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
-                            <Setter Target="evenementen.Visibility" Value="Visible"/>
-                            <Setter Target="abo.Visibility" Value="Visible"/>
-                            <Setter Target="instellingen.Visibility" Value="Visible"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                    <VisualState x:Name="wideView">
-                        <VisualState.StateTriggers>
-                            <AdaptiveTrigger MinWindowWidth="700" />
-                        </VisualState.StateTriggers>
-                        <VisualState.Setters>
-                            <Setter Target="evenementen.Visibility" Value="Collapsed"/>
-                            <Setter Target="abo.Visibility" Value="Collapsed"/>
-                            <Setter Target="instellingen.Visibility" Value="Collapsed"/>
-                        </VisualState.Setters>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-
-
             <SplitView.Pane>
                 <StackPanel Background="Gray" >
                     <Button x:Name="panecontrol" Click="Button_Click_1" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
@@ -54,20 +61,32 @@
                             Height="50"/>
                         <TextBlock x:Name="txthome" Text="Home" FontSize="18" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel x:Name="evenementen" Visibility="Visible" Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
+                    <StackPanel x:Name="aanmelden" Tapped="aanmelden_Tapped" Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE748;"
+                            Width="50"
+                            Height="50"/>
+                        <TextBlock x:Name="txtMeldaan" Text="Registreer" FontSize="18" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel x:Name="evenementen" Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE787;"
                             Width="50"
                             Height="50"/>
                         <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center"/>
                     </StackPanel>
 
-                    <StackPanel x:Name="abo" Visibility="Visible" Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
+                    <StackPanel x:Name="abo" Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE716;"
                             Width="50"
                             Height="50"/>
                         <TextBlock Text="Geabboneerd" FontSize="18" VerticalAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel x:Name="instellingen" Visibility="Visible" Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
+                    <StackPanel x:Name="maakOnderneming" Tapped="maakOnderneming_Tapped" Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE710;"
+                            Width="50"
+                            Height="50"/>
+                        <TextBlock Text="Maak onderneming" FontSize="18" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel x:Name="instellingen" Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
                             Width="50"
                             Height="50"/>
@@ -83,7 +102,8 @@
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Frame x:Name="frameAnoniem"/>
+                <Frame x:Name="frameRechts"/>
             </SplitView.Content>
         </SplitView>
+    </Frame>
 </Page>

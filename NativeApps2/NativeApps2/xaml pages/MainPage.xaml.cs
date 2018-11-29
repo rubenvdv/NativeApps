@@ -45,5 +45,9 @@ namespace NativeApps2
             mainFrame.Navigate(typeof(StartschermAnoniem));
         }
 
+        private void meldaan(object sender, TappedRoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Aanmelden));
+        }
     }
 }

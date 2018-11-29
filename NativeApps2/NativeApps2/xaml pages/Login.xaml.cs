@@ -30,12 +30,20 @@ namespace NativeApps2.xaml_pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            if(naam.Text!="" && mail.Text!="" && gebruikersnaam.Text!="" && wachtwoord.Text != "")
+
+            if (naam.Text != "" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
             {
-                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text, "", gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+
                 frameLogIn.Navigate(typeof(StartschermAnoniem));
+
+
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            frameLogIn.Navigate(typeof(Aanmelden));
         }
     }
 }
