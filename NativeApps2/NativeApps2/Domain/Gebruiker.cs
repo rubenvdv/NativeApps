@@ -10,6 +10,7 @@ namespace NativeApps2.Domain
     {
         #region properties
         public string Naam { get; set; }
+        public string voorNaam { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         public string Email { get; set; }

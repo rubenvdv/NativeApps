@@ -26,21 +26,23 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Overzicht : Page
     {
+        private Services services;
+
         public Overzicht()
         {
             this.InitializeComponent();
-
+            
             //Test-fase
-            List<Onderneming> ondernemingen = new List<Onderneming>();
+            /*List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
 
-            ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, ((App)Application.Current).huidigeGebruiker.GetType().ToString(), "", ""));
+            ondernemingen.Add(new Onderneming(((App)Application.Current).huidigeGebruiker.Naam, ((App)Application.Current).huidigeGebruiker.GetType().ToString(), "", ""));*/
 
             //Lijst als datacontext (of itemsource) van listview
             /*
             myLV.ItemsSource = spelers; of*/
-            myLV.DataContext = ondernemingen;
+            /*myLV.DataContext = ondernemingen;*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -52,7 +54,9 @@ namespace NativeApps2.xaml_pages
             if (b.Content.ToString() == "Geabonneerd")
             {
                 //  gebruiker.VolgendeOndernemingen.Remove(o);
+                
                 b.Content = "Abonneren";
+                
             }
             else
             {
@@ -62,16 +66,13 @@ namespace NativeApps2.xaml_pages
         }
 
 
-        /*protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            services = new Services();
+            myLV.ItemsSource = await services.getOndernemingen();
 
-            /*HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri(""));
-            var lst = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
-            myLV.ItemsSource = lst
-            
-        }*/
+        }
 
     }
 }

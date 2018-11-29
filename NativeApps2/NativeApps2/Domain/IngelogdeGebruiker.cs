@@ -11,6 +11,7 @@ namespace NativeApps2.Domain
     {
         #region properties
         public string Naam { get; set; }
+        public string voorNaam { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
@@ -19,7 +20,7 @@ namespace NativeApps2.Domain
 
         #endregion
         #region Constructors
-        public IngelogdeGebruiker(string naam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
+        public IngelogdeGebruiker(string naam, string voorNaam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
         {
             /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;

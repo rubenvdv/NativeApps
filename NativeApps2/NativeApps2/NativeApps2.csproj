@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Domain\DomeinController.cs" />
     <Compile Include="Domain\Evenement.cs" />
     <Compile Include="Domain\Gebruiker.cs" />
     <Compile Include="Domain\IngelogdeGebruiker.cs" />
@@ -100,6 +101,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HashAlgProviderApp.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="xaml pages\help.xaml.cs">
       <DependentUpon>help.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,7 @@
       <Version>11.0.2</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
