@@ -20,7 +20,7 @@ namespace NativeApps2.Domain
 
         #endregion
         #region Constructors
-        public IngelogdeGebruiker(string naam, string voorNaam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
+        public IngelogdeGebruiker(string naam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
         {
             /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;
