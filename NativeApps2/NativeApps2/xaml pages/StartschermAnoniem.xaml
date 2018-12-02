@@ -64,7 +64,7 @@
                         <TextBlock x:Name="txthome" Text="Home" FontSize="18" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel x:Name="aanmelden" Tapped="aanmelden_Tapped" Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE748;"
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;"
                             Width="50"
                             Height="50"/>
                         <TextBlock x:Name="txtMeldaan" Text="Registreer" FontSize="18" VerticalAlignment="Center"/>
@@ -89,7 +89,7 @@
                         <TextBlock Text="Maak onderneming" FontSize="18" VerticalAlignment="Center"/>
                     </StackPanel>
                     <StackPanel x:Name="maakEvenement" Tapped="maakEvenement_Tapped" Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE710;"
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE735;"
                             Width="50"
                             Height="50"/>
                         <TextBlock Text="Maak evenement" FontSize="18" VerticalAlignment="Center"/>

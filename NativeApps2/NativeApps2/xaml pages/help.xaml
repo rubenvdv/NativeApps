@@ -26,7 +26,13 @@
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Home" Foreground="White"/>
-                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop kom je terug in het overzicht (startscherm)"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop kom je terug in het overzicht (startscherm)."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="AddFriend" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop kan je u registreren als een gebruiker."/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem>
@@ -39,6 +45,18 @@
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="People" Foreground="White"/>
                         <TextBlock Margin="10" Foreground="White" Text="Hier kan u alle ondernemingen waarop u geabonneerd bent terugvinden."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Add" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een onderneming kan toevoegen."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Favorite" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een evenement kan aanmaken voor uw onderneming."/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem>
