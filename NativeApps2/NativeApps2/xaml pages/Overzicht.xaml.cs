@@ -33,7 +33,8 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
             
             //Test-fase
-            /*List<Onderneming> ondernemingen = new List<Onderneming>();
+            /*
+            List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
 
@@ -41,8 +42,15 @@ namespace NativeApps2.xaml_pages
 
             //Lijst als datacontext (of itemsource) van listview
             /*
-            myLV.ItemsSource = spelers; of*/
-            /*myLV.DataContext = ondernemingen;*/
+            myLV.ItemsSource = spelers;
+            
+            myLV.DataContext = ondernemingen;*/
+
+        }
+
+        internal void VoegOndernemingToe(string text1, string text2, string text3, string text4)
+        {
+            throw new NotImplementedException();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

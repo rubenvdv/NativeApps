@@ -106,6 +106,9 @@
     </Compile>
     <Compile Include="HashAlgProviderApp.cs" />
     <Compile Include="Services.cs" />
+    <Compile Include="xaml pages\EvenementAanmaken.xaml.cs">
+      <DependentUpon>EvenementAanmaken.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\help.xaml.cs">
       <DependentUpon>help.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="xaml pages\Aanmelden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\EvenementAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

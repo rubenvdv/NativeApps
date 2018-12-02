@@ -96,5 +96,10 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(OndernemingAanmaken));
         }
+
+        private void maakEvenement_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(EvenementAanmaken));
+        }
     }
 }

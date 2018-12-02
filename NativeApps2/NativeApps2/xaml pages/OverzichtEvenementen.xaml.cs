@@ -26,6 +26,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtEvenementen : Page
     {
+        private ObservableCollection<Evenement> lst = new ObservableCollection<Evenement>();
+
         public OverzichtEvenementen()
         {
             this.InitializeComponent();
@@ -35,7 +37,7 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
 
-            ObservableCollection<Evenement> lst = new ObservableCollection<Evenement>();
+            
             lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1)));
             lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs max", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1)));
             lst.Add(new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1)));
@@ -45,6 +47,13 @@ namespace NativeApps2.xaml_pages
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
             var lst = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);*/
             lvEvenementen.ItemsSource = lst;
+        }
+
+        //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
+        //Een evenement heeft toch altijd een onderneming?
+        internal void VoegEvenementToe(string naam, string omschrijving, DateTime begindatum, DateTime einddatum)
+        {
+            lst.Add(new Evenement(naam, omschrijving, begindatum, einddatum));
         }
     }
 }
