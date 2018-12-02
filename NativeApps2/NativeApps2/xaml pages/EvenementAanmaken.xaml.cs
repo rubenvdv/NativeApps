@@ -1,6 +1,7 @@
 ﻿using NativeApps2.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,18 +24,25 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class EvenementAanmaken : Page
     {
+        private ObservableCollection<Onderneming> list = new ObservableCollection<Onderneming>();
+
         public EvenementAanmaken()
         {
             this.InitializeComponent();
             //Dit nog implementeren
-            //cmbOndernemingen.ItemsSource = typeof(Onderneming).GetHuidigeOndernemer();
+            //cmbOndernemingen.ItemsSource = typeof(Onderneming).GetHuidigeOndernemer().GetOndernemingen();
+            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30");
+            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00");
+            list.Add(apple);
+            list.Add(ikea);
+            cmbOndernemingen.ItemsSource = list;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             OverzichtEvenementen ozEv = new OverzichtEvenementen();
             //begindatum.SelectedDate werkt niet, waarom?
-            ozEv.VoegEvenementToe(naam.Text, omschrijving.Text, new DateTime(), new DateTime());
+            ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());
             frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
         }
     }
