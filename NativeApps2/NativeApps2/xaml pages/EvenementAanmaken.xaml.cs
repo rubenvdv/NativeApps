@@ -5,8 +5,10 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Data.Xml.Dom;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -44,6 +46,19 @@ namespace NativeApps2.xaml_pages
             //begindatum.SelectedDate werkt niet, waarom?
             ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());
             frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
+
+            //Notificatie
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+            XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
+            toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Evenementen"));
+            toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("Nieuw evenement aangemaakt!"));
+            XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
+            ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
+            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+            ((XmlElement)toastNode).SetAttribute("duration", "long");
+            ToastNotification toast = new ToastNotification(toastXml);
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
     }
 }

@@ -158,6 +158,7 @@
     <Content Include="Images\gravensteen.jpg" />
     <Content Include="Images\loading.png" />
     <Content Include="Images\location_icon.png" />
+    <Content Include="Images\notification.png" />
     <Content Include="Images\splash_screen.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
