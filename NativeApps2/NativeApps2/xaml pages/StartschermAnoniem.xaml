@@ -19,6 +19,7 @@
                         <Setter Target="abo.Visibility" Value="Collapsed"/>
                         <Setter Target="instellingen.Visibility" Value="Collapsed"/>
                         <Setter Target="maakOnderneming.Visibility" Value="Collapsed"/>
+                        <Setter Target="account.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="aangemeld">
@@ -30,6 +31,7 @@
                         <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
                         <Setter Target="maakOnderneming.Visibility" Value="Collapsed"/>
                         <Setter Target="maakEvenement.Visibility" Value="Collapsed"/>
+                        <Setter Target="account.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="zakelijk">
@@ -40,6 +42,7 @@
                         <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
                         <Setter Target="maakOnderneming.Visibility" Value="Visible"/>
                         <Setter Target="maakEvenement.Visibility" Value="Visible"/>
+                        <Setter Target="account.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -51,66 +54,82 @@
                     <Button x:Name="panecontrol" Click="Button_Click_1" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                         Width="50"
                         Height="50"/>
+                    <StackPanel x:Name="account" Tapped="Account_Tapped" Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50">
+                            <StackPanel>
+                                <Image Source="{Binding ProfielFoto}" />
+                            </StackPanel>
+                        </Button>
+                        <PersonPicture HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center"
+                                    DisplayName="Bavo Janssens" Foreground="Black"
+                                    ProfilePicture="{Binding ProfielFoto}"
+                                    Initials="BS" Height="35"/>
+                        <TextBlock Text="{Binding Voornaam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <TextBlock Text="{Binding Naam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    </StackPanel>
                     <StackPanel x:Name="zoeken" Tapped="StackPanel_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE71E;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Zoeken" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Zoeken" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="home" Tapped="StackPanel_Tapped_1" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock x:Name="txthome" Text="Home" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="txthome" Text="Home" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="aanmelden" Tapped="aanmelden_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE8FA;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock x:Name="txtMeldaan" Text="Registreer" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="txtMeldaan" Text="Registreer" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="evenementen" Tapped="StackPanel_Tapped_2" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE787;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel x:Name="abo" Tapped="StackPanel_Tapped_3" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE716;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Geabboneerd" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Geabboneerd" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="maakOnderneming" Tapped="maakOnderneming_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE710;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Maak onderneming" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Maak onderneming" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="maakEvenement" Tapped="maakEvenement_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE735;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Maak evenement" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Maak evenement" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="instellingen" Tapped="StackPanel_Tapped_4" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE713;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Instellingen" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Instellingen" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
 
                     <StackPanel x:Name="help" Tapped="StackPanel_Tapped_5" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE897;"
                             Width="50"
                             Height="50"/>
-                        <TextBlock Text="Help" FontSize="18" VerticalAlignment="Center"/>
+                        <TextBlock Text="Help" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
             </SplitView.Pane>
             <SplitView.Content>
-                <Frame x:Name="frameRechts"/>
+                <Frame x:Name="frameRechts">
+                </Frame>
             </SplitView.Content>
         </SplitView>
     </Frame>

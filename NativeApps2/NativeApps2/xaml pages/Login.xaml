@@ -23,12 +23,16 @@
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
                  <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
@@ -42,6 +46,9 @@
                    Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="voorNaam" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"

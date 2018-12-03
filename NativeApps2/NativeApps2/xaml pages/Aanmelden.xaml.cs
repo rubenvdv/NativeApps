@@ -33,7 +33,7 @@ namespace NativeApps2.xaml_pages
         private void aanmelden_Click(object sender, RoutedEventArgs e)
         {
             List<Gebruiker> bestaande = new List<Gebruiker>();
-            bestaande.Add(new IngelogdeGebruiker("ruben", "ruben", "ruben", "ruben"));
+            bestaande.Add(new IngelogdeGebruiker("Vandevelde", "ruben", "RubenVdv", "ruben", "ruben@hotmail.com"));
 
             Gebruiker gebruiker = bestaande.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
             if(gebruiker== null)

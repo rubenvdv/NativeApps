@@ -26,6 +26,7 @@ namespace NativeApps2.xaml_pages
         public StartschermAnoniem()
         {
             this.InitializeComponent();
+            this.DataContext = ((App)Application.Current).huidigeGebruiker;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -60,6 +61,12 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(Overzicht));
             
+        }
+
+        private void Account_Tapped(object sender, TappedRoutedEventArgs e) //Account
+        {
+            frameRechts.Navigate(typeof(OverzichtAbonnees));
+
         }
 
         private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) //Zoeken
