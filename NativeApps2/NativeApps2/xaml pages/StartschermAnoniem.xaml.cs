@@ -65,7 +65,7 @@ namespace NativeApps2.xaml_pages
 
         private void Account_Tapped(object sender, TappedRoutedEventArgs e) //Account
         {
-            frameRechts.Navigate(typeof(OverzichtAbonnees));
+            frameRechts.Navigate(typeof(Account));
 
         }
 
