@@ -154,8 +154,12 @@
     <None Include="NativeApps2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\anoniem.png" />
+    <Content Include="Images\apple.jpg" />
     <Content Include="Images\background.jpg" />
+    <Content Include="Images\gebruiker1.png" />
     <Content Include="Images\gravensteen.jpg" />
+    <Content Include="Images\ikea.png" />
     <Content Include="Images\loading.png" />
     <Content Include="Images\location_icon.png" />
     <Content Include="Images\notification.png" />

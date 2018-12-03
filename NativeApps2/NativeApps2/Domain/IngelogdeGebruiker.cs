@@ -16,6 +16,7 @@ namespace NativeApps2.Domain
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
         public virtual ICollection<Onderneming> VolgendeOndernemingen { get; set; } //Ondernemingen die de gebruiker volgt
+        public string profielFoto { get; set; }
 
 
         #endregion
@@ -27,6 +28,7 @@ namespace NativeApps2.Domain
             Wachtwoord = wachtwoord;
             Email = mail;*/
             VolgendeOndernemingen = new List<Onderneming>();
+            ProfielFoto = "/Images/gebruiker1.png";
         } 
         #endregion
     }

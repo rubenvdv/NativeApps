@@ -33,8 +33,8 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
             //Dit nog implementeren
             //cmbOndernemingen.ItemsSource = typeof(Onderneming).GetHuidigeOndernemer().GetOndernemingen();
-            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30");
-            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00");
+            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
+            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
             list.Add(apple);
             list.Add(ikea);
             cmbOndernemingen.ItemsSource = list;

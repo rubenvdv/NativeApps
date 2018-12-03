@@ -35,8 +35,8 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
 
             //Testfase
-            lijstOndernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"));
-            lijstOndernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"));
+            lijstOndernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg"));
+            lijstOndernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));
 
             /* Wordt zoiets met databank ->
             HttpClient client = new HttpClient();

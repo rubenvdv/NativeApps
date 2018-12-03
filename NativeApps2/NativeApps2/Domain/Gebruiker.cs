@@ -14,6 +14,7 @@ namespace NativeApps2.Domain
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
+        public string ProfielFoto { get; set; }
         #endregion
 
         public Gebruiker(string naam="Anon", string gebruikersnaam="", string ww="", string mail="")
@@ -22,6 +23,7 @@ namespace NativeApps2.Domain
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = ww;
             Email = mail;
+            ProfielFoto = "/Images/anoniem.png";
         }
     }
 }
