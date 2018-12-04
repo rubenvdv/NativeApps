@@ -8,61 +8,63 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="minView">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="0" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SetButtonVisible.Visible" Value="Visible"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="wideView">
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="500" />
-                    </VisualState.StateTriggers>
-                    <VisualState.Setters>
-                        <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <StackPanel.Background>
-            <ImageBrush ImageSource="/Images/background.jpg"/>
-        </StackPanel.Background>
-        <TextBlock x:Name="welkom" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" 
+    <Frame x:Name="frameOverzicht">
+        <StackPanel>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="minView">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="SetButtonVisible.Visible" Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="wideView">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="500" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </StackPanel.Background>
+            <TextBlock x:Name="welkom" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
-        <TextBlock Name="SetButtonVisible" Visibility="Collapsed"/>
-        <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <!-- Kan eender wat zijn-->
-                    <StackPanel Orientation="Horizontal">
-                        <Image Width = "100" Height="100" Source="{Binding Logo}"
+            <TextBlock Name="SetButtonVisible" Visibility="Collapsed"/>
+            <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Kan eender wat zijn-->
+                        <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
+                            <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                            <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
-                            <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
-                            <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                            </StackPanel>
+                            <!--Visibility="{Binding Role, Converter=}" moet binnen deze button komen: converter schrijven h3 ! -->
+                            <Button x:Name="abonneer"  Click="Button_Click" Content="Abboneer" Foreground="White">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                        <GradientStop Color="Green" Offset="0.0" />
+                                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                            </Button>
                         </StackPanel>
-                        <!--Visibility="{Binding Role, Converter=}" moet binnen deze button komen: converter schrijven h3 ! -->
-                        <Button x:Name="abonneer"  Click="Button_Click" Content="Abboneer" Foreground="White">
-                            <Button.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                    <GradientStop Color="Green" Offset="0.0" />
-                                    <GradientStop Color="LimeGreen" Offset="0.75" />
-                                </LinearGradientBrush>
-                            </Button.Background>
-                        </Button>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Frame>
 </Page>

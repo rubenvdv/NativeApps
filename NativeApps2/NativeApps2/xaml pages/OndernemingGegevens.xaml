@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.Account"
+    x:Class="NativeApps2.xaml_pages.OndernemingGegevens"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NativeApps2.xaml_pages"
@@ -8,19 +8,18 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Frame x:Name="frameAccount">
+    <Frame x:Name="frameOndernemingGegevens">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Account" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Onderneming" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="{Binding ProfielFoto}" Width="100" Height="100"/>
+                <Image Source="{Binding Logo}" Width="100" Height="100"/>
                 <StackPanel>
-                    <TextBlock Text="{Binding Voornaam}" FontSize="35" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
+                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
                 </StackPanel>
             </StackPanel>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -38,45 +37,49 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Categorie:" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Adres:" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Openingsuren:" Foreground="White" FontWeight="SemiBold"/>
 
                 <TextBlock x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Naam}" Foreground="White"/>
-                <TextBlock x:Name="voorNaam" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBlock x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Voornaam}" Foreground="White"/>
-                <TextBlock x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+                   Width="200" Text="{Binding Categorie}" Foreground="White"/>
+                <TextBlock x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Email}" Foreground="White"/>
-                <TextBlock x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
+                   Width="200" Text="{Binding Adres}" Foreground="White"/>
+                <TextBlock x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Gebruikersnaam}" Foreground="White"/>
+                   Width="200" Text="{Binding Openingsuren}" Foreground="White"/>
             </Grid>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Volgt onderstaande ondernemingen:" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Aankomende evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-            <ListView x:Name="lvAccountAbonnees" ItemsSource="{Binding}" HorizontalAlignment="Center">
+            <ListView x:Name="lvOndernemingEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
+                        <StackPanel Orientation="Horizontal" Tapped="Evenement_Tapped">
                             <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                            <StackPanel>
+                            <StackPanel HorizontalAlignment="Center">
                                 <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                                <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                                <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                       HorizontalAlignment="Center"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                </StackPanel>
+                                <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

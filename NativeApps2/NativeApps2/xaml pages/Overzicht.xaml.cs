@@ -83,5 +83,11 @@ namespace NativeApps2.xaml_pages
 
         }
 
+        private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameOverzicht.Navigate(typeof(OndernemingGegevens));
+
+        }
+
     }
 }

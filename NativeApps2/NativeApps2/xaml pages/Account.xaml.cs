@@ -36,5 +36,11 @@ namespace NativeApps2.xaml_pages
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));
             lvAccountAbonnees.ItemsSource = ondernemingen;
         }
+
+        private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameAccount.Navigate(typeof(OndernemingGegevens));
+
+        }
     }
 }

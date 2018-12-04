@@ -21,22 +21,26 @@ namespace NativeApps2.xaml_pages
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class EvenementGegevens : Page
+    public sealed partial class OndernemingGegevens : Page
     {
-        public EvenementGegevens()
+        public OndernemingGegevens()
         {
-            //Test-fase
             this.InitializeComponent();
+
+            //Test-fase
             Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-            Evenement evenement = new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea);
-            evenementImage.DataContext = evenement;
-            evenementGrid.DataContext = evenement;
-            eigenaar.DataContext = ikea;
+            List<Evenement> evenementen = new List<Evenement>();
+            evenementen.Add(new Evenement("Ikea", "Nieuwe opening winkel te Gent", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1), ikea));
+            evenementen.Add(new Evenement("Ikea", "Grote solden tot wel 70 procent korting", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1), ikea));
+            evenementen.Add(new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea));
+
+            this.DataContext = ikea;
+            lvOndernemingEvenementen.ItemsSource = evenementen;
         }
 
-        private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameEvenementGegevens.Navigate(typeof(OndernemingGegevens));
+            frameOndernemingGegevens.Navigate(typeof(EvenementGegevens));
 
         }
     }
