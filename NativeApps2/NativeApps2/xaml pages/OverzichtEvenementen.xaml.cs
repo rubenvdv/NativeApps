@@ -60,5 +60,11 @@ namespace NativeApps2.xaml_pages
             Onderneming onderneming = (Onderneming)selectedItem;
             lst.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
         }
+
+        private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens));
+
+        }
     }
 }

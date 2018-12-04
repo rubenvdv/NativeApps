@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame>
+    <Frame x:Name="frameOverzichtEvenementen">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
@@ -18,7 +18,7 @@
             <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Tapped="Evenement_Tapped">
                             <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
                             <StackPanel HorizontalAlignment="Center">
