@@ -108,7 +108,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
-            <Button Click="Button_Click" Content="Registreer" 
+            <Button Click="Registreer_Ondernemer" Content="Registreer" 
                 Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
