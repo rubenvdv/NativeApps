@@ -33,7 +33,7 @@ namespace NativeApps2.xaml_pages
 
             if (naam.Text != "" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
             {
-                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text, "", gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 
                 frameLogIn.Navigate(typeof(StartschermAnoniem));
 

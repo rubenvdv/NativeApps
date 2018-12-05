@@ -30,7 +30,7 @@ namespace NativeApps2.xaml_pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Overzicht oz = new Overzicht();
-            oz.VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
+            //oz.VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
             frameOnderneming.Navigate(typeof(Overzicht));
         }
     }
