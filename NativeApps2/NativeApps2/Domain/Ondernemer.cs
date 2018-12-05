@@ -24,7 +24,7 @@ namespace NativeApps2.Domain
         {
             //constructor van gebruiker
         }
-        public Ondernemer(string naam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, gebruikersnaam, wachtwoord, mail)
+        public Ondernemer(string naam, string voornaam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, voornaam, gebruikersnaam, wachtwoord, mail)
         {
             /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;

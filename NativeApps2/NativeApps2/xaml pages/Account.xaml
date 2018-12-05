@@ -17,11 +17,7 @@
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="{Binding ProfielFoto}" Width="100" Height="100"/>
-                <StackPanel>
-                    <TextBlock Text="{Binding Voornaam}" FontSize="35" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                </StackPanel>
+                <Image VerticalAlignment="Center" Source="{Binding ProfielFoto}" Width="100" Height="100"/>
             </StackPanel>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>

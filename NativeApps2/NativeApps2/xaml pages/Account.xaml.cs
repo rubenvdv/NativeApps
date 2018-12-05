@@ -26,7 +26,19 @@ namespace NativeApps2.xaml_pages
         public Account()
         {
             this.InitializeComponent();
-            this.DataContext = ((App)Application.Current).huidigeGebruiker;
+            
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            //this.DataContext = ((App)Application.Current).huidigeGebruiker;
+            Gebruiker huidig = ((App)Application.Current).huidigeGebruiker;
+            naam.Text = huidig.Naam;
+            voorNaam.Text = huidig.Voornaam;
+            mail.Text = huidig.Email;
+            gebruikersnaam.Text = huidig.Gebruikersnaam;
+
             //Dit werkt nog niet
             //lvAccountAbonnees.ItemsSource = ((App)Application.Current).huidigeGebruiker.VolgendeOndernemingen;
 
@@ -40,7 +52,6 @@ namespace NativeApps2.xaml_pages
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
             frameAccount.Navigate(typeof(OndernemingGegevens));
-
         }
     }
 }

@@ -27,13 +27,13 @@ namespace NativeApps2.xaml_pages
     public sealed partial class Overzicht : Page
     {
         private Services services;
+        List<Onderneming> ondernemingen = new List<Onderneming>();
 
         public Overzicht()
         {
             this.InitializeComponent();
             
             //Test-fase
-            List<Onderneming> ondernemingen = new List<Onderneming>();
             ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg"));
             ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));
 
@@ -89,5 +89,11 @@ namespace NativeApps2.xaml_pages
 
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var tekstbox = sender as TextBox;
+            List<Onderneming> filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            myLV.ItemsSource = filterLijst;
+        }
     }
 }
