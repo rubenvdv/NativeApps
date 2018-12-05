@@ -12,9 +12,13 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Login" 
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer een ondernemer" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -45,10 +49,10 @@
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                <TextBox x:Name="voorNaam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="voorNaam" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox x:Name="naam" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"

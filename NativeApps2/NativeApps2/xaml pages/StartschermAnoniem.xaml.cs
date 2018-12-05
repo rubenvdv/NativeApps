@@ -26,12 +26,12 @@ namespace NativeApps2.xaml_pages
         public StartschermAnoniem()
         {
             this.InitializeComponent();
-            this.DataContext = ((App)Application.Current).huidigeGebruiker;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            this.DataContext = ((App)Application.Current).huidigeGebruiker;
 
             Type check = ((App)Application.Current).huidigeGebruiker.GetType();
 
@@ -57,7 +57,7 @@ namespace NativeApps2.xaml_pages
             SplitViewAnoniem.IsPaneOpen = !SplitViewAnoniem.IsPaneOpen;
         }
 
-        private void StackPanel_Tapped_1(object sender, TappedRoutedEventArgs e) //Home-scherm
+        private void Overzicht_Tapped(object sender, TappedRoutedEventArgs e) //Home-scherm
         {
             frameRechts.Navigate(typeof(Overzicht));
             
@@ -69,27 +69,22 @@ namespace NativeApps2.xaml_pages
 
         }
 
-        private void StackPanel_Tapped(object sender, TappedRoutedEventArgs e) //Zoeken
-        {
-            frameRechts.Navigate(typeof(Zoeken));
-        }
-
-        private void StackPanel_Tapped_2(object sender, TappedRoutedEventArgs e) //Evenementen
+        private void Evenementen_Tapped(object sender, TappedRoutedEventArgs e) //Evenementen
         {
             frameRechts.Navigate(typeof(OverzichtEvenementen));
         }
 
-        private void StackPanel_Tapped_3(object sender, TappedRoutedEventArgs e) //Geabboneerd
+        private void Abonnementen_Tapped(object sender, TappedRoutedEventArgs e) //Geabboneerd
         {
             frameRechts.Navigate(typeof(OverzichtAbonnees));
         }
 
-        private void StackPanel_Tapped_4(object sender, TappedRoutedEventArgs e) //Instellingen
+        private void Instellingen_Tapped(object sender, TappedRoutedEventArgs e) //Instellingen
         {
             frameRechts.Navigate(typeof(Instellingen));
         }
 
-        private void StackPanel_Tapped_5(object sender, TappedRoutedEventArgs e) //Help
+        private void Help_Tapped(object sender, TappedRoutedEventArgs e) //Help
         {
             frameRechts.Navigate(typeof(help));
         }

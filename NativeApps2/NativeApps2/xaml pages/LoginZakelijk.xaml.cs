@@ -30,11 +30,11 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Registreer_Ondernemer(object sender, RoutedEventArgs e)
         {
-            if (naam.Text != "" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
+            if (naam.Text != "" && voorNaam.Text !="" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
             {
-                ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 
                 //Notificatie
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
@@ -51,9 +51,14 @@ namespace NativeApps2.xaml_pages
 
                 frameZakelijk.Navigate(typeof(StartschermAnoniem));
             }
+            else
+            {
+                //Foutmelding weergeven
+                foutmelding.Text = "Vul alle gegevens correct in!";
+            }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Meld_Aan(object sender, RoutedEventArgs e)
         {
             frameZakelijk.Navigate(typeof(Aanmelden));
         }

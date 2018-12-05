@@ -13,9 +13,13 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel VerticalAlignment="Center">
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Login" 
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -30,31 +34,38 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                <TextBox x:Name="voorNaam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="mail" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox x:Name="naam" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="gebruikersnaam" Grid.Row="2" Grid.Column="1" Margin="10"
+                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="wachtwoord" Grid.Row="3" Grid.Column="1" Margin="10"
+                <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
-            <Button Click="Button_Click" Content="Registreer" 
+            <Button Click="Registreer_Ondernemer" Content="Registreer" 
                 Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
@@ -71,7 +82,7 @@
             <Button Content="Meld Aan" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Center"
-                    Click="Button_Click_1"
+                    Click="Meld_Aan"
                 VerticalAlignment="Top" Margin="0" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">

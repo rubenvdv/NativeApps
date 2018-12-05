@@ -52,6 +52,11 @@ namespace NativeApps2.xaml_pages
 
                 frameLogIn.Navigate(typeof(StartschermAnoniem));
             }
+            else
+            {
+                //foutmelding weergeven
+                foutmelding.Text = "Vul alle gegevens correct in!";
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
