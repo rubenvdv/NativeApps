@@ -32,7 +32,8 @@ namespace NativeApps2.xaml_pages
 
         private void Registreer_Ondernemer(object sender, RoutedEventArgs e)
         {
-            if (naam.Text != "" && voorNaam.Text !="" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
+            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals("")
+                && !naamOnderneming.Text.Equals("") && !categorieOnderneming.Text.Equals("") && !adresOnderneming.Text.Equals("") && !openingsurenOnderneming.Text.Equals(""))
             {
                 ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 

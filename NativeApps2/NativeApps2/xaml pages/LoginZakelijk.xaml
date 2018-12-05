@@ -98,13 +98,13 @@
                 <TextBox x:Name="naamOnderneming" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox x:Name="categorieOnderneming" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
+                <TextBox x:Name="adresOnderneming" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
+                <TextBox x:Name="openingsurenOnderneming" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>

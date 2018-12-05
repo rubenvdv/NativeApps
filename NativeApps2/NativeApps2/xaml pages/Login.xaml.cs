@@ -33,7 +33,7 @@ namespace NativeApps2.xaml_pages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (naam.Text != "" && voorNaam.Text != "" && mail.Text != "" && gebruikersnaam.Text != "" && wachtwoord.Text != "")
+            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals(""))
             {
                 ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text,voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 
