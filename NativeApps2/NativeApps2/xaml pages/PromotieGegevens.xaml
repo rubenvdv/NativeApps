@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="NativeApps2.xaml_pages.PromotieGegevens"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:NativeApps2.xaml_pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Frame x:Name="framePromotieGegevens">
+        <Frame.Background>
+            <ImageBrush ImageSource="/Images/background.jpg"/>
+        </Frame.Background>
+        <StackPanel>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Promotie" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <StackPanel x:Name="promotieImage" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="{Binding Logo}" Width="100" Height="100"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+            <Grid x:Name="promotieGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Naam" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Omschrijving" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Begindatum" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Einddatum" Foreground="White" FontWeight="SemiBold"/>
+
+                <TextBlock x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Naam}" Foreground="White"/>
+                <TextBlock x:Name="omschrijving" Grid.Row="1" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Omschrijving}" Foreground="White"/>
+                <TextBlock x:Name="begindatum" Grid.Row="2" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Begindatum}" Foreground="White"/>
+                <TextBlock x:Name="einddatum" Grid.Row="3" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Einddatum}" Foreground="White"/>
+            </Grid>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming:"
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+            <StackPanel x:Name="eigenaar" Tapped="Onderneming_Tapped" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="{Binding Logo}" Width="100" Height="100"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" 
+                               HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
+                </StackPanel>
+            </StackPanel>
+
+        </StackPanel>
+    </Frame>
+</Page>
