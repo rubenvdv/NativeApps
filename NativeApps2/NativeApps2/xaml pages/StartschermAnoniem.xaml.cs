@@ -108,5 +108,9 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(EvenementAanmaken));
         }
+        private void maakPromotie_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(PromotieAanmaken));
+        }
     }
 }
