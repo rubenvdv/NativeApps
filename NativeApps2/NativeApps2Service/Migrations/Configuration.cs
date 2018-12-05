@@ -29,7 +29,7 @@ namespace NativeApps2Service.Migrations
             //    );
             //
 
-            var ondernemers = new List<Ondernemer>
+            /*var ondernemers = new List<Ondernemer>
             {
                 new Ondernemer{Naam="Ondernemer1Naam", Voornaam="Ondernemer1Voornaam", Gebruikersnaam="Ondernemer1", Wachtwoord="password", Email="Ondernemer1@gmail.com"},
                 new Ondernemer{Naam="Ondernemer2Naam", Voornaam="Ondernemer2Voornaam", Gebruikersnaam="Ondernemer2", Wachtwoord="password", Email="Ondernemer2@gmail.com"},
@@ -69,6 +69,8 @@ namespace NativeApps2Service.Migrations
             var gebruiker = new IngelogdeGebruiker { Naam = "Gebruiker1Naam", Voornaam = "Gebruiker1VoorNaam", Gebruikersnaam = "Gebruiker1", Wachtwoord = "password", Email = "Gebruiker123@Hogent.be", VolgendeOndernemingen = ondernemingen.GetRange(2, 2) };
             context.IngelogdeGebruikers.Add(gebruiker);
             context.SaveChanges();
+
+        */
 
         }
     }

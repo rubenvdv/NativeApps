@@ -32,13 +32,10 @@ namespace NativeApps2Service.Migrations
                         Adres = c.String(),
                         Openingsuren = c.String(),
                         OndernemerID = c.Int(nullable: false),
-                        IngelogdeGebruiker_Email = c.String(maxLength: 128),
                     })
                 .PrimaryKey(t => t.OndernemingID)
                 .ForeignKey("dbo.Ondernemers", t => t.OndernemerID, cascadeDelete: true)
-                .ForeignKey("dbo.IngelogdeGebruikers", t => t.IngelogdeGebruiker_Email)
-                .Index(t => t.OndernemerID)
-                .Index(t => t.IngelogdeGebruiker_Email);
+                .Index(t => t.OndernemerID);
             
             CreateTable(
                 "dbo.Ondernemers",
@@ -57,24 +54,40 @@ namespace NativeApps2Service.Migrations
                 "dbo.IngelogdeGebruikers",
                 c => new
                     {
-                        Email = c.String(nullable: false, maxLength: 128),
+                        Gebruikersnaam = c.String(nullable: false, maxLength: 128),
                         Naam = c.String(),
                         Voornaam = c.String(),
-                        Gebruikersnaam = c.String(),
                         Wachtwoord = c.String(),
+                        Email = c.String(),
                     })
-                .PrimaryKey(t => t.Email);
+                .PrimaryKey(t => t.Gebruikersnaam);
+            
+            CreateTable(
+                "dbo.IngelogdeGebruikerOndernemings",
+                c => new
+                    {
+                        IngelogdeGebruiker_Gebruikersnaam = c.String(nullable: false, maxLength: 128),
+                        Onderneming_OndernemingID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.IngelogdeGebruiker_Gebruikersnaam, t.Onderneming_OndernemingID })
+                .ForeignKey("dbo.IngelogdeGebruikers", t => t.IngelogdeGebruiker_Gebruikersnaam, cascadeDelete: true)
+                .ForeignKey("dbo.Ondernemings", t => t.Onderneming_OndernemingID, cascadeDelete: true)
+                .Index(t => t.IngelogdeGebruiker_Gebruikersnaam)
+                .Index(t => t.Onderneming_OndernemingID);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Ondernemings", "IngelogdeGebruiker_Email", "dbo.IngelogdeGebruikers");
+            DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "Onderneming_OndernemingID", "dbo.Ondernemings");
+            DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "IngelogdeGebruiker_Gebruikersnaam", "dbo.IngelogdeGebruikers");
             DropForeignKey("dbo.Ondernemings", "OndernemerID", "dbo.Ondernemers");
             DropForeignKey("dbo.Evenements", "OndernemingID", "dbo.Ondernemings");
-            DropIndex("dbo.Ondernemings", new[] { "IngelogdeGebruiker_Email" });
+            DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "Onderneming_OndernemingID" });
+            DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "IngelogdeGebruiker_Gebruikersnaam" });
             DropIndex("dbo.Ondernemings", new[] { "OndernemerID" });
             DropIndex("dbo.Evenements", new[] { "OndernemingID" });
+            DropTable("dbo.IngelogdeGebruikerOndernemings");
             DropTable("dbo.IngelogdeGebruikers");
             DropTable("dbo.Ondernemers");
             DropTable("dbo.Ondernemings");

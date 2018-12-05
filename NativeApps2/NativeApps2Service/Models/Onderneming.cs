@@ -23,5 +23,8 @@ namespace NativeApps2Service.Models
 
         [JsonIgnore]
         public virtual ICollection<Evenement> Evenementen { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<IngelogdeGebruiker> volgendeGebruikers { get; set; }
     }
 }
