@@ -13,7 +13,7 @@ namespace NativeApps2Service.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201812050847025_Initial"; }
+            get { return "201812051009409_Initial"; }
         }
         
         string IMigrationMetadata.Source
