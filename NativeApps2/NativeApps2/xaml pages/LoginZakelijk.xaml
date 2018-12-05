@@ -16,6 +16,9 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Login" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn account" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -51,6 +54,47 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                 <TextBox x:Name="wachtwoord" Grid.Row="3" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+            </Grid>
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn onderneming" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Categorie:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Adres" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Openingsuren" Foreground="White" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="naamOnderneming" Grid.Row="0" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
