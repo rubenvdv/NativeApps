@@ -15,7 +15,7 @@
             <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
                        Margin="20"
                        Foreground="Red" FontSize="13"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer een ondernemer" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreren" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             

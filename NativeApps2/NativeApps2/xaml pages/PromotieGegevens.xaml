@@ -16,11 +16,8 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Promotie" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <StackPanel x:Name="promotieImage" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="{Binding Logo}" Width="100" Height="100"/>
-                <StackPanel>
-                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                </StackPanel>
+            <StackPanel x:Name="promotieNaam" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
             </StackPanel>
             <Grid x:Name="promotieGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>

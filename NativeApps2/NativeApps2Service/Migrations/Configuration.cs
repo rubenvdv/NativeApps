@@ -31,36 +31,39 @@ namespace NativeApps2Service.Migrations
 
             var ondernemers = new List<Ondernemer>
             {
-                new Ondernemer{Naam="Ondernemer1Naam", Voornaam="Ondernemer1Voornaam", Gebruikersnaam="Ondernemer1", Wachtwoord="password", Email="Ondernemer1@gmail.com"},
-                new Ondernemer{Naam="Ondernemer2Naam", Voornaam="Ondernemer2Voornaam", Gebruikersnaam="Ondernemer2", Wachtwoord="password", Email="Ondernemer2@gmail.com"},
-                new Ondernemer{Naam="Ondernemer3Naam", Voornaam="Ondernemer3Voornaam", Gebruikersnaam="Ondernemer3", Wachtwoord="password", Email="Ondernemer3@gmail.com"},
-                new Ondernemer{Naam="Ondernemer4Naam", Voornaam="Ondernemer4Voornaam", Gebruikersnaam="Ondernemer4", Wachtwoord="password", Email="Ondernemer4@gmail.com"},
-                new Ondernemer{Naam="Ondernemer5Naam", Voornaam="Ondernemer5Voornaam", Gebruikersnaam="Ondernemer5", Wachtwoord="password", Email="Ondernemer5@gmail.com"},
-                new Ondernemer{Naam="Ondernemer6Naam", Voornaam="Ondernemer6Voornaam", Gebruikersnaam="Ondernemer6", Wachtwoord="password", Email="Ondernemer6@gmail.com"},
-                new Ondernemer{Naam="Ondernemer7Naam", Voornaam="Ondernemer7Voornaam", Gebruikersnaam="Ondernemer7", Wachtwoord="password", Email="Ondernemer7@gmail.com"}
+                new Ondernemer{Naam="Brodin", Voornaam="Jesper", Gebruikersnaam="JesperBrodin", Wachtwoord="jesperbrodin", Email="jesper.brodin@ikea.com"},
+                new Ondernemer{Naam="Colruyt", Voornaam="Jef", Gebruikersnaam="JefColruyt", Wachtwoord="jefcolruyt", Email="jef.colruyt@colruytgroup.be"},
+                new Ondernemer{Naam="Claeyssens", Voornaam="Michel", Gebruikersnaam="MichelClaeyssens", Wachtwoord="michelclaeyssens", Email="michel.claeyssens@claeyssensoptiek.be"},
+                new Ondernemer{Naam="Johnson", Voornaam="Kevin", Gebruikersnaam="KevinJohnson", Wachtwoord="kevinjohnson", Email="kevin.johnson@starbucks.com"},
+                new Ondernemer{Naam="Vanherpe", Voornaam="Guido", Gebruikersnaam="GuidoVanherpe", Wachtwoord="guidovanherpe", Email="guido.vanherpe@lalorraine.be"},
+                new Ondernemer{Naam="Hendricks", Voornaam="Jan", Gebruikersnaam="JanHendricks", Wachtwoord="janhendricks", Email="jan.hendricks@gmail.com"},
+                //new Ondernemer{Naam="Ondernemer7Naam", Voornaam="Ondernemer7Voornaam", Gebruikersnaam="Ondernemer7", Wachtwoord="password", Email="Ondernemer7@gmail.com"}
             };
             ondernemers.ForEach(s => context.Ondernemers.AddOrUpdate(o => o.OndernemerID, s));
             context.SaveChanges();
 
             var ondernemingen = new List<Onderneming>
             {
-                new Onderneming{Naam="Onderneming1", Categorie="Restaurant", Adres="Straat 1, 1234 Dorp", Openingsuren="9u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer1Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming2", Categorie="Cafe", Adres="Straat 20, 9632 Dorp", Openingsuren="10u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer2Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming3", Categorie="Bar", Adres="Straat 74, 7894 Dorp", Openingsuren="9u30-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer3Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming4", Categorie="Winkel", Adres="Straat 63, 5263 Dorp", Openingsuren="12u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer4Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming5", Categorie="Bakkerij", Adres="Straat 15, 8521 Dorp", Openingsuren="7u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer5Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming6", Categorie="Slagerij", Adres="Straat 14, 7412 Dorp", Openingsuren="8u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer6Naam").OndernemerID},
-                new Onderneming{Naam="Onderneming7", Categorie="Viswinkel", Adres="Straat 10, 3674 Dorp", Openingsuren="10u-20u", OndernemerID = ondernemers.Single(o => o.Naam == "Ondernemer7Naam").OndernemerID},
+                new Onderneming{Naam="Ikea Gent", Categorie="Meubilair", Adres="Maaltekouter 2, 9051 Gent", Openingsuren="MA-DO 10u-20u, VRIJ 10u-21u, ZAT 09u-20u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "JesperBrodin").OndernemerID},
+                new Onderneming{Naam="OKay Gent", Categorie="warenhuis", Adres="Voskenslaan 228, 9000 Gent", Openingsuren="MA-ZAT 8u30-19u30", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "JefColruyt").OndernemerID},
+                new Onderneming{Naam="Claeyssens optiek Gent", Categorie="Optiek", Adres="Voskenslaan 32, 9000 Gent", Openingsuren="DI-VRIJ 09u-18u, ZAT 09u-12u30 & 13u30-18u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "MichelClaeyssens").OndernemerID},
+                new Onderneming{Naam="Colruyt Gent", Categorie="Grootwarenhuis", Adres="Drongensesteenweg 197, 9000 Gent", Openingsuren="MA-DO 08u30-20u, VRIJ 08u30-21u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "JefColruyt").OndernemerID},
+                new Onderneming{Naam="Starbucks station Gent-Sint-Pieters", Categorie="Koffiehuis", Adres="Kon. Maria Hendrikaplein 1, 9000 Gent", Openingsuren="MA-VRIJ 05u30-21u30, ZAT 06u30-21u30, ZON 07u30-21u30", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "KevinJohnson").OndernemerID},
+                new Onderneming{Naam="Starbucks Korenmarkt", Categorie="Koffiehuis", Adres="Korenmarkt 4, 9000 Gent", Openingsuren="MA-VRIJ 08u-19u, ZAT 08u-20u, ZON 10u-19u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam == "KevinJohnson").OndernemerID},
+                new Onderneming{Naam="Panos Veldstraat", Categorie="Broodjeszaak", Adres="Veldstraat 96", Openingsuren="MA-VRIJ 05u30-20u, ZAT-ZON 06u30-20u", OndernemerID = ondernemers.Single(o => o.Naam == "GuidoVanherpe").OndernemerID},
+                new Onderneming{Naam="Panos Station", Categorie="Broodjeszaak", Adres="Kon. Maria Hendrikaplein 1, 9000 Gent", Openingsuren="MA-VRIJ 05u30-20u, ZAT-ZON 06u30-20u", OndernemerID = ondernemers.Single(o => o.Naam == "GuidoVanherpe").OndernemerID},
+                new Onderneming{Naam="Meme Gusta", Categorie="Restaurant", Adres="Burgstraat 19, 9000 Gent", Openingsuren="DI, DO-ZAT 12u-16u & 18u-22u, WOE 18u-22u", OndernemerID = ondernemers.Single(o => o.Naam == "JanHendricks").OndernemerID},
+
             };
             ondernemingen.ForEach(s => context.Ondernemings.AddOrUpdate(o => o.OndernemingID, s));
             context.SaveChanges();
 
             var evenementen = new List<Evenement>
             {
-                new Evenement {Naam="Evenement1", Omschrijving="Evenement 1 gaat over.....", Begindatum=DateTime.Parse("01/01/2019"), Einddatum=DateTime.Parse("02/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming1" ).OndernemingID},
-                new Evenement {Naam="Evenement2", Omschrijving="Evenement 2 gaat over.....", Begindatum=DateTime.Parse("01/10/2019"), Einddatum=DateTime.Parse("02/10/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming3" ).OndernemingID},
-                new Evenement {Naam="Evenement3", Omschrijving="Evenement 3 gaat over.....", Begindatum=DateTime.Parse("01/03/2019"), Einddatum=DateTime.Parse("02/04/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming6" ).OndernemingID},
-                new Evenement {Naam="Evenement4", Omschrijving="Evenement 4 gaat over.....", Begindatum=DateTime.Parse("20/01/2019"), Einddatum=DateTime.Parse("28/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming7" ).OndernemingID}
+                new Evenement {Naam="Nieuwe folder Ikea België", Omschrijving="Lancering van de nieuwe folder voor Ikea België", Begindatum=DateTime.Parse("01/01/2019"), Einddatum=DateTime.Parse("01/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Ikea Gent" ).OndernemingID},
+                new Evenement {Naam="Holiday Season", Omschrijving="Kom genieten van onze bereidingen speciaal voor de feestdagen! Tijdelijk beschikbaar", Begindatum=DateTime.Parse("01/12/2018"), Einddatum=DateTime.Parse("02/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Starbucks station Gent-Sint-Pieters" ).OndernemingID},
+                new Evenement {Naam="Holiday Season", Omschrijving="Kom genieten van onze bereidingen speciaal voor de feestdagen! Tijdelijk beschikbaar", Begindatum=DateTime.Parse("01/12/2018"), Einddatum=DateTime.Parse("02/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Starbucks Korenmarkt" ).OndernemingID},
+                //new Evenement {Naam="Evenement3", Omschrijving="Evenement 3 gaat over.....", Begindatum=DateTime.Parse("01/03/2019"), Einddatum=DateTime.Parse("02/04/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming6" ).OndernemingID},
             };
             evenementen.ForEach(s => context.Evenements.AddOrUpdate(e => e.EvenementID, s));
             context.SaveChanges();
@@ -79,6 +82,8 @@ namespace NativeApps2Service.Migrations
             var gebruiker = new IngelogdeGebruiker { Naam = "Gebruiker1Naam", Voornaam = "Gebruiker1VoorNaam", Gebruikersnaam = "Gebruiker1", Wachtwoord = "password", Email = "Gebruiker123@Hogent.be", VolgendeOndernemingen = ondernemingen.GetRange(2, 2) };
             context.IngelogdeGebruikers.Add(gebruiker);
             context.SaveChanges();
+
+
 
         }
     }
