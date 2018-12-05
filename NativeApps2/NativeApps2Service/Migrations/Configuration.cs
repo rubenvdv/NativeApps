@@ -29,7 +29,7 @@ namespace NativeApps2Service.Migrations
             //    );
             //
 
-            /*var ondernemers = new List<Ondernemer>
+            var ondernemers = new List<Ondernemer>
             {
                 new Ondernemer{Naam="Ondernemer1Naam", Voornaam="Ondernemer1Voornaam", Gebruikersnaam="Ondernemer1", Wachtwoord="password", Email="Ondernemer1@gmail.com"},
                 new Ondernemer{Naam="Ondernemer2Naam", Voornaam="Ondernemer2Voornaam", Gebruikersnaam="Ondernemer2", Wachtwoord="password", Email="Ondernemer2@gmail.com"},
@@ -65,12 +65,20 @@ namespace NativeApps2Service.Migrations
             evenementen.ForEach(s => context.Evenements.AddOrUpdate(e => e.EvenementID, s));
             context.SaveChanges();
 
+            var promoties = new List<Promotie>
+            {
+                new Promotie {Naam="Promotie1", Omschrijving="Promotie 1 gaat over.....", Begindatum=DateTime.Parse("01/01/2019"), Einddatum=DateTime.Parse("02/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming3" ).OndernemingID, Korting="5%"},
+                new Promotie {Naam="Promotie2", Omschrijving="Promotie 2 gaat over.....", Begindatum=DateTime.Parse("01/10/2019"), Einddatum=DateTime.Parse("02/10/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming2" ).OndernemingID, Korting="2 kopen = 3de gratis"},
+                new Promotie {Naam="Promotie3", Omschrijving="Promotie 3 gaat over.....", Begindatum=DateTime.Parse("01/03/2019"), Einddatum=DateTime.Parse("02/04/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming5" ).OndernemingID, Korting="20% op alle artikelen"},
+                new Promotie {Naam="Promotie4", Omschrijving="Promotie 4 gaat over.....", Begindatum=DateTime.Parse("20/01/2019"), Einddatum=DateTime.Parse("28/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam == "Onderneming6" ).OndernemingID, Korting="1 euro korting bij een glimlach aan de kassa!"}
+            };
+            promoties.ForEach(s => context.Promoties.AddOrUpdate(p => p.PromotieID, s));
+            context.SaveChanges();
+
 
             var gebruiker = new IngelogdeGebruiker { Naam = "Gebruiker1Naam", Voornaam = "Gebruiker1VoorNaam", Gebruikersnaam = "Gebruiker1", Wachtwoord = "password", Email = "Gebruiker123@Hogent.be", VolgendeOndernemingen = ondernemingen.GetRange(2, 2) };
             context.IngelogdeGebruikers.Add(gebruiker);
             context.SaveChanges();
-
-        */
 
         }
     }

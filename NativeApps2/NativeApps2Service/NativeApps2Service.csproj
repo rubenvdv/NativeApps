@@ -112,13 +112,14 @@
     <Compile Include="Controllers\IngelogdeGebruikersController.cs" />
     <Compile Include="Controllers\OndernemersController.cs" />
     <Compile Include="Controllers\OndernemingsController.cs" />
+    <Compile Include="Controllers\PromotiesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812050847025_Initial.cs" />
-    <Compile Include="Migrations\201812050847025_Initial.Designer.cs">
-      <DependentUpon>201812050847025_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201812051009409_Initial.cs" />
+    <Compile Include="Migrations\201812051009409_Initial.Designer.cs">
+      <DependentUpon>201812051009409_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Evenement.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Models\NativeApps2ServiceContext.cs" />
     <Compile Include="Models\Ondernemer.cs" />
     <Compile Include="Models\Onderneming.cs" />
+    <Compile Include="Models\Promotie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -138,8 +140,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812050847025_Initial.resx">
-      <DependentUpon>201812050847025_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812051009409_Initial.resx">
+      <DependentUpon>201812051009409_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
