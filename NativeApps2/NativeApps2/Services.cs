@@ -26,6 +26,31 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
         }
 
+        //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
+        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(string onderneming)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming.Naam == onderneming));
+        }
+        //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
+
+        //GET ALLE PROMOTIES VAN EEN ONDERNEMING
+        public async Task<ObservableCollection<Promotie>> getPromotiesVanOnderneming(string onderneming)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
+            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming.Naam == onderneming));
+        }
+        //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
+
+        public async Task<Promotie> getPromotiesVanOnderneming2(string onderneming)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
+            return JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).First(p => p.OndernemingID == 5);
+        }
+
         //GET ALLE ONDERNEMERS
         public async Task<ObservableCollection<Ondernemer>> getOndernemers()
         {
@@ -42,20 +67,20 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json);
         }
 
-        //GET EEN INGELOGDEGEBRUIKER (MET EMAILADRES)
-        public async Task<IngelogdeGebruiker> getIngelogdeGebruiker(string email)
+        //GET EEN INGELOGDEGEBRUIKER (MET GEBRUIKERSNAAM)
+        public async Task<IngelogdeGebruiker> getIngelogdeGebruiker(string gebruikersNaam)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ingelogdeGebruikers/"));
-            return JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json).First(g => g.Email == email);
+            return JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json).First(g => g.Gebruikersnaam == gebruikersNaam);
         }
 
-        //GET EEN ONDERNEMER (MET EMAILADRES)
-        public async Task<IngelogdeGebruiker> getOndernemer(string email)
+        //GET EEN ONDERNEMER (MET GEBRUIKERSNAAM)
+        public async Task<Ondernemer> getOndernemer(string gebruikersNaam)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemers/"));
-            return JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json).First(o => o.Email == email);
+            return JsonConvert.DeserializeObject<ObservableCollection<Ondernemer>>(json).First(o => o.Gebruikersnaam == gebruikersNaam);
         }
 
         /* Met deze code kan je in de client kijken of de gewone gebruiker of ondernemer succesvol is gecreëerd.

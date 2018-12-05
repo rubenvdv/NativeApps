@@ -132,6 +132,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xaml pages\OndernemerBeheer.xaml.cs">
+      <DependentUpon>OndernemerBeheer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\OndernemingAanmaken.xaml.cs">
       <DependentUpon>OndernemingAanmaken.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,9 @@
     </Compile>
     <Compile Include="xaml pages\OverzichtPromoties.xaml.cs">
       <DependentUpon>OverzichtPromoties.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="xaml pages\PromotieAanmaken.xaml.cs">
+      <DependentUpon>PromotieAanmaken.xaml</DependentUpon>
     </Compile>
     <Compile Include="xaml pages\PromotieGegevens.xaml.cs">
       <DependentUpon>PromotieGegevens.xaml</DependentUpon>
@@ -230,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="xaml pages\OndernemerBeheer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="xaml pages\OndernemingAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -251,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\OverzichtPromoties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\PromotieAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
