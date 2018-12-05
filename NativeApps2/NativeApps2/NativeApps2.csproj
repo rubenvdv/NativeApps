@@ -147,6 +147,9 @@
     <Compile Include="xaml pages\OverzichtEvenementen.xaml.cs">
       <DependentUpon>OverzichtEvenementen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml pages\OverzichtPromoties.xaml.cs">
+      <DependentUpon>OverzichtPromoties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="xaml pages\PromotieGegevens.xaml.cs">
       <DependentUpon>PromotieGegevens.xaml</DependentUpon>
     </Compile>
@@ -244,6 +247,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\OverzichtEvenementen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\OverzichtPromoties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
