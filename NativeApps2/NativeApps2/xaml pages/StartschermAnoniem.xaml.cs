@@ -74,6 +74,11 @@ namespace NativeApps2.xaml_pages
             frameRechts.Navigate(typeof(OverzichtEvenementen));
         }
 
+        private void Promoties_Tapped(object sender, TappedRoutedEventArgs e) //Evenementen
+        {
+            frameRechts.Navigate(typeof(OverzichtPromoties));
+        }
+
         private void Abonnementen_Tapped(object sender, TappedRoutedEventArgs e) //Geabboneerd
         {
             frameRechts.Navigate(typeof(OverzichtAbonnees));

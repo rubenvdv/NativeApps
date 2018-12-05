@@ -63,6 +63,22 @@ namespace NativeApps2Service.Migrations
                 .PrimaryKey(t => t.Gebruikersnaam);
             
             CreateTable(
+                "dbo.Promoties",
+                c => new
+                    {
+                        PromotieID = c.Int(nullable: false, identity: true),
+                        Naam = c.String(),
+                        Omschrijving = c.String(),
+                        Begindatum = c.DateTime(nullable: false),
+                        Einddatum = c.DateTime(nullable: false),
+                        OndernemingID = c.Int(nullable: false),
+                        Korting = c.String(),
+                    })
+                .PrimaryKey(t => t.PromotieID)
+                .ForeignKey("dbo.Ondernemings", t => t.OndernemingID, cascadeDelete: true)
+                .Index(t => t.OndernemingID);
+            
+            CreateTable(
                 "dbo.IngelogdeGebruikerOndernemings",
                 c => new
                     {
@@ -79,15 +95,18 @@ namespace NativeApps2Service.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Promoties", "OndernemingID", "dbo.Ondernemings");
             DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "Onderneming_OndernemingID", "dbo.Ondernemings");
             DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "IngelogdeGebruiker_Gebruikersnaam", "dbo.IngelogdeGebruikers");
             DropForeignKey("dbo.Ondernemings", "OndernemerID", "dbo.Ondernemers");
             DropForeignKey("dbo.Evenements", "OndernemingID", "dbo.Ondernemings");
             DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "Onderneming_OndernemingID" });
             DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "IngelogdeGebruiker_Gebruikersnaam" });
+            DropIndex("dbo.Promoties", new[] { "OndernemingID" });
             DropIndex("dbo.Ondernemings", new[] { "OndernemerID" });
             DropIndex("dbo.Evenements", new[] { "OndernemingID" });
             DropTable("dbo.IngelogdeGebruikerOndernemings");
+            DropTable("dbo.Promoties");
             DropTable("dbo.IngelogdeGebruikers");
             DropTable("dbo.Ondernemers");
             DropTable("dbo.Ondernemings");

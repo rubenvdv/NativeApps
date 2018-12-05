@@ -12,128 +12,134 @@
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+        <ScrollViewer>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
                        Margin="20"
                        Foreground="Red" FontSize="13"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer" 
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn account" 
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn account" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="voorNaam" Grid.Row="0" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="voorNaam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="naam" Grid.Row="1" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="naam" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            </Grid>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn onderneming" 
+                </Grid>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn onderneming" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Categorie:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Adres" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                    <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Openingsuren" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBox x:Name="naamOnderneming" Grid.Row="0" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="naamOnderneming" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="categorieOnderneming" Grid.Row="1" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="categorieOnderneming" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="adresOnderneming" Grid.Row="2" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="adresOnderneming" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="openingsurenOnderneming" Grid.Row="3" Grid.Column="1" Margin="10"
+                    <TextBox x:Name="openingsurenOnderneming" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-            </Grid>
-            <Button Click="Registreer_Ondernemer" Content="Registreer" 
+                </Grid>
+                <Button Click="Meld_Aan" Content="Registreer" 
                 Grid.Row="4" Grid.Column="1" 
-                HorizontalAlignment="Stretch"
+                HorizontalAlignment="Center"
+                        Width="200"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="Green" Offset="0.0" />
-                        <GradientStop Color="LimeGreen" Offset="0.75" />
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="of" 
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Ik heb reeds een account" 
                        Margin="20"
-                       Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
-            <Button Content="Meld Aan" 
+                       Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>
+                <Button Content="Meld Aan" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Center"
                     Click="Meld_Aan"
-                VerticalAlignment="Top" Margin="0" Foreground="White">
-                <Button.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                        <GradientStop Color="Green" Offset="0.0" />
-                        <GradientStop Color="LimeGreen" Offset="0.75" />
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-        </StackPanel>
+                        Width="200"
+                VerticalAlignment="Top" 
+                        Margin="0"
+                        Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </ScrollViewer>
     </Frame>
 </Page>
