@@ -26,6 +26,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtEvenementen : Page
     {
+        private ObservableCollection<Evenement> lst = new ObservableCollection<Evenement>();
+
         public OverzichtEvenementen()
         {
             this.InitializeComponent();
@@ -34,17 +36,35 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            ObservableCollection<Evenement> lst = new ObservableCollection<Evenement>();
-            lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1)));
-            lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs max", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1)));
-            lst.Add(new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1)));
+            //Test-fase
+            List<Onderneming> ondernemingen = new List<Onderneming>();
+            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
+            ondernemingen.Add(apple);
+            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
+            ondernemingen.Add(ikea);
+            lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1), apple));
+            lst.Add(new Evenement("Apple keynote", "Apple launching the new iPhone Xs max", new DateTime(2018, 11, 1), new DateTime(2018, 11, 1), apple));
+            lst.Add(new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea));
 
 
             /*HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
             var lst = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);*/
             lvEvenementen.ItemsSource = lst;
+        }
+
+        //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
+        //Een evenement heeft toch altijd een onderneming?
+        internal void VoegEvenementToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum)
+        {
+            Onderneming onderneming = (Onderneming)selectedItem;
+            lst.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
+        }
+
+        private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens));
+
         }
     }
 }

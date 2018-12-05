@@ -10,18 +10,21 @@ namespace NativeApps2.Domain
     {
         #region properties
         public string Naam { get; set; }
-        public string voorNaam { get; set; }
+        public string Voornaam { get; set; }
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
+        public string ProfielFoto { get; set; }
         #endregion
 
-        public Gebruiker(string naam="Anon", string gebruikersnaam="", string ww="", string mail="")
+        public Gebruiker(string naam="Doe", string voornaam="John", string gebruikersnaam="", string ww="", string mail="")
         {
             Naam = naam;
+            Voornaam = voornaam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = ww;
             Email = mail;
+            ProfielFoto = "/Images/anoniem.png";
         }
     }
 }

@@ -14,15 +14,18 @@ namespace NativeApps2.Domain
         public DateTime Begindatum { get; set; }
         public DateTime Einddatum { get; set; }
         public int OndernemingID { get; set; }
+        public string Logo { get; set; }
 
         public virtual Onderneming Onderneming { get; set; }
 
-        public Evenement(string naam, string omschrijving, DateTime start, DateTime einde)
+        public Evenement(string naam, string omschrijving, DateTime start, DateTime einde, Onderneming onderneming)
         {
             Naam = naam;
             Omschrijving = omschrijving;
             Begindatum = start;
             Einddatum = einde;
+            Onderneming = onderneming;
+            Logo = this.Onderneming.Logo;
         }
     }
 }
