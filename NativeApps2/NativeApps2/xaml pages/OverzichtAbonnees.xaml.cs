@@ -1,9 +1,11 @@
 ﻿using NativeApps2.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -34,7 +36,9 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
 
+
             //Testfase
+            
             ObservableCollection<Onderneming> lijstAbonnees = new ObservableCollection<Onderneming>();
             lijstAbonnees.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg"));
             lijstAbonnees.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));

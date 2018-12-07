@@ -7,35 +7,38 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame x:Name="frameOverzichtEvenementen">
-        <Frame.Background>
-            <ImageBrush ImageSource="/Images/background.jpg"/>
-        </Frame.Background>
-        <StackPanel>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenementen" 
+
+    <ScrollViewer>
+        <Frame x:Name="frameOverzichtEvenementen">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </Frame.Background>
+            <StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" Tapped="Evenement_Tapped">
-                            <Image Width = "100" Height="100" Source="{Binding Logo}"
+                <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Tapped="Evenement_Tapped">
+                                <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                            <StackPanel HorizontalAlignment="Center">
-                                <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
                                        HorizontalAlignment="Center"/>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                    <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                                    <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                        <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                        <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    </StackPanel>
+                                    <Line Stroke="White" X1="0" X2="500" Y1="5" Y2="5" HorizontalAlignment="Center"/>
                                 </StackPanel>
-                                <Line Stroke="White" X1="0" X2="500" Y1="5" Y2="5" HorizontalAlignment="Center"/>
                             </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </Frame>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Frame>
+    </ScrollViewer>
 </Page>

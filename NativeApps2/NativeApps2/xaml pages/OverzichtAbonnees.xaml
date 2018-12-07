@@ -7,31 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame>
-        <Frame.Background>
-            <ImageBrush ImageSource="/Images/background.jpg"/>
-        </Frame.Background>
-        <StackPanel>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Abonnees" 
+
+    <ScrollViewer>
+        <Frame>
+            <Frame.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </Frame.Background>
+            <StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Abonnees" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <ListView x:Name="lvAbonnees" HorizontalAlignment="Center">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width = "100" Height="100" Source="{Binding Logo}"
+                <ListView x:Name="lvAbonnees" HorizontalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
-                                <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
-                                <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                                </StackPanel>
                             </StackPanel>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
-    </Frame>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+        </Frame>
+    </ScrollViewer>
 </Page>
