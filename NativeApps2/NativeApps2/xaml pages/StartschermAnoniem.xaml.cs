@@ -112,5 +112,10 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(PromotieAanmaken));
         }
+
+        private void MijnBeheer_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(OndernemerBeheer));
+        }
     }
 }

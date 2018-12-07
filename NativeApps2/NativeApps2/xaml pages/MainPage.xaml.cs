@@ -31,16 +31,6 @@ namespace NativeApps2
             this.InitializeComponent();
         }
 
-        private void login(object sender, TappedRoutedEventArgs e)
-        {
-            mainFrame.Navigate(typeof(Login));
-        }
-
-        private void zakelijk(object sender, TappedRoutedEventArgs e)
-        {
-            mainFrame.Navigate(typeof(LoginZakelijk));
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((App)Application.Current).huidigeGebruiker = new Gebruiker();
@@ -61,9 +51,19 @@ namespace NativeApps2
             mainFrame.Navigate(typeof(StartschermAnoniem));
         }
 
-        private void meldaan(object sender, TappedRoutedEventArgs e)
+        private void Aanmelden_Click(object sender, RoutedEventArgs e)
         {
             mainFrame.Navigate(typeof(Aanmelden));
+        }
+
+        private void Ondernemer_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(LoginZakelijk));
+        }
+
+        private void Registreren_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Navigate(typeof(Login));
         }
     }
 }

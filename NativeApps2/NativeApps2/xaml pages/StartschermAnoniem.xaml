@@ -23,6 +23,7 @@
                         <Setter Target="maakEvenement.Visibility" Value="Collapsed"/>
                         <Setter Target="promoties.Visibility" Value="Collapsed"/>
                         <Setter Target="maakPromotie.Visibility" Value="Collapsed"/>
+                        <Setter Target="mijnBeheer.Visibility" Value="Collapsed"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="aangemeld">
@@ -33,10 +34,11 @@
                         <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
                         <Setter Target="maakOnderneming.Visibility" Value="Collapsed"/>
                         <Setter Target="maakEvenement.Visibility" Value="Collapsed"/>
-                        <Setter Target="account.Visibility" Value="Visible"/>
+                        <Setter Target="account.Visibility" Value="Collapsed"/>
                         <Setter Target="maakEvenement.Visibility" Value="Collapsed"/>
                         <Setter Target="promoties.Visibility" Value="Visible"/>
                         <Setter Target="maakPromotie.Visibility" Value="Visible"/>
+                        <Setter Target="mijnBeheer.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="zakelijk">
@@ -47,10 +49,11 @@
                         <Setter Target="aanmelden.Visibility" Value="Collapsed"/>
                         <Setter Target="maakOnderneming.Visibility" Value="Visible"/>
                         <Setter Target="maakEvenement.Visibility" Value="Visible"/>
-                        <Setter Target="account.Visibility" Value="Visible"/>
+                        <Setter Target="account.Visibility" Value="Collapsed"/>
                         <Setter Target="maakEvenement.Visibility" Value="Visible"/>
                         <Setter Target="promoties.Visibility" Value="Visible"/>
                         <Setter Target="maakPromotie.Visibility" Value="Visible"/>
+                        <Setter Target="mijnBeheer.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -63,6 +66,21 @@
                         Width="50"
                         Height="50"/>
                     <StackPanel x:Name="account" Tapped="Account_Tapped" Orientation="Horizontal">
+                        <Button FontFamily="Segoe MDL2 Assets"
+                            Width="50"
+                            Height="50">
+                            <StackPanel>
+                                <Image Source="{Binding ProfielFoto}" />
+                            </StackPanel>
+                        </Button>
+                        <PersonPicture HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center"
+                                    DisplayName="Bavo Janssens" Foreground="Black"
+                                    ProfilePicture="{Binding ProfielFoto}"
+                                    Initials="BS" Height="35"/>
+                        <TextBlock Text="{Binding Voornaam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                        <TextBlock Text="{Binding Naam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="mijnBeheer" Tapped="MijnBeheer_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets"
                             Width="50"
                             Height="50">

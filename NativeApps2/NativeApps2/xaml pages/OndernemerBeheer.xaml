@@ -8,7 +8,174 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer>
+        <Frame x:Name="frameOndernemerBeheer">
+            <Frame.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </Frame.Background>
+            <StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn beheer" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel x:Name="mijnBeheer" HorizontalAlignment="Left">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn account" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Image VerticalAlignment="Center" Source="{Binding ProfielFoto}" Width="100" Height="100"/>
+                        </StackPanel>
+                        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
+                            <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
 
-    </Grid>
+                            <TextBlock x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Naam}" Foreground="White"/>
+                            <TextBlock x:Name="voorNaam" Grid.Row="1" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Voornaam}" Foreground="White"/>
+                            <TextBlock x:Name="mail" Grid.Row="2" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Email}" Foreground="White"/>
+                            <TextBlock x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200" Text="{Binding Gebruikersnaam}" Foreground="White"/>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel x:Name="mijnOndernemingen" HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn ondernemingen" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <ListView x:Name="lvOnderemingen" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
+                                        <Image Width = "100" Height="100" Source="{Binding Logo}"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button x:Name="ondernemingVoegToe" Click="ondernemingVoegToe_Click" Content="Voeg toe"
+                            HorizontalAlignment="Center"
+                            Width="200"
+                            VerticalAlignment="Center" Margin="15" Foreground="White">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="Green" Offset="0.0" />
+                                    <GradientStop Color="LimeGreen" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Left">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn evenementen" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Tapped="Evenement_Tapped">
+                                        <Image Width = "100" Height="100" Source="{Binding Logo}"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                       HorizontalAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                                <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                                <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                            </StackPanel>
+                                            <Line Stroke="White" X1="0" X2="500" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button x:Name="evenementVoegToe" Click="evenementVoegToe_Click" Content="Voeg toe"
+                            HorizontalAlignment="Center"
+                            Width="200"
+                            VerticalAlignment="Center" Margin="15" Foreground="White">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="Green" Offset="0.0" />
+                                    <GradientStop Color="LimeGreen" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn promoties" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                        <ListView x:Name="lvPromoties" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" Tapped="Promotie_Tapped">
+                                        <Image Width = "100" Height="100" Source="{Binding Logo}"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
+                                        <StackPanel HorizontalAlignment="Center">
+                                            <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                            <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                       HorizontalAlignment="Center"/>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                                <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                                <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                            </StackPanel>
+                                            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <Button x:Name="promotieVoegToe" Click="promotieVoegToe_Click" Content="Voeg toe"
+                            HorizontalAlignment="Center"
+                            Width="200"
+                            VerticalAlignment="Center" Margin="15" Foreground="White">
+                            <Button.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                    <GradientStop Color="Green" Offset="0.0" />
+                                    <GradientStop Color="LimeGreen" Offset="0.75" />
+                                </LinearGradientBrush>
+                            </Button.Background>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Frame>
+    </ScrollViewer>
 </Page>

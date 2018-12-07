@@ -22,7 +22,9 @@
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             <Image Grid.Row="1" HorizontalAlignment="Center" Height="200" VerticalAlignment="Center" Width="127" Source="/Images/location_icon.png"/>
             <StackPanel Grid.Row="2" HorizontalAlignment="Center" Orientation="Vertical">
-                <Button Click="Button_Click" HorizontalAlignment="Stretch" Content="Start" Style="{ThemeResource AccentButtonStyle}">
+                <Button Click="Button_Click" HorizontalAlignment="Center" Width="200" 
+                        Margin="0,0,0,15"
+                        Content="Begin meteen" Style="{ThemeResource AccentButtonStyle}">
                     <Button.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                             <GradientStop Color="Green" Offset="0.0" />
@@ -30,9 +32,39 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <TextBlock Tapped="meldaan" Text="Meld aan" HorizontalAlignment="Center" Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock Tapped="login" Text="Registreer of log in" HorizontalAlignment="Center" Foreground="White" Style="{ThemeResource BodyTextBlockStyle}"/>
-                <TextBlock Tapped="zakelijk" Text="Ik ben een zakelijke gebruiker" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                <Button x:Name="aanmelden" Click="Aanmelden_Click" Content="Aanmelden" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="0,0,0,15" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="registreren" Click="Registreren_Click" Content="Registreren" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="0,0,0,15" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="ondernemer" Click="Ondernemer_Click" Content="Ik ben een ondernemer"
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="0,0,0,15" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
             </StackPanel>
             
 
