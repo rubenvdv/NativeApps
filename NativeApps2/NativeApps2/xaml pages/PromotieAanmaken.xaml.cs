@@ -32,11 +32,11 @@ namespace NativeApps2.xaml_pages
         {
             this.InitializeComponent();
             //Test-fase
-            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
+           /* Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
             Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
             list.Add(apple);
             list.Add(ikea);
-            cmbOndernemingen.ItemsSource = list;
+            cmbOndernemingen.ItemsSource = list;*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -26,5 +26,18 @@ namespace NativeApps2Service.Models
 
         [JsonIgnore]
         public virtual ICollection<IngelogdeGebruiker> volgendeGebruikers { get; set; }
+
+        public Onderneming()
+        {
+
+        }
+        
+        public Onderneming(string naam, string cat, string adres, string openingsuren)
+        {
+            Naam = naam;
+            Categorie = cat;
+            Adres = adres;
+            Openingsuren = openingsuren;
+        }
     }
 }

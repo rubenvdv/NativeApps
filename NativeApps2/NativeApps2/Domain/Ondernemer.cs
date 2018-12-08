@@ -32,5 +32,10 @@ namespace NativeApps2.Domain
             Email = mail;*/
         }
         #endregion
+
+        public void VoegOndernemingToe(string naam, string cat, string adres, string openingsuren)
+        {
+            bedrijven.Add(new Onderneming(naam, cat, adres, openingsuren));
+        }
     }
 }

@@ -37,7 +37,7 @@
                         <Setter Target="account.Visibility" Value="Collapsed"/>
                         <Setter Target="maakEvenement.Visibility" Value="Collapsed"/>
                         <Setter Target="promoties.Visibility" Value="Visible"/>
-                        <Setter Target="maakPromotie.Visibility" Value="Visible"/>
+                        <Setter Target="maakPromotie.Visibility" Value="Collapsed"/>
                         <Setter Target="mijnBeheer.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>

@@ -48,18 +48,18 @@ namespace NativeApps2.xaml_pages
             {
                 ((App)Application.Current).huidigeGebruiker = gebruiker;
 
-                //Notificatie
-                ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Account"));
-                toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U bent aangemeld!"));
-                XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                ((XmlElement)toastNode).SetAttribute("duration", "short");
-                ToastNotification toast = new ToastNotification(toastXml);
-                ToastNotificationManager.CreateToastNotifier().Show(toast);
+                ////Notificatie
+                //ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+                //XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+                //XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
+                //toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Account"));
+                //toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U bent aangemeld!"));
+                //XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
+                //((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
+                //IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+                //((XmlElement)toastNode).SetAttribute("duration", "short");
+                //ToastNotification toast = new ToastNotification(toastXml);
+                //ToastNotificationManager.CreateToastNotifier().Show(toast);
 
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }

@@ -25,7 +25,7 @@ namespace NativeApps2.Domain
             Begindatum = start;
             Einddatum = einde;
             Onderneming = onderneming;
-            Logo = this.Onderneming.Logo;
+            //Logo = this.Onderneming.Logo;
         }
     }
 }

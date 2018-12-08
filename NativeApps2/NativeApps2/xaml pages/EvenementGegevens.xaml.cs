@@ -27,11 +27,11 @@ namespace NativeApps2.xaml_pages
         {
             //Test-fase
             this.InitializeComponent();
-            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
+           /* Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
             Evenement evenement = new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea);
             evenementImage.DataContext = evenement;
             evenementGrid.DataContext = evenement;
-            eigenaar.DataContext = ikea;
+            eigenaar.DataContext = ikea;*/
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

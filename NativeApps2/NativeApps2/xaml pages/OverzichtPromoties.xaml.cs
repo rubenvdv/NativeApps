@@ -1,8 +1,11 @@
 ﻿using NativeApps2.Domain;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -23,7 +26,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtPromoties : Page
     {
-        private List<Promotie> promoties = new List<Promotie>();
+        private ObservableCollection<Promotie> promoties = new ObservableCollection<Promotie>();
 
         public OverzichtPromoties()
         {
@@ -34,19 +37,19 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             //Test-fase
-            List<Onderneming> ondernemingen = new List<Onderneming>();
-            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
-            ondernemingen.Add(apple);
-            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-            ondernemingen.Add(ikea);
-            promoties.Add(new Promotie("Black Friday", "Kortingen tot 70 procent", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea, "70% korting"));
-            promoties.Add(new Promotie("Winkelopening Gent", "Openingsacties", new DateTime(2018, 2, 10), new DateTime(2018, 2, 17), apple, "Gratis goodiebag bij een aankoop naar keuze"));
-            promoties.Add(new Promotie("Uitverkoop winkel Antwerpen", "Kortingen tot 50 procent", new DateTime(2018, 3, 12), new DateTime(2018, 3, 31), ikea, "50% korting"));
+            /* List<Onderneming> ondernemingen = new List<Onderneming>();
+             Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
+             ondernemingen.Add(apple);
+             Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
+             ondernemingen.Add(ikea);
+             promoties.Add(new Promotie("Black Friday", "Kortingen tot 70 procent", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea, "70% korting"));
+             promoties.Add(new Promotie("Winkelopening Gent", "Openingsacties", new DateTime(2018, 2, 10), new DateTime(2018, 2, 17), apple, "Gratis goodiebag bij een aankoop naar keuze"));
+             promoties.Add(new Promotie("Uitverkoop winkel Antwerpen", "Kortingen tot 50 procent", new DateTime(2018, 3, 12), new DateTime(2018, 3, 31), ikea, "50% korting"));
+             */
 
-
-            /*HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            var lst = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);*/
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
+            promoties = JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json);
             lvPromoties.ItemsSource = promoties;
         }
 

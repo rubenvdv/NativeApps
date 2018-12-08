@@ -33,18 +33,19 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
             //Dit nog implementeren
             //cmbOndernemingen.ItemsSource = typeof(Onderneming).GetHuidigeOndernemer().GetOndernemingen();
-            Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
+           /* Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
             Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
             list.Add(apple);
             list.Add(ikea);
-            cmbOndernemingen.ItemsSource = list;
+            cmbOndernemingen.ItemsSource = list;*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            OverzichtEvenementen ozEv = new OverzichtEvenementen();
+            /*OverzichtEvenementen ozEv = new OverzichtEvenementen();
             //begindatum.SelectedDate werkt niet, waarom?
-            ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());
+            ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());*/
+            ((Onderneming)cmbOndernemingen.SelectedItem).VoegEvenementToe(naam.Text, omschrijving.Text, new DateTime(), new DateTime());
             frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
 
             //Notifications manier 1

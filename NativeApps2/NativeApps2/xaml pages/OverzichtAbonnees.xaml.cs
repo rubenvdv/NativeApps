@@ -26,7 +26,6 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtAbonnees : Page
     {
-        
         public OverzichtAbonnees()
         {
             
@@ -40,14 +39,15 @@ namespace NativeApps2.xaml_pages
             //Testfase
             
             ObservableCollection<Onderneming> lijstAbonnees = new ObservableCollection<Onderneming>();
-            lijstAbonnees.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg"));
-            lijstAbonnees.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));
-
+            /* lijstAbonnees.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg"));
+             lijstAbonnees.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png"));
+ */
             /*Wordt zoiets met databank ->
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
             var lijstAbonnees = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);*/
-            
+
+            lijstAbonnees = ((IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker).VolgendeOndernemingen;
             lvAbonnees.ItemsSource = lijstAbonnees;
 
             //lvAbonnees.ItemsSource = services.getOndernemingen();

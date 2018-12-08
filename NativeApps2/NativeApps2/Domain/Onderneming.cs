@@ -15,20 +15,24 @@ namespace NativeApps2.Domain
         public string Categorie { get; set; }
         public string Adres { get; set; }
         public string Openingsuren { get; set; }
-        public string Logo { get; set; }
 
         public virtual Ondernemer Ondernemer { get; set; }
         public int OndernemerID { get; set; }
         public virtual ICollection<Evenement> Evenementen { get; set; }
         #endregion
 
-        public Onderneming(string naam, string cat, string adres, string openingsuren, string logo)
+        
+        public Onderneming(string naam, string cat, string adres, string openingsuren)
         {
             Naam = naam;
             Categorie = cat;
             Adres = adres;
             Openingsuren = openingsuren;
-            Logo = "/Images/" + logo;
+        }
+
+        public void VoegEvenementToe(string naam, string omschr, DateTime start, DateTime einde)
+        {
+            Evenementen.Add(new Evenement(naam, omschr, start, einde, this));
         }
     }
 }
