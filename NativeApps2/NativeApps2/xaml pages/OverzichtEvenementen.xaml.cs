@@ -26,7 +26,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtEvenementen : Page
     {
-        private ObservableCollection<Evenement> lst = new ObservableCollection<Evenement>();
+        private Services services;
+        private ObservableCollection<Evenement> lijstVanEvenementen = new ObservableCollection<Evenement>();
 
         public OverzichtEvenementen()
         {
@@ -64,10 +65,9 @@ namespace NativeApps2.xaml_pages
              */
 
 
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            var lst = JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);
-            lvEvenementen.ItemsSource = lst;
+            services = new Services();
+            lijstVanEvenementen = await services.getEvenementen();
+            lvEvenementen.ItemsSource = lijstVanEvenementen;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
@@ -75,7 +75,8 @@ namespace NativeApps2.xaml_pages
         internal void VoegEvenementToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum)
         {
             Onderneming onderneming = (Onderneming)selectedItem;
-            lst.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
+            lijstVanEvenementen.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
+            //Moet hier geen methode voorzien worden in services die een evenement in de databank bijsteekt?
         }
 
         private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)

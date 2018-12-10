@@ -68,9 +68,8 @@ namespace NativeApps2.xaml_pages
                 }
             }
             */
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
-            ondernemingen = JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
+            services = new Services();
+            ondernemingen = await services.getOndernemingen();
             myLV.ItemsSource = ondernemingen;
         }
 

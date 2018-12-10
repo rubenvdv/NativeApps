@@ -26,6 +26,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtPromoties : Page
     {
+        private Services services;
         private ObservableCollection<Promotie> promoties = new ObservableCollection<Promotie>();
 
         public OverzichtPromoties()
@@ -47,9 +48,9 @@ namespace NativeApps2.xaml_pages
              promoties.Add(new Promotie("Uitverkoop winkel Antwerpen", "Kortingen tot 50 procent", new DateTime(2018, 3, 12), new DateTime(2018, 3, 31), ikea, "50% korting"));
              */
 
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
-            promoties = JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json);
+
+            services = new Services();
+            promoties = await services.getPromoties();
             lvPromoties.ItemsSource = promoties;
         }
 

@@ -26,6 +26,14 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
         }
 
+        //GET ALLE EVENEMENTEN
+        public async Task<ObservableCollection<Evenement>> getEvenementen()
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
+            return JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);
+        }
+
         //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
         public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(string onderneming)
         {
@@ -34,6 +42,14 @@ namespace NativeApps2
             return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming.Naam == onderneming));
         }
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
+
+        //GET ALLE PROMOTIES
+        public async Task<ObservableCollection<Promotie>> getPromoties()
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
+            return JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json);
+        }
 
         //GET ALLE PROMOTIES VAN EEN ONDERNEMING
         public async Task<ObservableCollection<Promotie>> getPromotiesVanOnderneming(string onderneming)
