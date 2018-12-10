@@ -59,7 +59,7 @@ namespace NativeApps2.xaml_pages
         internal void VoegPromotieToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum, string korting)
         {
             Onderneming onderneming = (Onderneming)selectedItem;
-            promoties.Add(new Promotie(naam, omschrijving, begindatum, einddatum, onderneming, korting));
+            //promoties.Add(new Promotie(naam, omschrijving, begindatum, einddatum, onderneming, korting));
         }
 
         private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)

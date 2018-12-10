@@ -13,6 +13,24 @@
             <StackPanel>
                 <VisualStateManager.VisualStateGroups>
                     <VisualStateGroup>
+                        <VisualState x:Name="anoniem">
+                            <VisualState.Setters>
+                                <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="aangemeld">
+                            <VisualState.Setters>
+                                <Setter Target="abonneer.Visibility" Value="Visible"/>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="zakelijk">
+                            <VisualState.Setters>
+                                <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+
+                            </VisualState.Setters>
+                        </VisualState>
+                        <!--
                         <VisualState x:Name="minView">
                             <VisualState.StateTriggers>
                                 <AdaptiveTrigger MinWindowWidth="0" />
@@ -28,7 +46,7 @@
                             <VisualState.Setters>
                                 <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
                             </VisualState.Setters>
-                        </VisualState>
+                        </VisualState>-->
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
                 <StackPanel.Background>
@@ -38,7 +56,7 @@
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                 <TextBox TextChanged="TextBox_TextChanged"  Text="Zoek hier naar ondernemingen" Margin="20" Foreground="White" HorizontalAlignment="Center"/>
-                <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                <ListView x:Name="myLV" ItemsSource="{Binding Ondernemingen}" HorizontalAlignment="Center">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!-- Kan eender wat zijn-->

@@ -75,7 +75,7 @@ namespace NativeApps2.xaml_pages
         internal void VoegEvenementToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum)
         {
             Onderneming onderneming = (Onderneming)selectedItem;
-            lijstVanEvenementen.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
+            //lijstVanEvenementen.Add(new Evenement(naam, omschrijving, begindatum, einddatum, onderneming));
             //Moet hier geen methode voorzien worden in services die een evenement in de databank bijsteekt?
         }
 
