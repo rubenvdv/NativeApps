@@ -22,17 +22,14 @@ namespace NativeApps2.Domain
         #endregion
 
         
-        public Onderneming(string naam, string cat, string adres, string openingsuren)
+        public Onderneming(string naam, string cat, string adres, string openingsuren, int OndernemerId)
         {
             Naam = naam;
             Categorie = cat;
             Adres = adres;
             Openingsuren = openingsuren;
+            OndernemerID = OndernemerID;
         }
 
-        public void VoegEvenementToe(string naam, string omschr, DateTime start, DateTime einde)
-        {
-            Evenementen.Add(new Evenement(naam, omschr, start, einde, this));
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NativeApps2.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,15 +24,24 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class EvenementGegevens : Page
     {
+        ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
+        Services services;
+
         public EvenementGegevens()
         {
-            //Test-fase
             this.InitializeComponent();
-           /* Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-            Evenement evenement = new Evenement("Ikea", "New Ikea brochure is launched today", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea);
-            evenementImage.DataContext = evenement;
-            evenementGrid.DataContext = evenement;
-            eigenaar.DataContext = ikea;*/
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            services = new Services();
+            evenementen = await services.getEvenementen();
+            //Hier moeten we nog weten over welk evenement het gaat en dit evenement uit de lijst van evenementen halen
+            //evenementImage.DataContext = evenement;
+            //evenementGrid.DataContext = evenement;
+            //eigenaar.DataContext = onderneming;
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

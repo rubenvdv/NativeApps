@@ -1,6 +1,7 @@
 ﻿using NativeApps2.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -23,30 +24,28 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Account : Page
     {
+        Services services;
+        ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
+
         public Account()
         {
             this.InitializeComponent();
             
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //this.DataContext = ((App)Application.Current).huidigeGebruiker;
-            Gebruiker huidig = ((App)Application.Current).huidigeGebruiker;
+
+            IngelogdeGebruiker huidig = (IngelogdeGebruiker) ((App)Application.Current).huidigeGebruiker;
             naam.Text = huidig.Naam;
             voorNaam.Text = huidig.Voornaam;
             mail.Text = huidig.Email;
             gebruikersnaam.Text = huidig.Gebruikersnaam;
 
-            //Dit werkt nog niet
-            //lvAccountAbonnees.ItemsSource = ((App)Application.Current).huidigeGebruiker.VolgendeOndernemingen;
-
-            //Test-fase
-            List<Onderneming> ondernemingen = new List<Onderneming>();
-            ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"/*, "apple.jpg"*/));
-            ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"/*, "ikea.png"*/));
-            lvAccountAbonnees.ItemsSource = ondernemingen;
+            services = new Services();
+            volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(huidig);
+            lvAccountAbonnees.ItemsSource = volgendeOndernemingen;
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

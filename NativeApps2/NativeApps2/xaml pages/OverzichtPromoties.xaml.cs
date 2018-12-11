@@ -28,6 +28,7 @@ namespace NativeApps2.xaml_pages
     {
         private Services services;
         private ObservableCollection<Promotie> promoties = new ObservableCollection<Promotie>();
+        private ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
 
         public OverzichtPromoties()
         {
@@ -37,30 +38,22 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            //Test-fase
-            /* List<Onderneming> ondernemingen = new List<Onderneming>();
-             Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
-             ondernemingen.Add(apple);
-             Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-             ondernemingen.Add(ikea);
-             promoties.Add(new Promotie("Black Friday", "Kortingen tot 70 procent", new DateTime(2018, 1, 1), new DateTime(2018, 1, 1), ikea, "70% korting"));
-             promoties.Add(new Promotie("Winkelopening Gent", "Openingsacties", new DateTime(2018, 2, 10), new DateTime(2018, 2, 17), apple, "Gratis goodiebag bij een aankoop naar keuze"));
-             promoties.Add(new Promotie("Uitverkoop winkel Antwerpen", "Kortingen tot 50 procent", new DateTime(2018, 3, 12), new DateTime(2018, 3, 31), ikea, "50% korting"));
-             */
-
-
             services = new Services();
+            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+            volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+
+            //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             promoties = await services.getPromoties();
             lvPromoties.ItemsSource = promoties;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
         //Een evenement heeft toch altijd een onderneming?
-        internal void VoegPromotieToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum, string korting)
+        /*internal void VoegPromotieToe(object selectedItem, string naam, string omschrijving, DateTime begindatum, DateTime einddatum, string korting)
         {
             Onderneming onderneming = (Onderneming)selectedItem;
             promoties.Add(new Promotie(naam, omschrijving, begindatum, einddatum, onderneming, korting));
-        }
+        }*/
 
         private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)
         {

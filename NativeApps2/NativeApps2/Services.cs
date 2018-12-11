@@ -26,6 +26,16 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json);
         }
 
+        //GET ALLE ONDERNEMINGEN DIE EEN GEBRUIKER VOLGT
+        public async Task<ObservableCollection<Onderneming>> getVolgendeOndernemingenVanGebruiker(IngelogdeGebruiker gebruiker)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ingelogdeGebruikers/"));
+            IngelogdeGebruiker ingelogdeGebruiker = JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json).First(g => g == gebruiker);
+            return ingelogdeGebruiker.VolgendeOndernemingen;
+        }
+
+
         //GET ALLE EVENEMENTEN
         public async Task<ObservableCollection<Evenement>> getEvenementen()
         {
@@ -35,12 +45,21 @@ namespace NativeApps2
         }
 
         //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
-        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(string onderneming)
+        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(Onderneming onderneming)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming.Naam == onderneming));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming == onderneming));
         }
+
+        //GET ALLE ONDERNEMINGEN VAN EEN ONDERNEMER
+        public async Task<ObservableCollection<Onderneming>> getOndernemingenVanOndernemer(Ondernemer ondernemer)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
+            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Ondernemer == ondernemer));
+        }
+
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
 
         //GET ALLE PROMOTIES
@@ -52,11 +71,11 @@ namespace NativeApps2
         }
 
         //GET ALLE PROMOTIES VAN EEN ONDERNEMING
-        public async Task<ObservableCollection<Promotie>> getPromotiesVanOnderneming(string onderneming)
+        public async Task<ObservableCollection<Promotie>> getPromotiesVanOnderneming(Onderneming onderneming)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
-            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming.Naam == onderneming));
+            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming == onderneming));
         }
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
 
@@ -75,7 +94,7 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Ondernemer>>(json);
         }
 
-        //GET ALLE GEBRUIKERS
+        //GET ALLE INGELOGDEGEBRUIKERS
         public async Task<ObservableCollection<IngelogdeGebruiker>> getIngelogdeGebruikers()
         {
             HttpClient client = new HttpClient();
@@ -107,7 +126,7 @@ namespace NativeApps2
          */
 
         //REGISTREER GEWONE GEBRUIKER
-        public async Task<HttpResponseMessage> registreerGewonegebruiker(Gebruiker gebruiker)
+        public async Task<HttpResponseMessage> registreerGewonegebruiker(IngelogdeGebruiker gebruiker)
         {
             //gebruiker.Wachtwoord = hashAlgorithm.HashMsg(gebruiker.Wachtwoord);
             var gewoneGebruikerJson = JsonConvert.SerializeObject(gebruiker);
@@ -127,5 +146,40 @@ namespace NativeApps2
             return res;
         }
 
+        //VOEG EVENEMENT TOE VAN ONDERNEMING
+        public async Task<HttpResponseMessage> voegEvenementToe(Evenement evenement)
+        {
+            var evenementJson = JsonConvert.SerializeObject(evenement);
+            HttpClient client = new HttpClient();
+            var res = await client.PostAsync("http://localhost:57003/api/evenements/", new StringContent(evenementJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
+        //VOEG PROMOTIE TOE VAN ONDERNEMING
+        public async Task<HttpResponseMessage> voegPromotieToe(Promotie promotie)
+        {
+            var promotieJson = JsonConvert.SerializeObject(promotie);
+            HttpClient client = new HttpClient();
+            var res = await client.PostAsync("http://localhost:57003/api/promoties/", new StringContent(promotieJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
+        //VOEG ONDERNEMING TOE VAN ONDERNEMER
+        public async Task<HttpResponseMessage> voegOndernemingToe(Onderneming onderneming)
+        {
+            var ondernemingJson = JsonConvert.SerializeObject(onderneming);
+            HttpClient client = new HttpClient();
+            var res = await client.PostAsync("http://localhost:57003/api/ondernemings/", new StringContent(ondernemingJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
+        //(UPDATE GEBRUIKER)
+        public async Task<HttpResponseMessage> UpdateGebruiker(IngelogdeGebruiker gebruiker)
+        {
+            var gebruikerJson = JsonConvert.SerializeObject(gebruiker);
+            HttpClient client = new HttpClient();
+            var res = await client.PutAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
     }
 }

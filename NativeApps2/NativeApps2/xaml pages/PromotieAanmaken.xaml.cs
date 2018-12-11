@@ -26,24 +26,33 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class PromotieAanmaken : Page
     {
-        private ObservableCollection<Onderneming> list = new ObservableCollection<Onderneming>();
+        Services services;
+        private ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
 
         public PromotieAanmaken()
         {
             this.InitializeComponent();
-            //Test-fase
-           /* Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
-            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-            list.Add(apple);
-            list.Add(ikea);
-            cmbOndernemingen.ItemsSource = list;*/
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            OverzichtPromoties ozPro = new OverzichtPromoties();
-            //begindatum.SelectedDate werkt niet, waarom?
-            ozPro.VoegPromotieToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime(), korting.Text);
+            base.OnNavigatedTo(e);
+
+            services = new Services();
+            Ondernemer ondernemer = (Ondernemer)((App)Application.Current).huidigeGebruiker;
+            ondernemingen = await services.getOndernemingenVanOndernemer(ondernemer);
+            cmbOndernemingen.ItemsSource = ondernemingen;
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var ondernemingUitComboBox = cmbOndernemingen.SelectedItem as ComboBoxItem;
+            Onderneming onderneming = ondernemingUitComboBox.DataContext as Onderneming;
+
+            Promotie promotie = new Promotie(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID, korting.Text);
+            await services.voegPromotieToe(promotie);
+
+
             framePromotieAanmaken.Navigate(typeof(OverzichtPromoties));
 
             //Notifications manier 1

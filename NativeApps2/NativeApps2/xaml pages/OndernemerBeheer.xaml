@@ -14,7 +14,7 @@
                 <ImageBrush ImageSource="/Images/background.jpg"/>
             </Frame.Background>
             <StackPanel>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn beheer" 
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Beheer" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -69,7 +69,7 @@
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Mijn ondernemingen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-                        <ListView x:Name="lvOnderemingen" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                        <ListView x:Name="lvOndernemingen" ItemsSource="{Binding}" HorizontalAlignment="Center">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">

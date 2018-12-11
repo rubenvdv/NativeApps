@@ -117,5 +117,10 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(OndernemerBeheer));
         }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            volledigscherm.Navigate(typeof(MainPage));
+        }
     }
 }

@@ -26,26 +26,33 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class EvenementAanmaken : Page
     {
-        private ObservableCollection<Onderneming> list = new ObservableCollection<Onderneming>();
+        Services services;
+        private ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
 
         public EvenementAanmaken()
         {
             this.InitializeComponent();
-            //Dit nog implementeren
-            //cmbOndernemingen.ItemsSource = typeof(Onderneming).GetHuidigeOndernemer().GetOndernemingen();
-           /* Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
-            Onderneming ikea = new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00", "ikea.png");
-            list.Add(apple);
-            list.Add(ikea);
-            cmbOndernemingen.ItemsSource = list;*/
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            /*OverzichtEvenementen ozEv = new OverzichtEvenementen();
-            //begindatum.SelectedDate werkt niet, waarom?
-            ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());*/
-            ((Onderneming)cmbOndernemingen.SelectedItem).VoegEvenementToe(naam.Text, omschrijving.Text, new DateTime(), new DateTime());
+            base.OnNavigatedTo(e);
+
+            services = new Services();
+            Ondernemer ondernemer = (Ondernemer)((App)Application.Current).huidigeGebruiker;
+            ondernemingen = await services.getOndernemingenVanOndernemer(ondernemer);
+            cmbOndernemingen.ItemsSource = ondernemingen;
+        }
+
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var ondernemingUitComboBox = cmbOndernemingen.SelectedItem as ComboBoxItem;
+            Onderneming onderneming = ondernemingUitComboBox.DataContext as Onderneming;
+
+            Evenement evenement = new Evenement(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID);
+            await services.voegEvenementToe(evenement);
+
             frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
 
             //Notifications manier 1

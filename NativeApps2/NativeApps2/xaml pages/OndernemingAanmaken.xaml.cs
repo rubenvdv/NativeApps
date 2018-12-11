@@ -25,14 +25,21 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OndernemingAanmaken : Page
     {
+
+        Services services;
+
         public OndernemingAanmaken()
         {
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            ((Ondernemer)((App)Application.Current).huidigeGebruiker).VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
+            services = new Services();
+            Ondernemer ondernemer = (Ondernemer) ((App)Application.Current).huidigeGebruiker;
+            Onderneming onderneming = new Onderneming(naam.Text, categorie.Text, adres.Text, openingsuren.Text, ondernemer.OndernemerID);
+            await services.voegOndernemingToe(onderneming);
+            
 
             //Notificatie
             ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;

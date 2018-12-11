@@ -25,24 +25,29 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class LoginZakelijk : Page
     {
+        Services services;
+
         public LoginZakelijk()
         {
             this.InitializeComponent();
         }
 
-        private void Registreer_Ondernemer(object sender, RoutedEventArgs e)
+        private async void Registreer_Ondernemer(object sender, RoutedEventArgs e)
         {
             if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals("")
                 && !naamOnderneming.Text.Equals("") && !categorieOnderneming.Text.Equals("") && !adresOnderneming.Text.Equals("") && !openingsurenOnderneming.Text.Equals(""))
             {
-                ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                services = new Services();
+                Ondernemer ondernemer = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                await services.registreerOndernemer(ondernemer);
+                ((App)Application.Current).huidigeGebruiker = ondernemer;
 
                 //Notificatie
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
                 XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
                 XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
                 toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Welkom"));
-                toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U hebt zich succesvol geregistreerd!"));
+                toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U heeft zich succesvol geregistreerd!"));
                 XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
                 ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
                 IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
