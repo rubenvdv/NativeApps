@@ -30,7 +30,7 @@
 
                             </VisualState.Setters>
                         </VisualState>
-                        <!--
+                        
                         <VisualState x:Name="minView">
                             <VisualState.StateTriggers>
                                 <AdaptiveTrigger MinWindowWidth="0" />
@@ -46,7 +46,7 @@
                             <VisualState.Setters>
                                 <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
                             </VisualState.Setters>
-                        </VisualState>-->
+                        </VisualState>
                     </VisualStateGroup>
                 </VisualStateManager.VisualStateGroups>
                 <StackPanel.Background>
