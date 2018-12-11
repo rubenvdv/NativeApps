@@ -35,7 +35,7 @@ namespace NativeApps2.xaml_pages
 
             if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals(""))
             {
-                //((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text,voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                ((App)Application.Current).huidigeGebruiker = new IngelogdeGebruiker(naam.Text,voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 
                 //Notificatie
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;

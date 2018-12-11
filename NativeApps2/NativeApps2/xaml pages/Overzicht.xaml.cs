@@ -1,10 +1,8 @@
 ﻿using NativeApps2.Domain;
-using NativeApps2.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -28,8 +26,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Overzicht : Page
     {
-        //private Services services;
-        //public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
+        private Services services;
+        public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
 
         public Overzicht()
         {
@@ -50,25 +48,9 @@ namespace NativeApps2.xaml_pages
             myLV.DataContext = ondernemingen;*/
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            this.DataContext = ((App)Application.Current).huidigeGebruiker;
-
-            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
-            Debug.Write("het type van de huidige gebruiker is:" + check);
-            if (check == typeof(Gebruiker))
-            {
-                VisualStateManager.GoToState(this, "anoniem", false);
-            }
-            else if (check == typeof(IngelogdeGebruiker))
-            {
-                VisualStateManager.GoToState(this, "aangemeld", false);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, "zakelijk", false);
-            }
             //Test-fase
             /*Onderneming apple = new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30", "apple.jpg");
             ondernemingen.Add(apple);
@@ -86,26 +68,25 @@ namespace NativeApps2.xaml_pages
                 }
             }
             */
-            this.DataContext = new OverzichtViewModel();
-
+            services = new Services();
+            ondernemingen = await services.getOndernemingen();
+            myLV.ItemsSource = ondernemingen;
         }
 
 
-        
+
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
             frameOverzicht.Navigate(typeof(OndernemingGegevens));
         }
 
-        //Van deze methode weet ik niet goed hoe dat praktisch met het viewmodel aangepakt wordt.
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var tekstbox = sender as TextBox;
-            //List<Onderneming> filterLijst = DataContext.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            //myLV.ItemsSource = filterLijst;
+            List<Onderneming> filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            myLV.ItemsSource = filterLijst;
         }
 
-        //Wordt later ook nog via viewmodel gedaan
         private void abonneer_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;

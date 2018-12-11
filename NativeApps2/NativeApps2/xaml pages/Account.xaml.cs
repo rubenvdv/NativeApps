@@ -43,10 +43,10 @@ namespace NativeApps2.xaml_pages
             //lvAccountAbonnees.ItemsSource = ((App)Application.Current).huidigeGebruiker.VolgendeOndernemingen;
 
             //Test-fase
-            //List<Onderneming> ondernemingen = new List<Onderneming>();
-            //ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"/*, "apple.jpg"*/));
-            //ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"/*, "ikea.png"*/));
-            //lvAccountAbonnees.ItemsSource = ondernemingen;
+            List<Onderneming> ondernemingen = new List<Onderneming>();
+            ondernemingen.Add(new Onderneming("Apple inc", "Technologie", "California", "Ma-Vrij 08u00-17u30"/*, "apple.jpg"*/));
+            ondernemingen.Add(new Onderneming("Ikea", "Meubels", "Sweden", "Ma-Vrij 08u00-17u30 zat-zon 08u-21u00"/*, "ikea.png"*/));
+            lvAccountAbonnees.ItemsSource = ondernemingen;
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

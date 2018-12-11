@@ -35,7 +35,7 @@ namespace NativeApps2.xaml_pages
             if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals("")
                 && !naamOnderneming.Text.Equals("") && !categorieOnderneming.Text.Equals("") && !adresOnderneming.Text.Equals("") && !openingsurenOnderneming.Text.Equals(""))
             {
-                //((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                ((App)Application.Current).huidigeGebruiker = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
 
                 //Notificatie
                 ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;

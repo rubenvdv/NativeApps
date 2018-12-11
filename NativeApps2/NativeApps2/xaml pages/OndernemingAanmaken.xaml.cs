@@ -32,7 +32,7 @@ namespace NativeApps2.xaml_pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //((Ondernemer)((App)Application.Current).huidigeGebruiker).VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
+            ((Ondernemer)((App)Application.Current).huidigeGebruiker).VoegOndernemingToe(naam.Text, categorie.Text, adres.Text, openingsuren.Text);
 
             //Notificatie
             ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;

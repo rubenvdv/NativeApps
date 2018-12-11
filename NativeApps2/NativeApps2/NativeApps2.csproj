@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Domain\DomeinController.cs" />
     <Compile Include="Domain\Evenement.cs" />
     <Compile Include="Domain\Gebruiker.cs" />
     <Compile Include="Domain\IngelogdeGebruiker.cs" />
@@ -101,8 +102,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Promotie.cs" />
-    <Compile Include="Utils\RelayCommand.cs" />
-    <Compile Include="ViewModels\OverzichtViewModel.cs" />
     <Compile Include="xaml pages\Aanmelden.xaml.cs">
       <DependentUpon>Aanmelden.xaml</DependentUpon>
     </Compile>

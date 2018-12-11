@@ -45,7 +45,7 @@ namespace NativeApps2.xaml_pages
             /*OverzichtEvenementen ozEv = new OverzichtEvenementen();
             //begindatum.SelectedDate werkt niet, waarom?
             ozEv.VoegEvenementToe(cmbOndernemingen.SelectedItem, naam.Text, omschrijving.Text, new DateTime(), new DateTime());*/
-            //((Onderneming)cmbOndernemingen.SelectedItem).VoegEvenementToe(naam.Text, omschrijving.Text, new DateTime(), new DateTime());
+            ((Onderneming)cmbOndernemingen.SelectedItem).VoegEvenementToe(naam.Text, omschrijving.Text, new DateTime(), new DateTime());
             frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
 
             //Notifications manier 1
