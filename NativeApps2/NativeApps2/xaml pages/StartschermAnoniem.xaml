@@ -80,7 +80,6 @@
                         <TextBlock Text="{Binding Voornaam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         <TextBlock Text="{Binding Naam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
-
                     <StackPanel x:Name="mijnBeheer" Tapped="MijnBeheer_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets"
                             Width="50"

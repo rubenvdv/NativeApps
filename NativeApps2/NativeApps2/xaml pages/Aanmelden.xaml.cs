@@ -1,7 +1,6 @@
 ﻿using NativeApps2.Domain;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,21 +25,17 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Aanmelden : Page
     {
-        private Services services;
-
         public Aanmelden()
         {
             this.InitializeComponent();
         }
 
-        private async void aanmelden_Click(object sender, RoutedEventArgs e)
+        private void aanmelden_Click(object sender, RoutedEventArgs e)
         {
-            //List<Gebruiker> bestaande = new List<Gebruiker>();
-            services = new Services();
-            ObservableCollection<IngelogdeGebruiker> bestaande = await services.getIngelogdeGebruikers();
+            List<Gebruiker> bestaande = new List<Gebruiker>();
             //bestaande.Add(new IngelogdeGebruiker("ruben", "", "ruben", "ruben", "ruben"));
 
-            IngelogdeGebruiker gebruiker = bestaande.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+            Gebruiker gebruiker = bestaande.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
             if(gebruiker== null)
             {
                 foutmelding.Text = "OPGELET: Gebruiker bestaat niet";

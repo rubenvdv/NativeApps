@@ -86,7 +86,7 @@ namespace NativeApps2.xaml_pages
                 }
             }
             */
-            myLV.DataContext = new OverzichtViewModel();
+            this.DataContext = new OverzichtViewModel();
 
         }
 

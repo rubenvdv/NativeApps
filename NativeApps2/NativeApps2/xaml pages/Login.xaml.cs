@@ -25,8 +25,6 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Login : Page
     {
-        private Services services;
-
         public Login()
         {
             this.InitializeComponent();

@@ -31,7 +31,7 @@ namespace NativeApps2.xaml_pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            account.DataContext = ((App)Application.Current).huidigeGebruiker;
+            this.DataContext = ((App)Application.Current).huidigeGebruiker;
 
             Type check = ((App)Application.Current).huidigeGebruiker.GetType();
 
@@ -117,6 +117,5 @@ namespace NativeApps2.xaml_pages
         {
             frameRechts.Navigate(typeof(OndernemerBeheer));
         }
- 
     }
 }
