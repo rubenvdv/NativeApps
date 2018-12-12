@@ -40,7 +40,7 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
             services = new Services();
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
-            volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
 
             //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             lijstVanEvenementen = await services.getEvenementen();

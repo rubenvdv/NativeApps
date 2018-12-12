@@ -21,7 +21,11 @@ namespace NativeApps2.Domain
         public virtual ICollection<Evenement> Evenementen { get; set; }
         #endregion
 
-        
+
+        public Onderneming()
+        {
+
+        }
         public Onderneming(string naam, string cat, string adres, string openingsuren, int OndernemerId)
         {
             Naam = naam;

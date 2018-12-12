@@ -38,10 +38,8 @@ namespace NativeApps2.xaml_pages
         {
             services = new Services();
             ObservableCollection<IngelogdeGebruiker> ingelogdeGebruikers = await services.getIngelogdeGebruikers();
-            Debug.Write("Er is een lijst van ingelogde gebruikers: " + ingelogdeGebruikers.ToString());
+            
             Gebruiker gebruiker = ingelogdeGebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
-            //Gebruiker gebruiker = await services.getIngelogdeGebruiker(gebruikersnaam.Text);
-            Debug.Write("De gebruiker is: " + gebruiker.ToString());
             if (gebruiker== null)
             {
                 foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
@@ -57,6 +55,11 @@ namespace NativeApps2.xaml_pages
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }
 
+        }
+
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameMeldAan.Navigate(typeof(MainPage));
         }
     }
 }

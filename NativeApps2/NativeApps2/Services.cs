@@ -31,8 +31,9 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ingelogdeGebruikers/"));
-            IngelogdeGebruiker ingelogdeGebruiker = JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json).First(g => g == gebruiker);
-            return ingelogdeGebruiker.VolgendeOndernemingen;
+            var ingelogdeGebruiker = JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json);
+            var user = ingelogdeGebruiker.FirstOrDefault(g => g.Equals(gebruiker));
+            return user.VolgendeOndernemingen;
         }
 
 
