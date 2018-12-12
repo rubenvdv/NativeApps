@@ -41,9 +41,16 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
             //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
 
+            IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
+            foreach (Onderneming o in volgendeOndernemingen)
+            {
+                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o.OndernemingID);
+                foreach (Evenement ev in evenementenVanOnderneming)
+                    lijstVanEvenementen.Add(ev);
+            }
             //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
-            lijstVanEvenementen = await services.getEvenementen();
             lvEvenementen.ItemsSource = lijstVanEvenementen;
         }
 

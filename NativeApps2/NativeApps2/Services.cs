@@ -46,11 +46,11 @@ namespace NativeApps2
         }
 
         //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
-        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(Onderneming onderneming)
+        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(int onderneming)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming == onderneming));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.OndernemingID == onderneming));
         }
 
         //GET ALLE ONDERNEMINGEN VAN EEN ONDERNEMER

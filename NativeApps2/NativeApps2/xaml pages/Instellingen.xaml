@@ -7,25 +7,92 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Frame>
+    <Frame x:Name="frameInstellingen">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Instellingen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <TextBlock Text="Wat wilt u doen?" Foreground="White" HorizontalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}"/>
-            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
-            <StackPanel HorizontalAlignment="Center">
-                <TextBlock Text="Naam veranderen" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
-            </StackPanel>
-            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
-            <StackPanel HorizontalAlignment="Center">
-                <TextBlock Text="Onderneming toevoegen" Foreground="White" Style="{ThemeResource CaptionTextBlockStyle}"/>
-            </StackPanel>
-            <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
 
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Voornaam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="E-mailadres:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
+
+                <TextBox x:Name="voorNaam" Text="{Binding Voornaam}" Grid.Row="0" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="naam" Text="{Binding Naam}" Grid.Row="1" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="mail"  Text="{Binding Email}" Grid.Row="2" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="gebruikersnaam" Text="{Binding Gebruikersnaam}" Grid.Row="3" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+                <TextBox x:Name="wachtwoord"  Text="{Binding Wachtwoord}" Grid.Row="4" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+
+            </Grid>
+
+            <Button x:Name="Wijzigen" Click="Wijzigen_Click"
+                    Content="Wijzig gegevens" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center" Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Annuleer" Content="Annuleer" 
+                Grid.Row="0" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                Click="Annuleer_Click"
+                VerticalAlignment="Top" Margin="0" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
+            
+        
     </Frame>
 </Page>

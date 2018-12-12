@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -47,7 +48,9 @@ namespace NativeApps2.xaml_pages
             ondernemingen.Add(_onderneming);
             OverzichtOnderneming.ItemsSource = ondernemingen;
 
-            _evenementen = await services.getEvenementenVanOnderneming(_onderneming);
+            _evenementen = await services.getEvenementenVanOnderneming(_onderneming.OndernemingID);
+            Debug.WriteLine(_onderneming.Evenementen);
+            Debug.WriteLine(_onderneming.OndernemingID);
             lvOndernemingEvenementen.ItemsSource = _evenementen;
         }
 

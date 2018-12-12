@@ -41,7 +41,15 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
             //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
 
+            IList<Promotie> promotiesVanOnderneming = new List<Promotie>();
+            foreach (Onderneming o in volgendeOndernemingen)
+            {
+                promotiesVanOnderneming = await services.getPromotiesVanOnderneming(o);
+                foreach (Promotie promo in promotiesVanOnderneming)
+                    promoties.Add(promo);
+            }
             //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             promoties = await services.getPromoties();
             lvPromoties.ItemsSource = promoties;
