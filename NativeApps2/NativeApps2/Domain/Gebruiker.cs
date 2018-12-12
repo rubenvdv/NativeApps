@@ -26,5 +26,11 @@ namespace NativeApps2.Domain
             Email = mail;
             ProfielFoto = "/Images/anoniem.png";
         }
+
+        public override bool Equals(object obj)
+        {
+            Gebruiker g = (Gebruiker)obj;
+            return this.Gebruikersnaam.Equals(g.Gebruikersnaam);
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace NativeApps2
 
         private void Registreren_Click(object sender, RoutedEventArgs e)
         {
-            mainFrame.Navigate(typeof(Login));
+            mainFrame.Navigate(typeof(Login)); //Is dus eigenlijk de registreerpagina maar fout genoemd
         }
     }
 }

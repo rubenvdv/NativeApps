@@ -18,13 +18,13 @@ namespace NativeApps2.Domain
 
         public virtual Onderneming Onderneming { get; set; }
 
-        public Evenement(string naam, string omschrijving, DateTime start, DateTime einde, Onderneming onderneming)
+        public Evenement(string naam, string omschrijving, DateTime start, DateTime einde, int ondernemingId)
         {
             Naam = naam;
             Omschrijving = omschrijving;
             Begindatum = start;
             Einddatum = einde;
-            Onderneming = onderneming;
+            OndernemingID = ondernemingId;
             //Logo = this.Onderneming.Logo;
         }
     }

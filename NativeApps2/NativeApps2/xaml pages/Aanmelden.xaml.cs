@@ -1,6 +1,8 @@
 ﻿using NativeApps2.Domain;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,18 +27,20 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Aanmelden : Page
     {
+        Services services;
+
         public Aanmelden()
         {
             this.InitializeComponent();
         }
 
-        private void aanmelden_Click(object sender, RoutedEventArgs e)
+        private async void aanmelden_Click(object sender, RoutedEventArgs e)
         {
-            List<Gebruiker> bestaande = new List<Gebruiker>();
-            bestaande.Add(new IngelogdeGebruiker("ruben", "", "ruben", "ruben", "ruben"));
-
-            Gebruiker gebruiker = bestaande.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
-            if(gebruiker== null)
+            services = new Services();
+            ObservableCollection<IngelogdeGebruiker> ingelogdeGebruikers = await services.getIngelogdeGebruikers();
+            
+            Gebruiker gebruiker = ingelogdeGebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+            if (gebruiker== null)
             {
                 foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
             }
@@ -48,22 +52,14 @@ namespace NativeApps2.xaml_pages
             {
                 ((App)Application.Current).huidigeGebruiker = gebruiker;
 
-                ////Notificatie
-                //ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                //XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                //XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                //toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Account"));
-                //toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U bent aangemeld!"));
-                //XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                //((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                //IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                //((XmlElement)toastNode).SetAttribute("duration", "short");
-                //ToastNotification toast = new ToastNotification(toastXml);
-                //ToastNotificationManager.CreateToastNotifier().Show(toast);
-
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }
 
+        }
+
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameMeldAan.Navigate(typeof(MainPage));
         }
     }
 }

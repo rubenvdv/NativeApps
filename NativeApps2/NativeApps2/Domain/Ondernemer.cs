@@ -16,7 +16,7 @@ namespace NativeApps2.Domain
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public string Gebruikersnaam { get; set; }
-        public string Wachtwoord { get; set; } //Hierbij gaan we nog moeten kijken hoe we dit opslaan, want mag geen cleartext zijn
+        public string Wachtwoord { get; set; }
         public string Email { get; set; }
         #endregion
         #region Constructors
@@ -33,9 +33,9 @@ namespace NativeApps2.Domain
         }
         #endregion
 
-        public void VoegOndernemingToe(string naam, string cat, string adres, string openingsuren)
+        /*public void VoegOndernemingToe(string naam, string cat, string adres, string openingsuren)
         {
             bedrijven.Add(new Onderneming(naam, cat, adres, openingsuren));
-        }
+        }*/
     }
 }
