@@ -35,5 +35,11 @@ namespace NativeApps2.Domain
             OndernemerID = OndernemerID;
         }
 
+        public override bool Equals(object obj)
+        {
+            Onderneming o = (Onderneming)obj;
+            return this.OndernemingID.Equals(o.OndernemingID);
+        }
+
     }
 }

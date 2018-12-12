@@ -18,6 +18,11 @@ namespace NativeApps2.Domain
 
         public virtual Onderneming Onderneming { get; set; }
 
+        public Promotie()
+        {
+               
+        }
+
         public Promotie(string naam, string omschrijving, DateTime start, DateTime einde, int ondernemingId, string korting)
         {
             Naam = naam;
@@ -26,6 +31,12 @@ namespace NativeApps2.Domain
             Einddatum = einde;
             OndernemingID = ondernemingId;
             Korting = korting;
+        }
+
+        public override bool Equals(object obj)
+        {
+            Promotie p = (Promotie)obj;
+            return this.Naam.Equals(p.Naam);
         }
     }
 }

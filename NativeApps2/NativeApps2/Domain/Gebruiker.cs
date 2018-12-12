@@ -17,6 +17,11 @@ namespace NativeApps2.Domain
         public string ProfielFoto { get; set; }
         #endregion
 
+        public Gebruiker()
+        {
+
+        }
+
         public Gebruiker(string naam="Doe", string voornaam="John", string gebruikersnaam="", string ww="", string mail="")
         {
             Naam = naam;

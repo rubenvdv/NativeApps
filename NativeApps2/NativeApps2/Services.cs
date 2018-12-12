@@ -50,7 +50,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Onderneming == onderneming));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Equals(onderneming)));
         }
 
         //GET ALLE ONDERNEMINGEN VAN EEN ONDERNEMER
@@ -58,7 +58,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
-            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Ondernemer == ondernemer));
+            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Equals(ondernemer)));
         }
 
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
@@ -76,7 +76,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
-            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming == onderneming));
+            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Equals(onderneming)));
         }
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
 

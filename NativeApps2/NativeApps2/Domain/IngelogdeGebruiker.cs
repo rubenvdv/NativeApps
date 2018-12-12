@@ -13,8 +13,6 @@ namespace NativeApps2.Domain
        
         public virtual ObservableCollection<Onderneming> VolgendeOndernemingen { get; set; } //Ondernemingen die de gebruiker volgt
         
-
-
         #endregion
         #region Constructors
         public IngelogdeGebruiker()
@@ -23,12 +21,11 @@ namespace NativeApps2.Domain
         }
         public IngelogdeGebruiker(string naam, string voornaam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, voornaam, gebruikersnaam, wachtwoord, mail)
         {
-            /*Naam = naam;
+            Naam = naam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Email = mail;*/
-            VolgendeOndernemingen = new ObservableCollection<Onderneming>();
-            ProfielFoto = "/Images/gebruiker1.png";
+            Email = mail;
+            //VolgendeOndernemingen = new ObservableCollection<Onderneming>();
         }
         #endregion
 

@@ -92,7 +92,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\DomeinController.cs" />
     <Compile Include="Domain\Evenement.cs" />
     <Compile Include="Domain\Gebruiker.cs" />
     <Compile Include="Domain\IngelogdeGebruiker.cs" />
