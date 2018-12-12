@@ -58,7 +58,9 @@ namespace NativeApps2.xaml_pages
 
         private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens));
+            StackPanel sp = sender as StackPanel;
+            Evenement evenement = sp.DataContext as Evenement;
+            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens), evenement);
 
         }
     }

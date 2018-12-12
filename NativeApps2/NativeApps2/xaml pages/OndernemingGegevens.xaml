@@ -22,45 +22,34 @@
                     <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
                 </StackPanel>
             </StackPanel>
-            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Naam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Categorie:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Adres:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Openingsuren:" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBlock x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Naam}" Foreground="White"/>
-                <TextBlock x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Categorie}" Foreground="White"/>
-                <TextBlock x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Adres}" Foreground="White"/>
-                <TextBlock x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Openingsuren}" Foreground="White"/>
-            </Grid>
+            <ListView x:Name="OverzichtOnderneming" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <!-- Kan eender wat zijn-->
+                        <StackPanel Orientation="Horizontal">
+                            <Image Width = "100" Height="100" Source="{Binding Logo}"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                                <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button x:Name="abonneer"  Click="abonneer_Click"  Content="{Binding AbonnementName, ElementName=OndernemingGegevens}" Foreground="White" HorizontalAlignment="Center">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Aankomende evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
