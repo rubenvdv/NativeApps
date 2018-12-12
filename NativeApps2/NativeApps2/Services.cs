@@ -179,8 +179,17 @@ namespace NativeApps2
         {
             var gebruikerJson = JsonConvert.SerializeObject(gebruiker);
             HttpClient client = new HttpClient();
-            var res = await client.PutAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+            var res = await client.PutAsync($"http://localhost:57003/api/ingelogdeGebruikers/{gebruiker.Gebruikersnaam}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
             return res;
         }
+
+        //UPDATE VOLGENDE ONDERNEMINGEN
+        /* public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsId)
+         {
+             var gebruikerJson = JsonConvert.SerializeObject(onderneming met id ondernemingsId);
+             HttpClient client = new HttpClient();
+             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.Gebruikersnaam}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+             return res;
+         }*/
     }
 }

@@ -3,7 +3,7 @@ namespace NativeApps2Service.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -82,6 +82,15 @@ namespace NativeApps2Service.Migrations
                 "dbo.IngelogdeGebruikerOndernemings",
                 c => new
                     {
+                        Gebruikersnaam = c.String(nullable: false, maxLength: 128),
+                        OndernemingsId = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.Gebruikersnaam, t.OndernemingsId });
+            
+            CreateTable(
+                "dbo.IngelogdeGebruikerOndernemings1",
+                c => new
+                    {
                         IngelogdeGebruiker_Gebruikersnaam = c.String(nullable: false, maxLength: 128),
                         Onderneming_OndernemingID = c.Int(nullable: false),
                     })
@@ -96,15 +105,16 @@ namespace NativeApps2Service.Migrations
         public override void Down()
         {
             DropForeignKey("dbo.Promoties", "OndernemingID", "dbo.Ondernemings");
-            DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "Onderneming_OndernemingID", "dbo.Ondernemings");
-            DropForeignKey("dbo.IngelogdeGebruikerOndernemings", "IngelogdeGebruiker_Gebruikersnaam", "dbo.IngelogdeGebruikers");
+            DropForeignKey("dbo.IngelogdeGebruikerOndernemings1", "Onderneming_OndernemingID", "dbo.Ondernemings");
+            DropForeignKey("dbo.IngelogdeGebruikerOndernemings1", "IngelogdeGebruiker_Gebruikersnaam", "dbo.IngelogdeGebruikers");
             DropForeignKey("dbo.Ondernemings", "OndernemerID", "dbo.Ondernemers");
             DropForeignKey("dbo.Evenements", "OndernemingID", "dbo.Ondernemings");
-            DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "Onderneming_OndernemingID" });
-            DropIndex("dbo.IngelogdeGebruikerOndernemings", new[] { "IngelogdeGebruiker_Gebruikersnaam" });
+            DropIndex("dbo.IngelogdeGebruikerOndernemings1", new[] { "Onderneming_OndernemingID" });
+            DropIndex("dbo.IngelogdeGebruikerOndernemings1", new[] { "IngelogdeGebruiker_Gebruikersnaam" });
             DropIndex("dbo.Promoties", new[] { "OndernemingID" });
             DropIndex("dbo.Ondernemings", new[] { "OndernemerID" });
             DropIndex("dbo.Evenements", new[] { "OndernemingID" });
+            DropTable("dbo.IngelogdeGebruikerOndernemings1");
             DropTable("dbo.IngelogdeGebruikerOndernemings");
             DropTable("dbo.Promoties");
             DropTable("dbo.IngelogdeGebruikers");

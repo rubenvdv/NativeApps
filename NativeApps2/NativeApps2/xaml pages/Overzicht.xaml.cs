@@ -30,7 +30,8 @@ namespace NativeApps2.xaml_pages
     {
         private Services services;
         public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
-
+        public string abonnementName = "Geabonneerd";
+        public string AbonnementName { get { return abonnementName; } }
         public Overzicht()
         {
             this.InitializeComponent();
@@ -46,10 +47,12 @@ namespace NativeApps2.xaml_pages
             if (check == typeof(Gebruiker))
             {
                 VisualStateManager.GoToState(this, "anoniem", false);
+                
             }
             else if (check == typeof(IngelogdeGebruiker))
             {
                 VisualStateManager.GoToState(this, "aangemeld", false);
+                abonnementName = "Verander";
             }
             else
             {
@@ -59,6 +62,7 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             ondernemingen = await services.getOndernemingen();
             myLV.ItemsSource = ondernemingen;
+
         }
 
 
@@ -92,9 +96,10 @@ namespace NativeApps2.xaml_pages
             else
             {
                 gebruiker.VolgendeOndernemingen.Add(o);
-                await services.UpdateGebruiker(gebruiker);
+                //await services.PutVolgen
                 b.Content = "Geabonneerd";
             }
+            
         }
     }
 }

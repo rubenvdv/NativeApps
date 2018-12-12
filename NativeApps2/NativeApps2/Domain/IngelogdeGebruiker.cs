@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,11 +13,12 @@ namespace NativeApps2.Domain
         #region properties
        
         public virtual ObservableCollection<Onderneming> VolgendeOndernemingen { get; set; } //Ondernemingen die de gebruiker volgt
-        
+
 
 
         #endregion
         #region Constructors
+        [JsonConstructor]
         public IngelogdeGebruiker()
         {
 

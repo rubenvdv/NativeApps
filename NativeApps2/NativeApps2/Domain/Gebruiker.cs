@@ -29,8 +29,13 @@ namespace NativeApps2.Domain
 
         public override bool Equals(object obj)
         {
-            Gebruiker g = (Gebruiker)obj;
-            return this.Gebruikersnaam.Equals(g.Gebruikersnaam);
+            Gebruiker g;
+            if (obj is Gebruiker)
+            {
+                g = (Gebruiker)obj;
+                return this.Gebruikersnaam.Equals(g.Gebruikersnaam);
+            }
+            return base.Equals(obj);
         }
     }
 }

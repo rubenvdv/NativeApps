@@ -58,10 +58,10 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!-- Kan eender wat zijn-->
-                            <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
+                            <StackPanel Orientation="Horizontal">
                                 <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                                <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Vertical"  Tapped="Onderneming_Tapped">
                                     <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
                                     <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
                                     <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
@@ -69,7 +69,7 @@
                                     <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
                                 </StackPanel>
                                 <!--Visibility="{Binding Role, Converter=}" moet binnen deze button komen: converter schrijven h3 ! -->
-                                <Button x:Name="abonneer"  Click="abonneer_Click"  Content="Abonneer" Foreground="White" HorizontalAlignment="Right">
+                                <Button x:Name="abonneer"  Click="abonneer_Click"  Content="{Binding AbonnementName, ElementName=frameOverzicht}" Foreground="White" HorizontalAlignment="Right">
                                     <Button.Background>
                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                                             <GradientStop Color="Green" Offset="0.0" />
