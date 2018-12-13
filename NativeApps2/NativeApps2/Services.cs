@@ -46,12 +46,20 @@ namespace NativeApps2
         }
 
         //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
+        /*Is het zoals hier of zoals hieronder? Dit kwam uit de master... De implementatie eronder uit werkenMetViewModels
         public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(Onderneming onderneming)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
             return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Equals(onderneming)));
+        }*/
+        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(int onderneming)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.OndernemingID == onderneming));
         }
+
 
         //GET ALLE ONDERNEMINGEN VAN EEN ONDERNEMER
         public async Task<ObservableCollection<Onderneming>> getOndernemingenVanOndernemer(Ondernemer ondernemer)

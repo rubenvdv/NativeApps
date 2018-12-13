@@ -49,7 +49,7 @@ namespace NativeApps2.xaml_pages
 
             _evenementen = await services.getEvenementenVanOnderneming(_onderneming.OndernemingID);
             Debug.WriteLine(_onderneming.Evenementen);
-            Debug.WriteLine(_onderneming.OndernemingID);
+            Debug.WriteLine(_onderneming);
             lvOndernemingEvenementen.ItemsSource = _evenementen;
         }
 
