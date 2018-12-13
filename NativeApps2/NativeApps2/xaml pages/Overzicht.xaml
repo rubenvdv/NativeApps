@@ -11,42 +11,7 @@
     <ScrollViewer>
         <Frame x:Name="frameOverzicht">
             <StackPanel>
-                <VisualStateManager.VisualStateGroups>
-                    <VisualStateGroup>
-                        <!--
-                        <VisualState x:Name="minView">
-                            <VisualState.StateTriggers>
-                                <AdaptiveTrigger MinWindowWidth="0" />
-                            </VisualState.StateTriggers>
-                            <VisualState.Setters>
-                                <Setter Target="SetButtonVisible.Visible" Value="Visible"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="wideView">
-                            <VisualState.StateTriggers>
-                                <AdaptiveTrigger MinWindowWidth="500" />
-                            </VisualState.StateTriggers>
-                            <VisualState.Setters>
-                                <Setter Target="SetButtonVisible.Visible" Value="Collapsed"/>
-                            </VisualState.Setters>
-                        </VisualState>-->
-                        <VisualState x:Name="anoniem">
-                            <VisualState.Setters>
-                                <Setter Target="abonneer.Visibility" Value="Collapsed"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="aangemeld">
-                            <VisualState.Setters>
-                                <Setter Target="abonneer.Visibility" Value="Visible"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                        <VisualState x:Name="zakelijk">
-                            <VisualState.Setters>
-                                <Setter Target="abonneer.Visibility" Value="Collapsed"/>
-                            </VisualState.Setters>
-                        </VisualState>
-                    </VisualStateGroup>
-                </VisualStateManager.VisualStateGroups>
+                
                 <StackPanel.Background>
                     <ImageBrush ImageSource="/Images/background.jpg"/>
                 </StackPanel.Background>
@@ -58,25 +23,16 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <!-- Kan eender wat zijn-->
-                            <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
+                            <StackPanel Orientation="Horizontal">
                                 <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
-                                <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Vertical"  Tapped="Onderneming_Tapped">
                                     <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
                                     <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
                                     <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
                                     <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                                     <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5"/>
                                 </StackPanel>
-                                <!--Visibility="{Binding Role, Converter=}" moet binnen deze button komen: converter schrijven h3 ! -->
-                                <Button x:Name="abonneer"  Click="abonneer_Click"  Content="Abonneer" Foreground="White" HorizontalAlignment="Right">
-                                    <Button.Background>
-                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                                            <GradientStop Color="Green" Offset="0.0" />
-                                            <GradientStop Color="LimeGreen" Offset="0.75" />
-                                        </LinearGradientBrush>
-                                    </Button.Background>
-                                </Button>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

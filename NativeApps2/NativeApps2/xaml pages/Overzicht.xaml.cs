@@ -30,7 +30,8 @@ namespace NativeApps2.xaml_pages
     {
         private Services services;
         public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
-
+        public string abonnementName = "Geabonneerd";
+        public string AbonnementName { get { return abonnementName; } }
         public Overzicht()
         {
             this.InitializeComponent();
@@ -46,10 +47,12 @@ namespace NativeApps2.xaml_pages
             if (check == typeof(Gebruiker))
             {
                 VisualStateManager.GoToState(this, "anoniem", false);
+                
             }
             else if (check == typeof(IngelogdeGebruiker))
             {
                 VisualStateManager.GoToState(this, "aangemeld", false);
+                abonnementName = "Verander";
             }
             else
             {
@@ -59,13 +62,17 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             ondernemingen = await services.getOndernemingen();
             myLV.ItemsSource = ondernemingen;
+
         }
 
 
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOverzicht.Navigate(typeof(OndernemingGegevens));
+            StackPanel sp = sender as StackPanel;
+            Onderneming o = sp.DataContext as Onderneming;
+            //OndernemingGegevens og = new OndernemingGegevens(o);
+            frameOverzicht.Navigate(typeof(OndernemingGegevens), o);
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -75,26 +82,6 @@ namespace NativeApps2.xaml_pages
             myLV.ItemsSource = filterLijst;
         }
 
-        private async void abonneer_Click(object sender, RoutedEventArgs e)
-        {
-            Button b = sender as Button;
-            Onderneming o = b.DataContext as Onderneming;
-            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
-
-            if (b.Content.ToString() == "Geabonneerd")
-            {
-                gebruiker.VolgendeOndernemingen.Remove(o);
-                await services.UpdateGebruiker(gebruiker);
-
-                b.Content = "Abonneer";
-
-            }
-            else
-            {
-                gebruiker.VolgendeOndernemingen.Add(o);
-                await services.UpdateGebruiker(gebruiker);
-                b.Content = "Geabonneerd";
-            }
-        }
+        
     }
 }

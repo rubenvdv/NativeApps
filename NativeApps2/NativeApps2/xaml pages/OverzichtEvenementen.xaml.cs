@@ -41,10 +41,30 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
             //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
 
+            IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
+            foreach (Onderneming o in volgendeOndernemingen)
+            {
+                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o.OndernemingID);
+                foreach (Evenement ev in evenementenVanOnderneming)
+                    lijstVanEvenementen.Add(ev);
+            }
             //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
-            lijstVanEvenementen = await services.getEvenementen();
             lvEvenementen.ItemsSource = lijstVanEvenementen;
+
+            int aantalElementen = lijstVanEvenementen.Count;
+
+            if (aantalElementen > 0)
+            {
+                VisualStateManager.GoToState(this, "nietLeeg", false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "leeg", false);
+            }
+
+            resultaat.DataContext = aantalElementen;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
@@ -58,7 +78,9 @@ namespace NativeApps2.xaml_pages
 
         private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens));
+            StackPanel sp = sender as StackPanel;
+            Evenement evenement = sp.DataContext as Evenement;
+            frameOverzichtEvenementen.Navigate(typeof(EvenementGegevens), evenement);
 
         }
     }

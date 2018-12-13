@@ -28,7 +28,6 @@ namespace NativeApps2Service.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
             var ondernemers = new List<Ondernemer>
             {
                 new Ondernemer{Naam="Brodin", Voornaam="Jesper", Gebruikersnaam="JesperBrodin", Wachtwoord="jesperbrodin", Email="jesper.brodin@ikea.com"},
@@ -88,11 +87,5 @@ namespace NativeApps2Service.Migrations
             gebruikers.ForEach(g => context.IngelogdeGebruikers.AddOrUpdate(ig => ig.Email, g));
             context.SaveChanges();
         }
-
-
     }
-
-
-
-
 }

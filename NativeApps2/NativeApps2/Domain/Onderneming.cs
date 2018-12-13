@@ -24,7 +24,7 @@ namespace NativeApps2.Domain
 
         public Onderneming()
         {
-
+            
         }
         public Onderneming(string naam, string cat, string adres, string openingsuren, int OndernemerId)
         {

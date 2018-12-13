@@ -24,8 +24,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class EvenementGegevens : Page
     {
-        ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
         Services services;
+        private Evenement _evenement;
 
         public EvenementGegevens()
         {
@@ -35,18 +35,18 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            
+            _evenement = (Evenement)e.Parameter;
+            evenementGrid.DataContext = _evenement;
+            onderneming.DataContext = _evenement.Onderneming;
 
-            services = new Services();
-            evenementen = await services.getEvenementen();
-            //Hier moeten we nog weten over welk evenement het gaat en dit evenement uit de lijst van evenementen halen
-            //evenementImage.DataContext = evenement;
-            //evenementGrid.DataContext = evenement;
-            //eigenaar.DataContext = onderneming;
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameEvenementGegevens.Navigate(typeof(OndernemingGegevens));
+            StackPanel sp = sender as StackPanel;
+            Onderneming o = sp.DataContext as Onderneming;
+            frameEvenementGegevens.Navigate(typeof(OndernemingGegevens), o);
 
         }
     }

@@ -18,11 +18,16 @@
             <ListView HorizontalAlignment="Center">
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Margin="10" Symbol="Zoom" Foreground="White"/>
-                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop voor zoeken. Hier kan je zoeken tussen alle ondernemingen in de app."/>
+                        <SymbolIcon Margin="10" Symbol="OtherUser" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop kan u zich uitloggen."/>
                     </StackPanel>
                 </ListViewItem>
-
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="GlobalNavigationButton" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Via deze knop opent of sluit u het menu volledig."/>
+                    </StackPanel>
+                </ListViewItem>
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Home" Foreground="White"/>
@@ -43,6 +48,12 @@
                 </ListViewItem>
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Shop" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Op deze pagina wordt een overzicht weergeven van alle lopende promoties."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="People" Foreground="White"/>
                         <TextBlock Margin="10" Foreground="White" Text="Hier kan u alle ondernemingen waarop u geabonneerd bent terugvinden."/>
                     </StackPanel>
@@ -50,25 +61,25 @@
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Add" Foreground="White"/>
-                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een onderneming kan toevoegen."/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een onderneming kan toevoegen, indien u een ondernemer bent."/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Favorite" Foreground="White"/>
-                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een evenement kan aanmaken voor uw onderneming."/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een evenement kan aanmaken voor uw onderneming, indien u een ondernemer bent."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Up" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Dit is de knop waar u een promotie kan toevoegen aan uw onderneming, indien u een ondernemer bent."/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Setting" Foreground="White"/>
                         <TextBlock Margin="10" Foreground="White" Text="Dit is de knop voor instellingen. Hier kan u uw algemene gegevens (naam, voornaam etc.) wijzigen."/>
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Margin="10" Symbol="Next" Foreground="White"/>
-                        <TextBlock Margin="10" Foreground="White" Text="To be continued..."/>
                     </StackPanel>
                 </ListViewItem>
             </ListView>

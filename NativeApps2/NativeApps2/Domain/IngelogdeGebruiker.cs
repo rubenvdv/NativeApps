@@ -21,11 +21,12 @@ namespace NativeApps2.Domain
         }
         public IngelogdeGebruiker(string naam, string voornaam, string gebruikersnaam, string wachtwoord, string mail) : base(naam, voornaam, gebruikersnaam, wachtwoord, mail)
         {
-            Naam = naam;
+            /*Naam = naam;
             Gebruikersnaam = gebruikersnaam;
             Wachtwoord = wachtwoord;
-            Email = mail;
-            //VolgendeOndernemingen = new ObservableCollection<Onderneming>();
+            Email = mail;*/
+            VolgendeOndernemingen = new ObservableCollection<Onderneming>();
+            ProfielFoto = "/Images/gebruiker1.png";
         }
         #endregion
 

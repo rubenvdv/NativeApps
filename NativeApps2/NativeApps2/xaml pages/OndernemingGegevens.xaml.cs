@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -25,28 +26,65 @@ namespace NativeApps2.xaml_pages
     public sealed partial class OndernemingGegevens : Page
     {
         Services services;
-        public ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
+        public ObservableCollection<Evenement> _evenementen = new ObservableCollection<Evenement>();
+        private Onderneming _onderneming;
+        public string AbonnementName { get; set; }
 
         public OndernemingGegevens()
         {
-            this.InitializeComponent(); 
+            this.InitializeComponent();
+            
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            _onderneming = (Onderneming)e.Parameter;
+            ondernemingGrid.DataContext = _onderneming;
 
+            AbonnementName = "Hallo";
             services = new Services();
             //Met deze methode nog de onderneming waarover het gaat weergeven
             //evenementen = await services.getEvenementenVanOnderneming(onderneming);
-            lvOndernemingEvenementen.ItemsSource = evenementen;
+
+            _evenementen = await services.getEvenementenVanOnderneming(_onderneming.OndernemingID);
+            Debug.WriteLine(_onderneming.Evenementen);
+            Debug.WriteLine(_onderneming.OndernemingID);
+            lvOndernemingEvenementen.ItemsSource = _evenementen;
         }
 
 
         private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOndernemingGegevens.Navigate(typeof(EvenementGegevens));
+            StackPanel sp = sender as StackPanel;
+            Evenement evenement = sp.DataContext as Evenement;
+            frameOndernemingGegevens.Navigate(typeof(EvenementGegevens), evenement);
 
         }
+
+
+        private async void abonneer_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            Onderneming o = b.DataContext as Onderneming;
+            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+
+            if (b.Content.ToString() == "Geabonneerd")
+            {
+                gebruiker.VolgendeOndernemingen.Remove(o);
+                await services.UpdateGebruiker(gebruiker);
+
+                b.Content = "Abonneer";
+
+            }
+            else
+            {
+                gebruiker.VolgendeOndernemingen.Add(o);
+                //await services.PutVolgen
+                b.Content = "Geabonneerd";
+            }
+
+        }
+
     }
 }

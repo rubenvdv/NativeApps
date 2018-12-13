@@ -45,5 +45,13 @@ namespace NativeApps2.xaml_pages
             ondernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
             lvAbonnees.ItemsSource = ondernemingen;
         }
+
+        private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            StackPanel sp = sender as StackPanel;
+            Onderneming onderneming = sp.DataContext as Onderneming;
+            frameOverzichtAbonnees.Navigate(typeof(OndernemingGegevens), onderneming);
+
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace NativeApps2Service.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != ingelogdeGebruiker.Email)
+            if (id != ingelogdeGebruiker.Gebruikersnaam)
             {
                 return BadRequest();
             }
@@ -67,7 +67,40 @@ namespace NativeApps2Service.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return Ok();
+        }
+
+        // PUT: api/VoegVolgendeOndernemingToe/rubenvdv id is gebruikersnaam
+        [Route("IngelogdeGebruikers/VoegVolgendeOndernemingToe/{id}")]
+        [HttpPut]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutVoegVolgendeOndernemingToe(string id,[FromBody] int ondernemingsid)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+
+          db.VolgendeOndernemingen.Add(new IngelogdeGebruikerOndernemings() { OndernemingsId = ondernemingsid, Gebruikersnaam = id });
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!IngelogdeGebruikerExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
         }
 
         // POST: api/IngelogdeGebruikers

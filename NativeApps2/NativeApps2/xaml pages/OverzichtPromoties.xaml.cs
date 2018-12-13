@@ -41,10 +41,29 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
             //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
 
+            IList<Promotie> promotiesVanOnderneming = new List<Promotie>();
+            foreach (Onderneming o in volgendeOndernemingen)
+            {
+                promotiesVanOnderneming = await services.getPromotiesVanOnderneming(o);
+                foreach (Promotie promo in promotiesVanOnderneming)
+                    promoties.Add(promo);
+            }
             //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             promoties = await services.getPromoties();
             lvPromoties.ItemsSource = promoties;
+
+            int aantalElementen = promoties.Count;
+
+            if (aantalElementen > 0)
+            {
+                VisualStateManager.GoToState(this, "nietLeeg", false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "leeg", false);
+            }
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
@@ -57,7 +76,9 @@ namespace NativeApps2.xaml_pages
 
         private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOverzichtPromoties.Navigate(typeof(PromotieGegevens));
+            StackPanel sp = sender as StackPanel;
+            Promotie promotie = sp.DataContext as Promotie;
+            frameOverzichtPromoties.Navigate(typeof(PromotieGegevens), promotie);
 
         }
     }

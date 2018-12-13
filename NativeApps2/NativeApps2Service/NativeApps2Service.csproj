@@ -117,13 +117,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201812051009409_Initial.cs" />
-    <Compile Include="Migrations\201812051009409_Initial.Designer.cs">
-      <DependentUpon>201812051009409_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201812121300256_initial.cs" />
+    <Compile Include="Migrations\201812121300256_initial.Designer.cs">
+      <DependentUpon>201812121300256_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Evenement.cs" />
     <Compile Include="Models\IngelogdeGebruiker.cs" />
+    <Compile Include="Models\IngelogdeGebruikerOndernemings.cs" />
     <Compile Include="Models\NativeApps2ServiceContext.cs" />
     <Compile Include="Models\Ondernemer.cs" />
     <Compile Include="Models\Onderneming.cs" />
@@ -140,8 +141,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201812051009409_Initial.resx">
-      <DependentUpon>201812051009409_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201812121300256_initial.resx">
+      <DependentUpon>201812121300256_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

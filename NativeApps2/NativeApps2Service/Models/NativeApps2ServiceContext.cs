@@ -28,5 +28,8 @@ namespace NativeApps2Service.Models
         public System.Data.Entity.DbSet<NativeApps2Service.Models.IngelogdeGebruiker> IngelogdeGebruikers { get; set; }
 
         public System.Data.Entity.DbSet<NativeApps2Service.Models.Promotie> Promoties { get; set; }
+
+        public System.Data.Entity.DbSet<NativeApps2Service.Models.IngelogdeGebruikerOndernemings> VolgendeOndernemingen { get; set; }
+
     }
 }
