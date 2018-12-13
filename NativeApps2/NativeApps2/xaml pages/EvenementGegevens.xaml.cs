@@ -24,7 +24,6 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class EvenementGegevens : Page
     {
-        ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
         Services services;
         private Evenement _evenement;
 
@@ -38,9 +37,8 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
             
             _evenement = (Evenement)e.Parameter;
-            ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
-            evenementen.Add(_evenement);
-            Evenement.ItemsSource = evenementen;
+            evenementGrid.DataContext = _evenement;
+            onderneming.DataContext = _evenement.Onderneming;
 
         }
 

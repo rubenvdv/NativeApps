@@ -40,13 +40,12 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             _onderneming = (Onderneming)e.Parameter;
+            ondernemingGrid.DataContext = _onderneming;
+
             AbonnementName = "Hallo";
             services = new Services();
             //Met deze methode nog de onderneming waarover het gaat weergeven
             //evenementen = await services.getEvenementenVanOnderneming(onderneming);
-            ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
-            ondernemingen.Add(_onderneming);
-            OverzichtOnderneming.ItemsSource = ondernemingen;
 
             _evenementen = await services.getEvenementenVanOnderneming(_onderneming.OndernemingID);
             Debug.WriteLine(_onderneming.Evenementen);

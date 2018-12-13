@@ -63,7 +63,7 @@
             <SplitView.Pane>
                 <StackPanel Background="Gray" >
                     <StackPanel x:Name="uitloggen" Tapped="returnButton_Click" Orientation="Horizontal">
-                        <Button x:Name="returnButton" FontFamily="Segoe MDL2 Assets" Content="&#xE830;" Width="50" Height="50" Visibility="Visible"/>
+                        <Button x:Name="uitlogButton" FontFamily="Segoe MDL2 Assets" Content="&#xE7EE;" Width="50" Height="50" Visibility="Visible"/>
 
                         <TextBlock Text="Log uit" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>

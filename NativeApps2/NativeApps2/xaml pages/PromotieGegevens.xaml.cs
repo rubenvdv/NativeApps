@@ -24,8 +24,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class PromotieGegevens : Page
     {
-        Services services;
-        ObservableCollection<Promotie> promoties = new ObservableCollection<Promotie>();
+        private Promotie _promotie;
 
         public PromotieGegevens()
         {
@@ -36,17 +35,16 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
 
-            services = new Services();
-            promoties = await services.getPromoties();
-            //Hier moeten we nog weten over welke promotie het gaat en deze promotie uit de lijst van promoties halen
-            //promotieNaam.DataContext = promotie;
-            //promotieGrid.DataContext = promotie;
-            //eigenaar.DataContext = onderneming;
+            _promotie = (Promotie)e.Parameter;
+            promotieGrid.DataContext = _promotie;
+            onderneming.DataContext = _promotie.Onderneming;
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            framePromotieGegevens.Navigate(typeof(OndernemingGegevens));
+            StackPanel sp = sender as StackPanel;
+            Onderneming o = sp.DataContext as Onderneming;
+            framePromotieGegevens.Navigate(typeof(OndernemingGegevens), o);
         }
     }
 }

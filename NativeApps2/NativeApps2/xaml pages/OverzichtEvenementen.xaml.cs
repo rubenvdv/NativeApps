@@ -52,6 +52,19 @@ namespace NativeApps2.xaml_pages
             }
             //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             lvEvenementen.ItemsSource = lijstVanEvenementen;
+
+            int aantalElementen = lijstVanEvenementen.Count;
+
+            if (aantalElementen > 0)
+            {
+                VisualStateManager.GoToState(this, "nietLeeg", false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "leeg", false);
+            }
+
+            resultaat.DataContext = aantalElementen;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?

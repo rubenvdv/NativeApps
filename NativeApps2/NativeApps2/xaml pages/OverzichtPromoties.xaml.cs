@@ -53,6 +53,17 @@ namespace NativeApps2.xaml_pages
             //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             promoties = await services.getPromoties();
             lvPromoties.ItemsSource = promoties;
+
+            int aantalElementen = promoties.Count;
+
+            if (aantalElementen > 0)
+            {
+                VisualStateManager.GoToState(this, "nietLeeg", false);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "leeg", false);
+            }
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
@@ -65,7 +76,9 @@ namespace NativeApps2.xaml_pages
 
         private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOverzichtPromoties.Navigate(typeof(PromotieGegevens));
+            StackPanel sp = sender as StackPanel;
+            Promotie promotie = sp.DataContext as Promotie;
+            frameOverzichtPromoties.Navigate(typeof(PromotieGegevens), promotie);
 
         }
     }

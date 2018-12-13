@@ -13,10 +13,41 @@
             <Frame.Background>
                 <ImageBrush ImageSource="/Images/background.jpg"/>
             </Frame.Background>
+
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="leeg">
+                        <VisualState.Setters>
+                            <Setter Target="bericht.Visibility" Value="Visible"/>
+                            <Setter Target="lvEvenementen.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="nietLeeg">
+                        <VisualState.Setters>
+                            <Setter Target="bericht.Visibility" Value="Collapsed"/>
+                            <Setter Target="lvEvenementen.Visibility" Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
             <StackPanel>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
+
+                <StackPanel x:Name="bericht" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Margin="0,200,0,0" Foreground="White" 
+                               Text="Er zijn geen evenementen beschikbaar voor de ondernemingen waar u op geabonneerd bent."
+                               Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
+
+                <StackPanel x:Name="resultaat" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Margin="0,50,0,0" Foreground="White" 
+                               Text="{Binding}"
+                               Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
+
                 <ListView x:Name="lvEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -32,7 +63,7 @@
                                         <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                                         <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                                     </StackPanel>
-                                    <Line Stroke="White" X1="0" X2="500" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+                                    <Line Stroke="White" X1="0" X2="600" Y1="5" Y2="5" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>

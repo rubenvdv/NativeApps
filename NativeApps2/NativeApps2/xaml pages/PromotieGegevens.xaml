@@ -16,13 +16,9 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Promotie" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <StackPanel x:Name="promotieNaam" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-            </StackPanel>
+            
             <Grid x:Name="promotieGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -58,17 +54,13 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Einddatum}" Foreground="White"/>
             </Grid>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming:"
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming"
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-            <StackPanel x:Name="eigenaar" Tapped="Onderneming_Tapped" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="{Binding Logo}" Width="100" Height="100"/>
-                <StackPanel>
-                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" 
-                               HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                </StackPanel>
-            </StackPanel>
 
+            <StackPanel x:Name="onderneming" Tapped="Onderneming_Tapped" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Foreground="White"/>
+            </StackPanel>
         </StackPanel>
     </Frame>
 </Page>
