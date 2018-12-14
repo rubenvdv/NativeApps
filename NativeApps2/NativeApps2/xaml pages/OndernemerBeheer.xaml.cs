@@ -27,6 +27,9 @@ namespace NativeApps2.xaml_pages
 
         Services services;
         public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
+        public ObservableCollection<Evenement> evenementen = new ObservableCollection<Evenement>();
+        public ObservableCollection<Promotie> promos = new ObservableCollection<Promotie>();
+
 
         public OndernemerBeheer()
         {
@@ -44,8 +47,24 @@ namespace NativeApps2.xaml_pages
             gebruikersnaam.Text = huidig.Gebruikersnaam;
 
             services = new Services();
+
             ondernemingen = await services.getOndernemingenVanOndernemer(huidig);
             lvOndernemingen.ItemsSource = ondernemingen;
+
+            foreach ( Onderneming o in ondernemingen)
+            {
+                IList<Evenement> events = await services.getEvenementenVanOnderneming(o.OndernemingID);
+                foreach (Evenement ev in events)
+                    evenementen.Add(ev);
+
+                IList<Promotie> promoties = await services.getPromotiesVanOnderneming(o);
+                foreach (Promotie p in promoties)
+                    promos.Add(p);
+            }
+
+            lvEvenementen.ItemsSource = evenementen;
+            lvPromoties.ItemsSource = promos;
+
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

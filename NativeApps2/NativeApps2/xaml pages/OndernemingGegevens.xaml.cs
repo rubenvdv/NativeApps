@@ -72,7 +72,7 @@ namespace NativeApps2.xaml_pages
             if (b.Content.ToString() == "Geabonneerd")
             {
                 gebruiker.VolgendeOndernemingen.Remove(o);
-                await services.UpdateGebruiker(gebruiker);
+                await services.UpdateGebruiker(gebruiker, gebruiker.GetType());
 
                 b.Content = "Abonneer";
 

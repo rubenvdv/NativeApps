@@ -32,12 +32,13 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             this.DataContext = ((App)Application.Current).huidigeGebruiker;
+            frameRechts.Navigate(typeof(Overzicht));
 
             Type check = ((App)Application.Current).huidigeGebruiker.GetType();
-
-            if(check == typeof(Gebruiker))
+            if (check == typeof(Gebruiker))
             {
                 VisualStateManager.GoToState(this, "anoniem", false);
+               
             }
             else if(check == typeof(IngelogdeGebruiker))
             {
@@ -46,10 +47,11 @@ namespace NativeApps2.xaml_pages
             else
             {
                 VisualStateManager.GoToState(this, "zakelijk", false);
+                frameRechts.Navigate(typeof(OndernemerBeheer));
             }
 
 
-            frameRechts.Navigate(typeof(Overzicht));
+            
         }
         //Eigen event-handlers
         private void Button_Click_1(object sender, RoutedEventArgs e) //Sluit/open pane (links scherm)

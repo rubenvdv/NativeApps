@@ -34,7 +34,7 @@ namespace NativeApps2.xaml_pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            IngelogdeGebruiker g = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+            Gebruiker g = ((App)Application.Current).huidigeGebruiker;
             voorNaam.Text = g.Voornaam;
             naam.Text = g.Naam;
             mail.Text = g.Email;
@@ -49,14 +49,14 @@ namespace NativeApps2.xaml_pages
 
         public async void Wijzigen_Click(object sender, RoutedEventArgs e)
         {
-            IngelogdeGebruiker g = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+            Gebruiker g = ((App)Application.Current).huidigeGebruiker;
             g.Voornaam = voorNaam.Text;
             g.Naam = naam.Text;
             g.Email = mail.Text;
             g.Gebruikersnaam = gebruikersnaam.Text;
             g.Wachtwoord = wachtwoord.Text;
 
-            await services.UpdateGebruiker(g);
+            await services.UpdateGebruiker(g, g.GetType());
             frameInstellingen.Navigate(typeof(Instellingen));
         }
     }

@@ -66,7 +66,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
-            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Equals(ondernemer)));
+            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Ondernemer.Equals(ondernemer)));
         }
 
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
@@ -84,7 +84,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
-            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Equals(onderneming)));
+            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming.Equals(onderneming)));
         }
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
 
@@ -183,12 +183,21 @@ namespace NativeApps2
         }
 
         //(UPDATE GEBRUIKER)
-        public async Task<HttpResponseMessage> UpdateGebruiker(IngelogdeGebruiker gebruiker)
+        public async Task<HttpResponseMessage> UpdateGebruiker(Gebruiker gebruiker, Type t)
         {
             var gebruikerJson = JsonConvert.SerializeObject(gebruiker);
             HttpClient client = new HttpClient();
-            var res = await client.PutAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
-            return res;
+
+            if (t == typeof(IngelogdeGebruiker))
+            {
+                var res = await client.PutAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+                return res;
+            }
+            else
+            {
+                var res = await client.PutAsync("http://localhost:57003/api/ondernemers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+                return res;
+            }
         }
 
         //UPDATE VOLGENDE ONDERNEMINGEN

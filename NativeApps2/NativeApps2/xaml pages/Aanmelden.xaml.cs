@@ -37,10 +37,27 @@ namespace NativeApps2.xaml_pages
         private async void aanmelden_Click(object sender, RoutedEventArgs e)
         {
             services = new Services();
-            ObservableCollection<IngelogdeGebruiker> ingelogdeGebruikers = await services.getIngelogdeGebruikers();
-            
-            Gebruiker gebruiker = ingelogdeGebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
-            if (gebruiker== null)
+
+            if(ondernemer.IsChecked == true)
+            {
+                meldOndernemerAan();
+            }
+            else
+            {
+                meldGebruikerAan();
+            }
+        }
+
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameMeldAan.Navigate(typeof(MainPage));
+        }
+
+        private async void meldGebruikerAan()
+        {
+            ObservableCollection<IngelogdeGebruiker> gebruikers = await services.getIngelogdeGebruikers();
+            IngelogdeGebruiker gebruiker = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+            if (gebruiker == null)
             {
                 foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
             }
@@ -50,16 +67,33 @@ namespace NativeApps2.xaml_pages
             }
             else
             {
+
                 ((App)Application.Current).huidigeGebruiker = gebruiker;
 
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }
-
         }
-
-        private void annuleer_Click(object sender, RoutedEventArgs e)
+        private async void meldOndernemerAan()
         {
-            frameMeldAan.Navigate(typeof(MainPage));
+            ObservableCollection<Ondernemer> gebruikers = await services.getOndernemers();
+            Ondernemer gebruiker = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+            foreach (Ondernemer o in gebruikers)
+                Debug.WriteLine(o.Gebruikersnaam + " " + o.Wachtwoord);
+            if (gebruiker == null)
+            {
+                foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
+            }
+            else if (!wachtwoord.Password.Equals(gebruiker.Wachtwoord))
+            {
+                foutmelding.Text = "OPGELET: Onjuiste combinatie gebruikersnaam/wachtwoord";
+            }
+            else
+            {
+
+                ((App)Application.Current).huidigeGebruiker = gebruiker;
+
+                frameMeldAan.Navigate(typeof(StartschermAnoniem));
+            }
         }
     }
 }

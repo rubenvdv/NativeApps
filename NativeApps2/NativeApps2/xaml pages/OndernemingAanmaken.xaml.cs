@@ -52,9 +52,9 @@ namespace NativeApps2.xaml_pages
             IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
             ((XmlElement)toastNode).SetAttribute("duration", "long");
             ToastNotification toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
+            //ToastNotificationManager.CreateToastNotifier().Show(toast);
 
-            frameOnderneming.Navigate(typeof(Overzicht));
+            frameOnderneming.Navigate(typeof(OndernemerBeheer));
         }
     }
 }

@@ -43,6 +43,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
+            <CheckBox x:Name="ondernemer" Content="Ik ben een ondernemer" IsChecked="False" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <Button x:Name="aanmelden" Click="aanmelden_Click" Content="Aanmelden" 
                 Grid.Row="5" Grid.Column="1" 
                 HorizontalAlignment="Center"

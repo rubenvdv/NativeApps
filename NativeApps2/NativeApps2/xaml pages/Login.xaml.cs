@@ -36,10 +36,10 @@ namespace NativeApps2.xaml_pages
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals(""))
+            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Password.Equals(""))
             {
                 services = new Services();
-                IngelogdeGebruiker user = new IngelogdeGebruiker(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                IngelogdeGebruiker user = new IngelogdeGebruiker(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Password, mail.Text);
                 await services.registreerGewonegebruiker(user);
                 ((App)Application.Current).huidigeGebruiker = user;
 

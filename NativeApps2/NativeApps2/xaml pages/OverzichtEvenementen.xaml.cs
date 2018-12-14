@@ -39,9 +39,20 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             services = new Services();
-            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
-            //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
-            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
+
+            Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
+            Type typeGebruiker = gebruiker.GetType();
+
+            if(typeGebruiker == typeof(IngelogdeGebruiker))
+            {
+                volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
+                bericht.Text = "Er worden voorlopig geen evenementen georganiseerd door uw gevolgde ondernemingen";
+
+            }
+            else {
+                volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
+                bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende evenementen";
+            }
 
             IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
             foreach (Onderneming o in volgendeOndernemingen)
@@ -57,14 +68,8 @@ namespace NativeApps2.xaml_pages
 
             if (aantalElementen > 0)
             {
-                VisualStateManager.GoToState(this, "nietLeeg", false);
+                bericht.Text = "";
             }
-            else
-            {
-                VisualStateManager.GoToState(this, "leeg", false);
-            }
-
-            resultaat.DataContext = aantalElementen;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?

@@ -46,8 +46,7 @@ namespace NativeApps2.xaml_pages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            var ondernemingUitComboBox = cmbOndernemingen.SelectedItem as ComboBoxItem;
-            Onderneming onderneming = ondernemingUitComboBox.DataContext as Onderneming;
+            Onderneming onderneming = cmbOndernemingen.SelectedItem as Onderneming;
 
             Promotie promotie = new Promotie(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID, korting.Text);
             await services.voegPromotieToe(promotie);

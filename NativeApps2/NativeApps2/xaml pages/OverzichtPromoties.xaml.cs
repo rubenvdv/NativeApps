@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -39,30 +40,41 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             services = new Services();
-            IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
-            //volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
-            volgendeOndernemingen = gebruiker.VolgendeOndernemingen;
+
+            Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
+            Type typeGebruiker = gebruiker.GetType();
+
+            if (typeGebruiker == typeof(IngelogdeGebruiker))
+            {
+                volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
+                bericht.Text = "Er worden voorlopig geen promoties georganiseerd door uw gevolgde ondernemingen";
+            }
+            else
+            {
+                volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
+                bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende promoties";
+
+            }
+
 
             IList<Promotie> promotiesVanOnderneming = new List<Promotie>();
             foreach (Onderneming o in volgendeOndernemingen)
             {
                 promotiesVanOnderneming = await services.getPromotiesVanOnderneming(o);
                 foreach (Promotie promo in promotiesVanOnderneming)
+                {
                     promoties.Add(promo);
+                    Debug.WriteLine(promo.Naam);
+                }
             }
             //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
-            promoties = await services.getPromoties();
-            lvPromoties.ItemsSource = promoties;
 
             int aantalElementen = promoties.Count;
 
             if (aantalElementen > 0)
             {
-                VisualStateManager.GoToState(this, "nietLeeg", false);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, "leeg", false);
+                bericht.Text = "";
+                lvPromoties.ItemsSource = promoties;
             }
         }
 

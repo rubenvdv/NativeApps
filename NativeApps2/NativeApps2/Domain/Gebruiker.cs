@@ -15,6 +15,7 @@ namespace NativeApps2.Domain
         public string Wachtwoord { get; set; }
         public string Email { get; set; }
         public string ProfielFoto { get; set; }
+        public string Initialen { get { return Naam.Substring(0, 1) + "" + Voornaam.Substring(0, 1); } }
         #endregion
 
         public Gebruiker()

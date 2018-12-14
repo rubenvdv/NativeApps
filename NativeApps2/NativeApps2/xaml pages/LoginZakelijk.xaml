@@ -64,7 +64,7 @@
                     <TextBox x:Name="gebruikersnaam" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                    <TextBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
+                    <PasswordBox x:Name="wachtwoord" Grid.Row="4" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                 </Grid>

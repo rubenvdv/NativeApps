@@ -34,11 +34,11 @@ namespace NativeApps2.xaml_pages
 
         private async void Registreer_Ondernemer(object sender, RoutedEventArgs e)
         {
-            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Text.Equals("")
+            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals("") && !wachtwoord.Password.Equals("")
                 && !naamOnderneming.Text.Equals("") && !categorieOnderneming.Text.Equals("") && !adresOnderneming.Text.Equals("") && !openingsurenOnderneming.Text.Equals(""))
             {
                 services = new Services();
-                Ondernemer ondernemer = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Text, mail.Text);
+                Ondernemer ondernemer = new Ondernemer(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Password, mail.Text);
                 await services.registreerOndernemer(ondernemer);
                 ((App)Application.Current).huidigeGebruiker = ondernemer;
 
