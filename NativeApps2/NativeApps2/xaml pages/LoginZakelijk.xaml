@@ -14,9 +14,6 @@
         </Frame.Background>
         <ScrollViewer>
             <StackPanel VerticalAlignment="Center">
-                <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
-                       Margin="20"
-                       Foreground="Red" FontSize="13"/>
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Registreer" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
@@ -109,7 +106,10 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
                 </Grid>
-                <Button Click="Meld_Aan" Content="Registreer" 
+                <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
+                <Button Click="Registreer_Ondernemer" Content="Registreer" 
                 Grid.Row="4" Grid.Column="1" 
                 HorizontalAlignment="Center"
                         Width="200"

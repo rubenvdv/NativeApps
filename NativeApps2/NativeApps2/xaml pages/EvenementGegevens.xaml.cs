@@ -35,10 +35,11 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            
+            services = new Services();
             _evenement = (Evenement)e.Parameter;
             evenementGrid.DataContext = _evenement;
-            onderneming.DataContext = _evenement.Onderneming;
+
+            onderneming.DataContext = await services.getOnderneming(_evenement.OndernemingID);
 
         }
 

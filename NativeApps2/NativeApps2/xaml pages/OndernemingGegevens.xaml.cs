@@ -47,7 +47,7 @@ namespace NativeApps2.xaml_pages
             //Met deze methode nog de onderneming waarover het gaat weergeven
             //evenementen = await services.getEvenementenVanOnderneming(onderneming);
 
-            _evenementen = await services.getEvenementenVanOnderneming(_onderneming.OndernemingID);
+            _evenementen = await services.getEvenementenVanOnderneming(_onderneming);
             Debug.WriteLine(_onderneming.Evenementen);
             Debug.WriteLine(_onderneming);
             lvOndernemingEvenementen.ItemsSource = _evenementen;
@@ -72,7 +72,7 @@ namespace NativeApps2.xaml_pages
             if (b.Content.ToString() == "Geabonneerd")
             {
                 gebruiker.VolgendeOndernemingen.Remove(o);
-                await services.UpdateGebruiker(gebruiker, gebruiker.GetType());
+                await services.UpdateGebruiker(gebruiker);
 
                 b.Content = "Abonneer";
 

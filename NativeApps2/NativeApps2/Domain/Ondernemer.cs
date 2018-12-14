@@ -28,5 +28,20 @@ namespace NativeApps2.Domain
             Email = mail;
         }
         #endregion
+
+        /*public override bool Equals(object obj)
+        {
+            Ondernemer o = (Ondernemer)obj;
+            return this.OndernemerID.Equals(o.OndernemerID);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -176717849;
+            hashCode = hashCode * -1521134295 + base.GetHashCode();
+            hashCode = hashCode * -1521134295 + EqualityComparer<ObservableCollection<Onderneming>>.Default.GetHashCode(bedrijven);
+            hashCode = hashCode * -1521134295 + OndernemerID.GetHashCode();
+            return hashCode;
+        }*/
     }
 }

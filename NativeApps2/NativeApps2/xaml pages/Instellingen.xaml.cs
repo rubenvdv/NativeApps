@@ -39,7 +39,6 @@ namespace NativeApps2.xaml_pages
             naam.Text = g.Naam;
             mail.Text = g.Email;
             gebruikersnaam.Text = g.Gebruikersnaam;
-            wachtwoord.Text = g.Wachtwoord;
         }
 
         private void Annuleer_Click(object sender, RoutedEventArgs e)
@@ -47,17 +46,46 @@ namespace NativeApps2.xaml_pages
             frameInstellingen.Navigate(typeof(Overzicht));
         }
 
-        public async void Wijzigen_Click(object sender, RoutedEventArgs e)
+        private async void WijzigenGegevens_Click(object sender, RoutedEventArgs e)
         {
-            Gebruiker g = ((App)Application.Current).huidigeGebruiker;
-            g.Voornaam = voorNaam.Text;
-            g.Naam = naam.Text;
-            g.Email = mail.Text;
-            g.Gebruikersnaam = gebruikersnaam.Text;
-            g.Wachtwoord = wachtwoord.Text;
+            if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals(""))
+            {
+                Gebruiker g = ((App)Application.Current).huidigeGebruiker;
+                g.Voornaam = voorNaam.Text;
+                g.Naam = naam.Text;
+                g.Email = mail.Text;
+                g.Gebruikersnaam = gebruikersnaam.Text;
 
-            await services.UpdateGebruiker(g, g.GetType());
-            frameInstellingen.Navigate(typeof(Instellingen));
+                await services.UpdateGebruiker(g);
+                //frameInstellingen.Navigate(typeof(Instellingen));
+                succesMessage.Text = "Gegevens succesvol aangepast!";
+                foutmelding.Text = "";
+            }
+            else
+            {
+                succesMessage.Text = "";
+                foutmelding.Text = "Gelieve alle gegevens in te vullen!";
+            }
+
+        }
+
+        private async void WijzigenPassword_Click(object sender, RoutedEventArgs e)
+        {
+            if (!wachtwoord.Password.Equals(""))
+            {
+                Gebruiker g = ((App)Application.Current).huidigeGebruiker;
+                g.Wachtwoord = wachtwoord.Password;
+
+                await services.UpdateGebruiker(g);
+                //frameInstellingen.Navigate(typeof(Instellingen));
+                succesMessage.Text = "Wachtwoord succesvol aangepast!";
+                foutmelding.Text = "";
+            }
+            else
+            {
+                succesMessage.Text = "";
+                foutmelding.Text = "Gelieve een wachtwoord in te vullen!";
+            }
         }
     }
 }

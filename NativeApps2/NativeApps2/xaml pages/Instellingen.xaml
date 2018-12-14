@@ -12,13 +12,12 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
-            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
-                       Margin="20"
-                       Foreground="Red" FontSize="13"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Instellingen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -45,9 +44,6 @@
                 <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Gebruikersnaam:" Foreground="White" FontWeight="SemiBold"/>
-                <TextBlock Grid.Row="4" Grid.Column="0" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
 
                 <TextBox x:Name="voorNaam" Text="{Binding Voornaam}" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
@@ -61,13 +57,10 @@
                 <TextBox x:Name="gebruikersnaam" Text="{Binding Gebruikersnaam}" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="wachtwoord"  Text="{Binding Wachtwoord}" Grid.Row="4" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
 
             </Grid>
 
-            <Button x:Name="Wijzigen" Click="Wijzigen_Click"
+            <Button x:Name="WijzigenGegevensButton" Click="WijzigenGegevens_Click"
                     Content="Wijzig gegevens" 
                 Grid.Row="5" Grid.Column="1" 
                 HorizontalAlignment="Center" Width="200"
@@ -79,6 +72,41 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Right" 
+                   Text="Wachtwoord:" Foreground="White" FontWeight="SemiBold"/>
+
+                <PasswordBox x:Name="wachtwoord"  Grid.Row="1" Grid.Column="1" Margin="10"
+                   VerticalAlignment="Center" HorizontalAlignment="Left" 
+                   Width="200"/>
+            </Grid>
+
+            <Button x:Name="WijzigenPasswordButton" Click="WijzigenPassword_Click"
+                    Content="Wijzig password" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center" Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <TextBlock x:Name="succesMessage" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="DarkGreen" FontSize="13"/>
+
             <Button x:Name="Annuleer" Content="Annuleer" 
                 Grid.Row="0" Grid.Column="1" 
                 HorizontalAlignment="Center"

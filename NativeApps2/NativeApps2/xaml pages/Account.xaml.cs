@@ -50,7 +50,9 @@ namespace NativeApps2.xaml_pages
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameAccount.Navigate(typeof(OndernemingGegevens));
+            StackPanel sp = sender as StackPanel;
+            Onderneming onderneming = sp.DataContext as Onderneming;
+            frameAccount.Navigate(typeof(OndernemingGegevens), onderneming);
         }
     }
 }

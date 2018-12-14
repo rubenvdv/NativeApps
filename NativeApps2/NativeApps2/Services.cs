@@ -32,10 +32,10 @@ namespace NativeApps2
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ingelogdeGebruikers/"));
             var ingelogdeGebruiker = JsonConvert.DeserializeObject<ObservableCollection<IngelogdeGebruiker>>(json);
-            var user = ingelogdeGebruiker.FirstOrDefault(g => g.Equals(gebruiker));
+            //var user = ingelogdeGebruiker.FirstOrDefault(g => g.Equals(gebruiker));
+            var user = ingelogdeGebruiker.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruiker.Gebruikersnaam));
             return user.VolgendeOndernemingen;
         }
-
 
         //GET ALLE EVENEMENTEN
         public async Task<ObservableCollection<Evenement>> getEvenementen()
@@ -45,31 +45,28 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json);
         }
 
-        //GET ALLE EVENEMENTEN VAN EEN ONDERNEMING
-        /*Is het zoals hier of zoals hieronder? Dit kwam uit de master... De implementatie eronder uit werkenMetViewModels
         public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(Onderneming onderneming)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.Equals(onderneming)));
-        }*/
-        public async Task<ObservableCollection<Evenement>> getEvenementenVanOnderneming(int onderneming)
-        {
-            HttpClient client = new HttpClient();
-            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/evenements/"));
-            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.OndernemingID == onderneming));
+            return new ObservableCollection<Evenement>(JsonConvert.DeserializeObject<ObservableCollection<Evenement>>(json).Where(e => e.OndernemingID.Equals(onderneming.OndernemingID)));
         }
-
 
         //GET ALLE ONDERNEMINGEN VAN EEN ONDERNEMER
         public async Task<ObservableCollection<Onderneming>> getOndernemingenVanOndernemer(Ondernemer ondernemer)
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
-            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.Ondernemer.Equals(ondernemer)));
+            return new ObservableCollection<Onderneming>(JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).Where(e => e.OndernemerID.Equals(ondernemer.OndernemerID)));
         }
 
-        //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
+        //GET ONDERNEMING ADHV ID
+        public async Task<Onderneming> getOnderneming(int ondernemingID)
+        {
+            HttpClient client = new HttpClient();
+            var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/ondernemings/"));
+            return JsonConvert.DeserializeObject<ObservableCollection<Onderneming>>(json).First(o => o.OndernemingID.Equals(ondernemingID));
+        }
 
         //GET ALLE PROMOTIES
         public async Task<ObservableCollection<Promotie>> getPromoties()
@@ -84,7 +81,7 @@ namespace NativeApps2
         {
             HttpClient client = new HttpClient();
             var json = await client.GetStringAsync(new Uri("http://localhost:57003/api/promoties/"));
-            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.Onderneming.Equals(onderneming)));
+            return new ObservableCollection<Promotie>(JsonConvert.DeserializeObject<ObservableCollection<Promotie>>(json).Where(p => p.OndernemingID.Equals(onderneming.OndernemingID)));
         }
         //Nog eens serieus goed nakijken want ik ben niet zeker dat deze werkt.
 
@@ -127,13 +124,6 @@ namespace NativeApps2
             return JsonConvert.DeserializeObject<ObservableCollection<Ondernemer>>(json).First(o => o.Gebruikersnaam == gebruikersNaam);
         }
 
-        /* Met deze code kan je in de client kijken of de gewone gebruiker of ondernemer succesvol is gecreëerd.
-         if(res.StatusCode == System.Net.HttpStatusCode.Created)
-            {
-                //Code bij true
-            }
-         */
-
         //REGISTREER GEWONE GEBRUIKER
         public async Task<HttpResponseMessage> registreerGewonegebruiker(IngelogdeGebruiker gebruiker)
         {
@@ -144,18 +134,17 @@ namespace NativeApps2
             return res;
         }
 
-
         //REGISTREER ONDERNEMER
         public async Task<HttpResponseMessage> registreerOndernemer(Ondernemer ondernemer)
         {
             //ondernemer.Wachtwoord = hashAlgorithm.HashMsg(ondernemer.Wachtwoord);
-            var gewoneGebruikerJson = JsonConvert.SerializeObject(ondernemer);
+            var ondernemerJson = JsonConvert.SerializeObject(ondernemer);
             HttpClient client = new HttpClient();
-            var res = await client.PostAsync("http://localhost:57003/api/ondernemers/", new StringContent(gewoneGebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+            var res = await client.PostAsync("http://localhost:57003/api/ondernemers/", new StringContent(ondernemerJson, System.Text.Encoding.UTF8, "application/json"));
             return res;
         }
 
-        //VOEG EVENEMENT TOE VAN ONDERNEMING
+        //VOEG EVENEMENT TOE
         public async Task<HttpResponseMessage> voegEvenementToe(Evenement evenement)
         {
             var evenementJson = JsonConvert.SerializeObject(evenement);
@@ -164,7 +153,7 @@ namespace NativeApps2
             return res;
         }
 
-        //VOEG PROMOTIE TOE VAN ONDERNEMING
+        //VOEG PROMOTIE TOE
         public async Task<HttpResponseMessage> voegPromotieToe(Promotie promotie)
         {
             var promotieJson = JsonConvert.SerializeObject(promotie);
@@ -173,7 +162,7 @@ namespace NativeApps2
             return res;
         }
 
-        //VOEG ONDERNEMING TOE VAN ONDERNEMER
+        //VOEG ONDERNEMING TOE
         public async Task<HttpResponseMessage> voegOndernemingToe(Onderneming onderneming)
         {
             var ondernemingJson = JsonConvert.SerializeObject(onderneming);
@@ -183,24 +172,34 @@ namespace NativeApps2
         }
 
         //(UPDATE GEBRUIKER)
-        public async Task<HttpResponseMessage> UpdateGebruiker(Gebruiker gebruiker, Type t)
+        public async Task<HttpResponseMessage> UpdateGebruiker(Gebruiker gebruiker)
         {
-            var gebruikerJson = JsonConvert.SerializeObject(gebruiker);
             HttpClient client = new HttpClient();
 
-            if (t == typeof(IngelogdeGebruiker))
+            if (gebruiker.GetType() == typeof(IngelogdeGebruiker))
             {
+                IngelogdeGebruiker ingelogdeGebruiker = (IngelogdeGebruiker)gebruiker;
+                var gebruikerJson = JsonConvert.SerializeObject(ingelogdeGebruiker);
                 var res = await client.PutAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
                 return res;
             }
             else
             {
+                Ondernemer ondernemer = (Ondernemer)gebruiker;
+                var gebruikerJson = JsonConvert.SerializeObject(ondernemer);
                 var res = await client.PutAsync("http://localhost:57003/api/ondernemers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
                 return res;
             }
         }
 
-        //UPDATE VOLGENDE ONDERNEMINGEN
+        /* Met deze code kan je in de client kijken of een object succesvol is gecreëerd in de db.
+            if(res.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    //Code bij true
+                }
+        */
+
+        //UPDATE VOLGENDE ONDERNEMINGEN (klopt niet)
         /* public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsId)
          {
              var gebruikerJson = JsonConvert.SerializeObject(onderneming met id ondernemingsId);

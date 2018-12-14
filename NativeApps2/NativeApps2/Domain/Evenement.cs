@@ -33,10 +33,10 @@ namespace NativeApps2.Domain
             //Logo = this.Onderneming.Logo;
         }
 
-        public override bool Equals(object obj)
+        /*public override bool Equals(object obj)
         {
             Evenement e = (Evenement)obj;
             return this.Naam.Equals(e.Naam);
-        }
+        }*/
     }
 }

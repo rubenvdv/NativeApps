@@ -57,7 +57,7 @@ namespace NativeApps2.xaml_pages
             IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
             foreach (Onderneming o in volgendeOndernemingen)
             {
-                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o.OndernemingID);
+                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o);
                 foreach (Evenement ev in evenementenVanOnderneming)
                     lijstVanEvenementen.Add(ev);
             }

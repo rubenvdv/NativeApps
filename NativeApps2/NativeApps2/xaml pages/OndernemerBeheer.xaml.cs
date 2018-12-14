@@ -53,7 +53,7 @@ namespace NativeApps2.xaml_pages
 
             foreach ( Onderneming o in ondernemingen)
             {
-                IList<Evenement> events = await services.getEvenementenVanOnderneming(o.OndernemingID);
+                IList<Evenement> events = await services.getEvenementenVanOnderneming(o);
                 foreach (Evenement ev in events)
                     evenementen.Add(ev);
 
@@ -69,17 +69,23 @@ namespace NativeApps2.xaml_pages
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOndernemerBeheer.Navigate(typeof(OndernemingGegevens));
+            StackPanel sp = sender as StackPanel;
+            Onderneming onderneming = sp.DataContext as Onderneming;
+            frameOndernemerBeheer.Navigate(typeof(OndernemingGegevens), onderneming);
         }
 
         private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOndernemerBeheer.Navigate(typeof(PromotieGegevens));
+            StackPanel sp = sender as StackPanel;
+            Promotie promotie = sp.DataContext as Promotie;
+            frameOndernemerBeheer.Navigate(typeof(PromotieGegevens),promotie);
         }
 
         private void Evenement_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            frameOndernemerBeheer.Navigate(typeof(EvenementGegevens));
+            StackPanel sp = sender as StackPanel;
+            Evenement evenement = sp.DataContext as Evenement;
+            frameOndernemerBeheer.Navigate(typeof(EvenementGegevens), evenement);
         }
 
         private void ondernemingVoegToe_Click(object sender, RoutedEventArgs e)

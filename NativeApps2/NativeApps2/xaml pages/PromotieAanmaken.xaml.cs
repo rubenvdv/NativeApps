@@ -59,7 +59,8 @@ namespace NativeApps2.xaml_pages
             XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
             XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
             toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Promoties"));
-            toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("Nieuwe promotie aangemaakt!"));
+            //toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("Nieuwe promotie aangemaakt!"));
+            toastTekstElementen[1].AppendChild(toastXml.CreateTextNode(String.Format("Promotie {0} aangemaakt!", naam.Text)));
             XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
             ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
             IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
