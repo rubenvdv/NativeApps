@@ -15,10 +15,30 @@
                 <StackPanel.Background>
                     <ImageBrush ImageSource="/Images/background.jpg"/>
                 </StackPanel.Background>
+                <Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
+                    Foreground="White" HorizontalAlignment="Left"
+                    Margin="20" Click="KeerTerug_Click"/>
                 <TextBlock x:Name="welkom" VerticalAlignment="Center" HorizontalAlignment="center" Text="Welkom" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                <TextBox TextChanged="TextBox_TextChanged" Width="170px" PlaceholderText="Zoek ondernemingen" Margin="20" Foreground="White" HorizontalAlignment="Center"/>
+                <StackPanel>
+                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Filter de ondernemingen"
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Ik filter op"
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource TitleTextBlockStyle}"/>
+                        <RadioButton x:Name="radiobtnNaam" Foreground="White" IsChecked="True">Naam</RadioButton>
+                        <RadioButton x:Name="radiobtnCategorie" Foreground="White">Categorie</RadioButton>
+                        <RadioButton x:Name="radiobtnAdres" Foreground="White">Adres</RadioButton>
+                        <RadioButton x:Name="radiobtnOpeningsuren" Foreground="White">Openingsuren</RadioButton>
+                        <TextBox TextChanged="TextBox_TextChanged" Width="170px" 
+                                 PlaceholderText="Zoek ondernemingen" Margin="10" 
+                                 Foreground="White" HorizontalAlignment="Center"
+                                 Height="20"/>
+                    </StackPanel>
+                </StackPanel>
                 <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">
                     <ListView.ItemTemplate>
                         <DataTemplate>

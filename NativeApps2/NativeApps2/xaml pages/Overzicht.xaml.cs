@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -78,10 +79,34 @@ namespace NativeApps2.xaml_pages
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var tekstbox = sender as TextBox;
-            List<Onderneming> filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            List<Onderneming> filterLijst = new List<Onderneming>();
+            if(radiobtnNaam.IsChecked == true)
+            {
+                filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            } else if(radiobtnCategorie.IsChecked == true)
+            {
+                filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            } else if (radiobtnAdres.IsChecked == true)
+            {
+                filterLijst = ondernemingen.Where(o => o.Adres.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            } else if(radiobtnOpeningsuren.IsChecked == true)
+            {
+                filterLijst = ondernemingen.Where(o => o.Openingsuren.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
             myLV.ItemsSource = filterLijst;
         }
 
-        
+        private void KeerTerug_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            NavigationService ns = this.NavigationService;
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            */
+        }
+
+
     }
 }

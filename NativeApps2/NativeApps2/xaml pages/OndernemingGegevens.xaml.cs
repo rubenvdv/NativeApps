@@ -63,7 +63,7 @@ namespace NativeApps2.xaml_pages
         }
 
 
-        private async void abonneer_Click(object sender, RoutedEventArgs e)
+        private async void Abonneer_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
             Onderneming o = b.DataContext as Onderneming;
@@ -86,5 +86,15 @@ namespace NativeApps2.xaml_pages
 
         }
 
+        private void KeerTerug_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            NavigationService ns = this.NavigationService;
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            */
+        }
     }
 }
