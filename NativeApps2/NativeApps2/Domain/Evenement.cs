@@ -10,7 +10,6 @@ namespace NativeApps2.Domain
         public DateTime Begindatum { get; set; }
         public DateTime Einddatum { get; set; }
         public int OndernemingID { get; set; }
-        public string Logo { get; set; }
 
         public virtual Onderneming Onderneming { get; set; }
 

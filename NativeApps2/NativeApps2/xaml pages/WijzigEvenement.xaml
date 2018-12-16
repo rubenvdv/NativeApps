@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.EvenementGegevens"
+    x:Class="NativeApps2.xaml_pages.WijzigEvenement"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:NativeApps2.xaml_pages"
@@ -8,33 +8,21 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Frame x:Name="frameEvenementGegevens">
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState x:Name="nietzakelijk">
-                    <VisualState.Setters>
-                        <Setter Target="wijzigEvenement.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="zakelijk">
-                    <VisualState.Setters>
-                        <Setter Target="wijzigEvenement.Visibility" Value="Visible"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
+    <Frame x:Name="frameInstellingen">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
-        
-        
         <StackPanel>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenement" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Wijzig evenement" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <Grid x:Name="evenementGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="20"/>
+            <TextBlock x:Name="succesMessage" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="DarkGreen" FontSize="20"/>
+            <Grid x:Name="evenementGegevens" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -58,24 +46,24 @@
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
                    Text="Einddatum" Foreground="White" FontWeight="SemiBold"/>
 
-                <TextBlock x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
+                <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Naam}" Foreground="White"/>
-                <TextBlock x:Name="omschrijving" Grid.Row="1" Grid.Column="1" Margin="10"
+                <TextBox x:Name="omschrijving" Grid.Row="1" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Omschrijving}" Foreground="White"/>
-                <TextBlock x:Name="begindatum" Grid.Row="2" Grid.Column="1" Margin="10"
+                <DatePicker x:Name="begindatum" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Begindatum}" Foreground="White"/>
-                <TextBlock x:Name="einddatum" Grid.Row="3" Grid.Column="1" Margin="10"
+                   Width="200"/>
+                <DatePicker x:Name="einddatum" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Einddatum}" Foreground="White"/>
+                   Width="200"/>
             </Grid>
 
-            <Button x:Name="wijzigEvenement" Click="wijzigEvenement_Click"  Content="Wijzigen" 
+            <Button x:Name="WijzigenGegevensButton" Click="WijzigenGegevensButton_Click"
+                    Content="Wijzig gegevens" 
                 Grid.Row="5" Grid.Column="1" 
-                HorizontalAlignment="Center"
-                    Width="200"
+                HorizontalAlignment="Center" Width="200"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
@@ -84,14 +72,8 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming"
-                       Margin="20"
-                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
-            
-            <StackPanel x:Name="onderneming" Tapped="Onderneming_Tapped" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" Foreground="White"/>
-            </StackPanel>
         </StackPanel>
+
+
     </Frame>
 </Page>

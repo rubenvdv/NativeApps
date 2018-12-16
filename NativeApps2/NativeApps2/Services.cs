@@ -124,7 +124,7 @@ namespace NativeApps2
             //gebruiker.Wachtwoord = hashAlgorithm.HashMsg(gebruiker.Wachtwoord);
             var gewoneGebruikerJson = JsonConvert.SerializeObject(gebruiker);
             HttpClient client = new HttpClient();
-            var res = await client.PostAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gewoneGebruikerJson, System.Text.Encoding.UTF8,"application/json"));
+            var res = await client.PostAsync("http://localhost:57003/api/ingelogdeGebruikers/", new StringContent(gewoneGebruikerJson, System.Text.Encoding.UTF8, "application/json"));
             return res;
         }
 
@@ -184,6 +184,14 @@ namespace NativeApps2
                 var res = await client.PutAsync("http://localhost:57003/api/ondernemers/", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
                 return res;
             }
+        }
+        public async Task<HttpResponseMessage> UpdateEvenement(Evenement evenement)
+        {
+            HttpClient client = new HttpClient();
+
+            var evenementJson = JsonConvert.SerializeObject(evenement);
+            var res = await client.PutAsync("http://localhost:57003/api/evenements/", new StringContent(evenementJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
         }
 
         /* Met deze code kan je in de client kijken of een object succesvol is gecreëerd in de db.

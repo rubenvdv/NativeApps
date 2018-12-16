@@ -165,6 +165,9 @@
     <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
       <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="xaml pages\WijzigEvenement.xaml.cs">
+      <DependentUpon>WijzigEvenement.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -272,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\StartschermAnoniem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="xaml pages\WijzigEvenement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

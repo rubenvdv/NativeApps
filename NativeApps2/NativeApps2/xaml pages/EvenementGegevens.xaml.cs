@@ -35,6 +35,19 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+
+            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
+            if (check == typeof(Ondernemer))
+            {
+                VisualStateManager.GoToState(this, "zakelijk", false);
+
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "nietzakelijk", false);
+            }
+          
+
             services = new Services();
             _evenement = (Evenement)e.Parameter;
             evenementGrid.DataContext = _evenement;
@@ -49,6 +62,11 @@ namespace NativeApps2.xaml_pages
             Onderneming o = sp.DataContext as Onderneming;
             frameEvenementGegevens.Navigate(typeof(OndernemingGegevens), o);
 
+        }
+
+        private void wijzigEvenement_Click(object sender, RoutedEventArgs e)
+        {
+            frameEvenementGegevens.Navigate(typeof(WijzigEvenement), _evenement);
         }
     }
 }
