@@ -68,20 +68,7 @@ namespace NativeApps2.xaml_pages
             ToastNotification toast = new ToastNotification(toastXml);
             //ToastNotificationManager.CreateToastNotifier().Show(toast);
 
-            //Notifications manier 2
-            /*
-            var categorie = "Evenementen";
-            var bericht = "Nieuw evenement!";
-            var afbeelding = "/Images/notification.png";
-            var altBericht = "Notification";
-            var xml = $"<?xml version=\"1.0\"?><toast><visual><binding template=\"ToastImageAndText02\"><image id=\"1\" src=\"/Images/notification.png\" alt=\"Notification\"/><text id=\"1\">{categorie}</text><text id=\"2\">{bericht}</text></binding></visual></toast>";
-            var toastXml = new XmlDocument();
-            toastXml.LoadXml(xml);
-            var toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier("Sample toast").Show(toast);
-            */
-
-            //Notifications manier 3: via internet
+            
         }
     }
 }

@@ -28,7 +28,6 @@ namespace NativeApps2.xaml_pages
     public sealed partial class Aanmelden : Page
     {
         Services services;
-
         public Aanmelden()
         {
             this.InitializeComponent();

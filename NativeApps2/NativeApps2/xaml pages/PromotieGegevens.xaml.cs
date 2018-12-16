@@ -49,13 +49,6 @@ namespace NativeApps2.xaml_pages
 
         private void KeerTerug_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            NavigationService ns = this.NavigationService;
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            */
         }
     }
 }

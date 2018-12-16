@@ -1,19 +1,9 @@
 ﻿using NativeApps2.Domain;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -48,8 +38,6 @@ namespace NativeApps2.xaml_pages
             //evenementen = await services.getEvenementenVanOnderneming(onderneming);
 
             _evenementen = await services.getEvenementenVanOnderneming(_onderneming);
-            Debug.WriteLine(_onderneming.Evenementen);
-            Debug.WriteLine(_onderneming);
             lvOndernemingEvenementen.ItemsSource = _evenementen;
         }
 
@@ -80,7 +68,6 @@ namespace NativeApps2.xaml_pages
             else
             {
                 gebruiker.VolgendeOndernemingen.Add(o);
-                //await services.PutVolgen
                 b.Content = "Geabonneerd";
             }
 
@@ -88,13 +75,7 @@ namespace NativeApps2.xaml_pages
 
         private void KeerTerug_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            NavigationService ns = this.NavigationService;
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            */
+
         }
     }
 }

@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Domain\DomeinController.cs" />
     <Compile Include="Domain\Evenement.cs" />
     <Compile Include="Domain\Gebruiker.cs" />
     <Compile Include="Domain\IngelogdeGebruiker.cs" />
@@ -163,9 +164,6 @@
     </Compile>
     <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
       <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="xaml pages\Zoeken.xaml.cs">
-      <DependentUpon>Zoeken.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -276,10 +274,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="xaml pages\StartschermAnoniem.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="xaml pages\Zoeken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
