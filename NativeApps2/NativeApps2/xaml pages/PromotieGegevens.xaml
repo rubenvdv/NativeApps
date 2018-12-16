@@ -13,9 +13,6 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
-            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
-                    Foreground="White" HorizontalAlignment="Left"
-                    Margin="20" Click="KeerTerug_Click"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Promotie" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
@@ -57,6 +54,19 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Einddatum}" Foreground="White"/>
             </Grid>
+            <!--
+            <Button x:Name="MaakPdf" Click="MaakPdf_Click"  Content="Download PDF" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            -->
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming"
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>

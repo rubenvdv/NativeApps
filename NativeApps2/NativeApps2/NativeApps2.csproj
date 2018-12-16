@@ -92,7 +92,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\DomeinController.cs" />
     <Compile Include="Domain\Evenement.cs" />
     <Compile Include="Domain\Gebruiker.cs" />
     <Compile Include="Domain\IngelogdeGebruiker.cs" />
@@ -102,6 +101,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Domain\Promotie.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="xaml pages\Aanmelden.xaml.cs">
       <DependentUpon>Aanmelden.xaml</DependentUpon>
     </Compile>
@@ -173,10 +173,8 @@
     <None Include="NativeApps2_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\anoniem.png" />
     <Content Include="Images\apple.jpg" />
     <Content Include="Images\background.jpg" />
-    <Content Include="Images\gebruiker1.png" />
     <Content Include="Images\gravensteen.jpg" />
     <Content Include="Images\ikea.png" />
     <Content Include="Images\loading.png" />
@@ -284,6 +282,9 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>11.0.2</Version>
+    </PackageReference>
+    <PackageReference Include="Select.Pdf.NetCore">
+      <Version>18.4.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />

@@ -1,18 +1,6 @@
 ﻿using NativeApps2.Domain;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -57,7 +45,6 @@ namespace NativeApps2.xaml_pages
                 g.Gebruikersnaam = gebruikersnaam.Text;
 
                 await services.UpdateGebruiker(g);
-                //frameInstellingen.Navigate(typeof(Instellingen));
                 succesMessage.Text = "Gegevens succesvol aangepast!";
                 foutmelding.Text = "";
             }
@@ -71,20 +58,19 @@ namespace NativeApps2.xaml_pages
 
         private async void WijzigenPassword_Click(object sender, RoutedEventArgs e)
         {
-            if (!wachtwoord.Password.Equals(""))
+            if (!wachtwoord.Password.Equals("") && wachtwoord.Password.Equals(bevestigWachtwoord.Password))
             {
                 Gebruiker g = ((App)Application.Current).huidigeGebruiker;
                 g.Wachtwoord = wachtwoord.Password;
 
                 await services.UpdateGebruiker(g);
-                //frameInstellingen.Navigate(typeof(Instellingen));
                 succesMessage.Text = "Wachtwoord succesvol aangepast!";
                 foutmelding.Text = "";
             }
             else
             {
                 succesMessage.Text = "";
-                foutmelding.Text = "Gelieve een wachtwoord in te vullen!";
+                foutmelding.Text = "Gelieve een correct wachtwoord in te vullen!";
             }
         }
     }

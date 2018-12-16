@@ -32,7 +32,6 @@
                         <RadioButton x:Name="radiobtnNaam" Foreground="White" IsChecked="True">Naam</RadioButton>
                         <RadioButton x:Name="radiobtnCategorie" Foreground="White">Categorie</RadioButton>
                         <RadioButton x:Name="radiobtnAdres" Foreground="White">Adres</RadioButton>
-                        <RadioButton x:Name="radiobtnOpeningsuren" Foreground="White">Openingsuren</RadioButton>
                         <TextBox TextChanged="TextBox_TextChanged" Width="170px" 
                                  PlaceholderText="Zoek ondernemingen" Margin="10" 
                                  Foreground="White" HorizontalAlignment="Center"

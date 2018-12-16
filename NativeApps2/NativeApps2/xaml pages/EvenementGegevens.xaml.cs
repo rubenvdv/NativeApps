@@ -50,16 +50,5 @@ namespace NativeApps2.xaml_pages
             frameEvenementGegevens.Navigate(typeof(OndernemingGegevens), o);
 
         }
-
-        private void KeerTerug_Click(object sender, RoutedEventArgs e)
-        {
-            /*
-            NavigationService ns = this.NavigationService;
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-            */
-        }
     }
 }

@@ -13,21 +13,9 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
-            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
-                    Foreground="White" HorizontalAlignment="Left"
-                    Margin="20" Click="KeerTerug_Click"/>
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenement" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <!--
-            <StackPanel x:Name="evenementImage" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Image Source="{Binding Logo}" Width="100" Height="100"/>
-                <StackPanel>
-                    <TextBlock Text="{Binding Naam}" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10,0,0,0" Foreground="White"/>
-                </StackPanel>
-            </StackPanel>
-            -->
-
             <Grid x:Name="evenementGrid" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>

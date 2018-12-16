@@ -68,15 +68,6 @@
                     <Button x:Name="panecontrol" Click="Button_Click_1" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                         Width="50"
                         Height="50"/>
-                    <!--<StackPanel x:Name="account" Tapped="Account_Tapped" Orientation="Horizontal">
-                        
-                        <PersonPicture x:Name="persoon" HorizontalAlignment="Center" Margin="10,0,0,0" VerticalAlignment="Center"
-                                    DisplayName="Bavo Janssens" Foreground="Black"
-                                    ProfilePicture="{Binding ProfielFoto}"
-                                    Initials="{Binding Initialen}" Height="35"/>
-                        <TextBlock Text="{Binding Voornaam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                        <TextBlock Text="{Binding Naam}" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
-                    </StackPanel>-->
                     <StackPanel x:Name="mijnBeheer" Tapped="MijnBeheer_Tapped" Orientation="Horizontal">
                         <Button FontFamily="Segoe MDL2 Assets" Content="&#xE80F;"
                             Width="50"

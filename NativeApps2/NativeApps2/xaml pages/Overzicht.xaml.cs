@@ -86,13 +86,11 @@ namespace NativeApps2.xaml_pages
             } else if(radiobtnCategorie.IsChecked == true)
             {
                 filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            } else if (radiobtnAdres.IsChecked == true)
+            } else
             {
                 filterLijst = ondernemingen.Where(o => o.Adres.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            } else if(radiobtnOpeningsuren.IsChecked == true)
-            {
-                filterLijst = ondernemingen.Where(o => o.Openingsuren.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             }
+            
             myLV.ItemsSource = filterLijst;
         }
 

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NativeApps2.Domain
 {
@@ -34,25 +29,5 @@ namespace NativeApps2.Domain
             Openingsuren = openingsuren;
             OndernemerID = OndernemerID;
         }
-
-        /*public override bool Equals(object obj)
-        {
-            Onderneming o = (Onderneming)obj;
-            return this.OndernemingID.Equals(o.OndernemingID);
-        }
-
-        public override int GetHashCode()
-        {
-            var hashCode = 653169438;
-            hashCode = hashCode * -1521134295 + OndernemingID.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Naam);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Categorie);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Adres);
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Openingsuren);
-            hashCode = hashCode * -1521134295 + EqualityComparer<Ondernemer>.Default.GetHashCode(Ondernemer);
-            hashCode = hashCode * -1521134295 + OndernemerID.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<ICollection<Evenement>>.Default.GetHashCode(Evenementen);
-            return hashCode;
-        }*/
     }
 }

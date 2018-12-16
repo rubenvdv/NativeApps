@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NativeApps2.Domain
 {
@@ -30,13 +26,7 @@ namespace NativeApps2.Domain
             Begindatum = start;
             Einddatum = einde;
             OndernemingID = ondernemingId;
-            //Logo = this.Onderneming.Logo;
         }
 
-        /*public override bool Equals(object obj)
-        {
-            Evenement e = (Evenement)obj;
-            return this.Naam.Equals(e.Naam);
-        }*/
     }
 }
