@@ -1,8 +1,9 @@
 namespace NativeApps2Service.Migrations
 {
+    using System;
     using System.Data.Entity.Migrations;
-
-    public partial class initial : DbMigration
+    
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -53,13 +54,14 @@ namespace NativeApps2Service.Migrations
                 "dbo.IngelogdeGebruikers",
                 c => new
                     {
-                        Gebruikersnaam = c.String(nullable: false, maxLength: 128),
+                        IngelogdeGebruikerID = c.Int(nullable: false, identity: true),
                         Naam = c.String(),
                         Voornaam = c.String(),
+                        Gebruikersnaam = c.String(),
                         Wachtwoord = c.String(),
                         Email = c.String(),
                     })
-                .PrimaryKey(t => t.Gebruikersnaam);
+                .PrimaryKey(t => t.IngelogdeGebruikerID);
             
             CreateTable(
                 "dbo.Promoties",
@@ -81,22 +83,22 @@ namespace NativeApps2Service.Migrations
                 "dbo.IngelogdeGebruikerOndernemings",
                 c => new
                     {
-                        Gebruikersnaam = c.String(nullable: false, maxLength: 128),
+                        IngelogdeGebruikersId = c.Int(nullable: false),
                         OndernemingsId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Gebruikersnaam, t.OndernemingsId });
+                .PrimaryKey(t => new { t.IngelogdeGebruikersId, t.OndernemingsId });
             
             CreateTable(
                 "dbo.IngelogdeGebruikerOndernemings1",
                 c => new
                     {
-                        IngelogdeGebruiker_Gebruikersnaam = c.String(nullable: false, maxLength: 128),
+                        IngelogdeGebruiker_IngelogdeGebruikerID = c.Int(nullable: false),
                         Onderneming_OndernemingID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.IngelogdeGebruiker_Gebruikersnaam, t.Onderneming_OndernemingID })
-                .ForeignKey("dbo.IngelogdeGebruikers", t => t.IngelogdeGebruiker_Gebruikersnaam, cascadeDelete: true)
+                .PrimaryKey(t => new { t.IngelogdeGebruiker_IngelogdeGebruikerID, t.Onderneming_OndernemingID })
+                .ForeignKey("dbo.IngelogdeGebruikers", t => t.IngelogdeGebruiker_IngelogdeGebruikerID, cascadeDelete: true)
                 .ForeignKey("dbo.Ondernemings", t => t.Onderneming_OndernemingID, cascadeDelete: true)
-                .Index(t => t.IngelogdeGebruiker_Gebruikersnaam)
+                .Index(t => t.IngelogdeGebruiker_IngelogdeGebruikerID)
                 .Index(t => t.Onderneming_OndernemingID);
             
         }
@@ -105,11 +107,11 @@ namespace NativeApps2Service.Migrations
         {
             DropForeignKey("dbo.Promoties", "OndernemingID", "dbo.Ondernemings");
             DropForeignKey("dbo.IngelogdeGebruikerOndernemings1", "Onderneming_OndernemingID", "dbo.Ondernemings");
-            DropForeignKey("dbo.IngelogdeGebruikerOndernemings1", "IngelogdeGebruiker_Gebruikersnaam", "dbo.IngelogdeGebruikers");
+            DropForeignKey("dbo.IngelogdeGebruikerOndernemings1", "IngelogdeGebruiker_IngelogdeGebruikerID", "dbo.IngelogdeGebruikers");
             DropForeignKey("dbo.Ondernemings", "OndernemerID", "dbo.Ondernemers");
             DropForeignKey("dbo.Evenements", "OndernemingID", "dbo.Ondernemings");
             DropIndex("dbo.IngelogdeGebruikerOndernemings1", new[] { "Onderneming_OndernemingID" });
-            DropIndex("dbo.IngelogdeGebruikerOndernemings1", new[] { "IngelogdeGebruiker_Gebruikersnaam" });
+            DropIndex("dbo.IngelogdeGebruikerOndernemings1", new[] { "IngelogdeGebruiker_IngelogdeGebruikerID" });
             DropIndex("dbo.Promoties", new[] { "OndernemingID" });
             DropIndex("dbo.Ondernemings", new[] { "OndernemerID" });
             DropIndex("dbo.Evenements", new[] { "OndernemingID" });

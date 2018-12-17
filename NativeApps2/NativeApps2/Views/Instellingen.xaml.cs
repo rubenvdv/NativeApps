@@ -39,12 +39,13 @@ namespace NativeApps2.xaml_pages
             if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals(""))
             {
                 Gebruiker g = ((App)Application.Current).huidigeGebruiker;
+                //int gebruikersId = g.gebruikersId;
                 g.Voornaam = voorNaam.Text;
                 g.Naam = naam.Text;
                 g.Email = mail.Text;
                 g.Gebruikersnaam = gebruikersnaam.Text;
 
-                await services.UpdateGebruiker(g);
+                await services.UpdateGebruikerGegevens(g);
                 succesMessage.Text = "Gegevens succesvol aangepast!";
                 foutmelding.Text = "";
             }
@@ -63,7 +64,7 @@ namespace NativeApps2.xaml_pages
                 Gebruiker g = ((App)Application.Current).huidigeGebruiker;
                 g.Wachtwoord = wachtwoord.Password;
 
-                await services.UpdateGebruiker(g);
+                await services.UpdateGebruikerPassword(g);
                 succesMessage.Text = "Wachtwoord succesvol aangepast!";
                 foutmelding.Text = "";
             }

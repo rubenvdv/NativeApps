@@ -1,6 +1,11 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using NativeApps2Service.Models;
@@ -19,7 +24,7 @@ namespace NativeApps2Service.Controllers
 
         // GET: api/IngelogdeGebruikers/5
         [ResponseType(typeof(IngelogdeGebruiker))]
-        public IHttpActionResult GetIngelogdeGebruiker(string id)
+        public IHttpActionResult GetIngelogdeGebruiker(int id)
         {
             IngelogdeGebruiker ingelogdeGebruiker = db.IngelogdeGebruikers.Find(id);
             if (ingelogdeGebruiker == null)
@@ -32,14 +37,14 @@ namespace NativeApps2Service.Controllers
 
         // PUT: api/IngelogdeGebruikers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutIngelogdeGebruiker(string id, IngelogdeGebruiker ingelogdeGebruiker)
+        public IHttpActionResult PutIngelogdeGebruiker(int id, IngelogdeGebruiker ingelogdeGebruiker)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != ingelogdeGebruiker.Gebruikersnaam)
+            if (id != ingelogdeGebruiker.IngelogdeGebruikerID)
             {
                 return BadRequest();
             }
@@ -62,14 +67,15 @@ namespace NativeApps2Service.Controllers
                 }
             }
 
-            return Ok();
+            return StatusCode(HttpStatusCode.NoContent);
+            //return Ok();
         }
 
-        // PUT: api/VoegVolgendeOndernemingToe/rubenvdv id is gebruikersnaam
+        // PUT: api/VoegVolgendeOndernemingToe/rubenvdv id is gebruikersId
         [Route("IngelogdeGebruikers/VoegVolgendeOndernemingToe/{id}")]
         [HttpPut]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutVoegVolgendeOndernemingToe(string id,[FromBody] int ondernemingsid)
+        public IHttpActionResult PutVoegVolgendeOndernemingToe(int id, [FromBody] int ondernemingsId)
         {
             if (!ModelState.IsValid)
             {
@@ -78,7 +84,7 @@ namespace NativeApps2Service.Controllers
 
 
 
-          db.VolgendeOndernemingen.Add(new IngelogdeGebruikerOndernemings() { OndernemingsId = ondernemingsid, Gebruikersnaam = id });
+            db.VolgendeOndernemingen.Add(new IngelogdeGebruikerOndernemings() { OndernemingsId = ondernemingsId, IngelogdeGebruikersId = id });
             try
             {
                 db.SaveChanges();
@@ -108,29 +114,14 @@ namespace NativeApps2Service.Controllers
             }
 
             db.IngelogdeGebruikers.Add(ingelogdeGebruiker);
+            db.SaveChanges();
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (IngelogdeGebruikerExists(ingelogdeGebruiker.Email))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = ingelogdeGebruiker.Email }, ingelogdeGebruiker);
+            return CreatedAtRoute("DefaultApi", new { id = ingelogdeGebruiker.IngelogdeGebruikerID }, ingelogdeGebruiker);
         }
 
         // DELETE: api/IngelogdeGebruikers/5
         [ResponseType(typeof(IngelogdeGebruiker))]
-        public IHttpActionResult DeleteIngelogdeGebruiker(string id)
+        public IHttpActionResult DeleteIngelogdeGebruiker(int id)
         {
             IngelogdeGebruiker ingelogdeGebruiker = db.IngelogdeGebruikers.Find(id);
             if (ingelogdeGebruiker == null)
@@ -153,9 +144,9 @@ namespace NativeApps2Service.Controllers
             base.Dispose(disposing);
         }
 
-        private bool IngelogdeGebruikerExists(string id)
+        private bool IngelogdeGebruikerExists(int id)
         {
-            return db.IngelogdeGebruikers.Count(e => e.Email == id) > 0;
+            return db.IngelogdeGebruikers.Count(e => e.IngelogdeGebruikerID == id) > 0;
         }
     }
 }

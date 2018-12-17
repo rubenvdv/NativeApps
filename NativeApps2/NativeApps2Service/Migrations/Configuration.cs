@@ -3,6 +3,7 @@ namespace NativeApps2Service.Migrations
     using NativeApps2Service.Models;
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
@@ -15,14 +16,27 @@ namespace NativeApps2Service.Migrations
 
         protected override void Seed(NativeApps2Service.Models.NativeApps2ServiceContext context)
         {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
+
             var ondernemers = new List<Ondernemer>
             {
-                new Ondernemer{Naam="Brodin", Voornaam="Jesper", Gebruikersnaam="JesperBrodin", Wachtwoord="jesperbrodin", Email="jesper.brodin@ikea.com"},
-                new Ondernemer{Naam="Colruyt", Voornaam="Jef", Gebruikersnaam="JefColruyt", Wachtwoord="jefcolruyt", Email="jef.colruyt@colruytgroup.be"},
-                new Ondernemer{Naam="Claeyssens", Voornaam="Michel", Gebruikersnaam="MichelClaeyssens", Wachtwoord="michelclaeyssens", Email="michel.claeyssens@claeyssensoptiek.be"},
-                new Ondernemer{Naam="Johnson", Voornaam="Kevin", Gebruikersnaam="KevinJohnson", Wachtwoord="kevinjohnson", Email="kevin.johnson@starbucks.com"},
-                new Ondernemer{Naam="Vanherpe", Voornaam="Guido", Gebruikersnaam="GuidoVanherpe", Wachtwoord="guidovanherpe", Email="guido.vanherpe@lalorraine.be"},
-                new Ondernemer{Naam="Hendricks", Voornaam="Jan", Gebruikersnaam="JanHendricks", Wachtwoord="janhendricks", Email="jan.hendricks@gmail.com"},
+                new Ondernemer{Naam="Brodin", Voornaam="Jesper", Gebruikersnaam="JesperBrodin", Wachtwoord="xrZtucYEqto/LkWjIaMp/x+HE9TaXelikq9ktmEs//rAekcCM+3mVBgvdpHX0Hw2BlImKBtSTK81kkpjyNmuuQ==", Email="jesper.brodin@ikea.com"}, //password jesperbrodin
+                new Ondernemer{Naam="Colruyt", Voornaam="Jef", Gebruikersnaam="JefColruyt", Wachtwoord="JfmYF8LeV2m82a5+iQ6nUmr/knriZHiye3v70cKqxOdl34tzvRjmwUucyShTWzNICr8EFbwROky06qF2jCJYkA==", Email="jef.colruyt@colruytgroup.be"}, //password jefcolruyt
+                new Ondernemer{Naam="Claeyssens", Voornaam="Michel", Gebruikersnaam="MichelClaeyssens", Wachtwoord="TYJ3vBXh/KkjSCfq57cfCQFiqOnu9hoE1+DQcUMv63XZG7f3odp2pbifFG8UVeRDPpVf1dovCGH3x0N7ny5GAw==", Email="michel.claeyssens@claeyssensoptiek.be"}, //password michelclaeyssens
+                new Ondernemer{Naam="Johnson", Voornaam="Kevin", Gebruikersnaam="KevinJohnson", Wachtwoord="Wa51CZ/X1Cv+lRY5qfvPYi4Wg90h/OG59Ilg1rbK2NnqZamO/lS6Yd0XI/+okstkQpyxj2eYaKHNYyEWK6aUTQ==", Email="kevin.johnson@starbucks.com"}, //password kevinjohnson
+                new Ondernemer{Naam="Vanherpe", Voornaam="Guido", Gebruikersnaam="GuidoVanherpe", Wachtwoord="JB9RxKEWcFKXb46zhEyu50UgPMcBBjDHSGPhXa/z2Hfiu3t7JJGeh5qwU3d2dn85r3nJxxYNrgF/OWh+/Ly9pw==", Email="guido.vanherpe@lalorraine.be"}, //password guidovanherpe
+                new Ondernemer{Naam="Hendricks", Voornaam="Jan", Gebruikersnaam="JanHendricks", Wachtwoord="VbdISEUzCZC6XEcVF40I89CfjVjO3Ad3wcinciFGTBWHdiHoxQfAEK5i5jdOz5cvVUB3HzwS9gLfXUhcsFKlkA==", Email="jan.hendricks@gmail.com"}, //password janhendricks
                 //new Ondernemer{Naam="Ondernemer7Naam", Voornaam="Ondernemer7Voornaam", Gebruikersnaam="Ondernemer7", Wachtwoord="password", Email="Ondernemer7@gmail.com"}
             };
             ondernemers.ForEach(s => context.Ondernemers.AddOrUpdate(o => o.OndernemerID, s));
@@ -66,13 +80,16 @@ namespace NativeApps2Service.Migrations
 
             var gebruikers = new List<IngelogdeGebruiker>
             {
-                new IngelogdeGebruiker { Naam = "Van De Velde", Voornaam = "Ruben", Gebruikersnaam = "rubenvdv", Wachtwoord = "rubenvdv", Email = "rubenvdv26@live.com" , VolgendeOndernemingen = ondernemingen.GetRange(2, 2)},
-                new IngelogdeGebruiker { Naam = "Roelants", Voornaam = "Jeroen", Gebruikersnaam = "jeroenroelants", Wachtwoord = "jeroenroelants", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, 2) },
-                new IngelogdeGebruiker { Naam = "Janssens", Voornaam = "Bavo", Gebruikersnaam = "bavojanssens", Wachtwoord = "bavojanssens", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, ondernemingen.Count()) }
+                new IngelogdeGebruiker { Naam = "Van De Velde", Voornaam = "Ruben", Gebruikersnaam = "rubenvdv", Wachtwoord = "hCcYm/HNUJ1+lnzjUFkGi/feZX8qNuJDLWtsgfjSaYtz3vcgHeboVjwqd1DvoWE4i+rcf/nfD9UBM7EId/FyQg==", Email = "rubenvdv26@live.com" , VolgendeOndernemingen = ondernemingen.GetRange(2, 2)}, //password rubenvdv
+                new IngelogdeGebruiker { Naam = "Roelants", Voornaam = "Jeroen", Gebruikersnaam = "jeroenroelants", Wachtwoord = "04Lcqi1CyOavmpLPmPL7M/dBIiR5QTKvOipjgE2E0jFOL6fFWmJ6Rkmo22pRZjh5zscCx9XUpC9BX7eSOBKTSQ==", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, 2) }, //password jeroenroelants
+                new IngelogdeGebruiker { Naam = "Janssens", Voornaam = "Bavo", Gebruikersnaam = "bavojanssens", Wachtwoord = "G0CgLdnlWsSoiRHmML6y0VVxQggSXIodr9LryE9k/n0QpEvXWg0NGlDmLIHgwPCyVGXh3UCDTAyMlAw9+WmCNw==", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, ondernemingen.Count()) } //password bavojanssens
             };
 
-            gebruikers.ForEach(g => context.IngelogdeGebruikers.AddOrUpdate(ig => ig.Email, g));
+            gebruikers.ForEach(g => context.IngelogdeGebruikers.AddOrUpdate(ig => ig.IngelogdeGebruikerID, g));
             context.SaveChanges();
         }
+
+
     }
+    
 }

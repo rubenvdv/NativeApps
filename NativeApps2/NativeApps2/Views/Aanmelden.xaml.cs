@@ -33,7 +33,7 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
         }
 
-        private async void aanmelden_Click(object sender, RoutedEventArgs e)
+        private void aanmelden_Click(object sender, RoutedEventArgs e)
         {
             services = new Services();
 
@@ -54,42 +54,47 @@ namespace NativeApps2.xaml_pages
 
         private async void meldGebruikerAan()
         {
-            ObservableCollection<IngelogdeGebruiker> gebruikers = await services.getIngelogdeGebruikers();
-            IngelogdeGebruiker gebruiker = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
-            if (gebruiker == null)
+            bool correct = false;
+            try
             {
-                foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
+                correct = await services.controleerInlogGegevensIngelogdeGebruiker(gebruikersnaam.Text, wachtwoord.Password);
             }
-            else if (!wachtwoord.Password.Equals(gebruiker.Wachtwoord))
+            catch (Exception e)
+            {
+                foutmelding.Text = "Geen gebruiker met deze inlognaam gevonden";
+            }
+            if (!correct)
             {
                 foutmelding.Text = "OPGELET: Onjuiste combinatie gebruikersnaam/wachtwoord";
             }
-            else
+            if (correct)
             {
 
-                ((App)Application.Current).huidigeGebruiker = gebruiker;
+                ((App)Application.Current).huidigeGebruiker = await services.getIngelogdeGebruiker(gebruikersnaam.Text);
 
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }
         }
+
         private async void meldOndernemerAan()
         {
-            ObservableCollection<Ondernemer> gebruikers = await services.getOndernemers();
-            Ondernemer gebruiker = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
-            foreach (Ondernemer o in gebruikers)
-                Debug.WriteLine(o.Gebruikersnaam + " " + o.Wachtwoord);
-            if (gebruiker == null)
+            bool correct = false;
+            try
             {
-                foutmelding.Text = "OPGELET: Gebruiker bestaat niet";
+                correct = await services.controleerInlogGegevensOndernemer(gebruikersnaam.Text, wachtwoord.Password);
             }
-            else if (!wachtwoord.Password.Equals(gebruiker.Wachtwoord))
+            catch (Exception e)
+            {
+                foutmelding.Text = "Geen ondernemer met deze inlognaam gevonden";
+            }
+            if (!correct)
             {
                 foutmelding.Text = "OPGELET: Onjuiste combinatie gebruikersnaam/wachtwoord";
             }
-            else
+            if (correct)
             {
 
-                ((App)Application.Current).huidigeGebruiker = gebruiker;
+                ((App)Application.Current).huidigeGebruiker = await services.getOndernemer(gebruikersnaam.Text);
 
                 frameMeldAan.Navigate(typeof(StartschermAnoniem));
             }

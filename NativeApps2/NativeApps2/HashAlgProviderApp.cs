@@ -8,7 +8,7 @@ using Windows.Security.Cryptography.Core;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 
-namespace NativeApps2
+namespace Windows.Security.Cryptography.Core //NativeApps2
 {
     sealed partial class HashAlgProviderApp : Application
     {

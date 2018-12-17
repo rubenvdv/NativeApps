@@ -12,7 +12,8 @@ namespace NativeApps2.Domain
         #region properties
        
         public virtual ObservableCollection<Onderneming> VolgendeOndernemingen { get; set; } //Ondernemingen die de gebruiker volgt
-        
+
+        public int IngelogdeGebruikerID { get; set; }
         #endregion
         #region Constructors
         public IngelogdeGebruiker()

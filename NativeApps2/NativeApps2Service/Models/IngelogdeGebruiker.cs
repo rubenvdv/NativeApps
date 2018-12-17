@@ -5,10 +5,10 @@ namespace NativeApps2Service.Models
 {
     public class IngelogdeGebruiker
     {
-        
+        [Key]
+        public int IngelogdeGebruikerID{get; set;}
         public string Naam { get; set; }
         public string Voornaam { get; set; }
-        [Key]
         public string Gebruikersnaam { get; set; }
         public string Wachtwoord { get; set; }
         

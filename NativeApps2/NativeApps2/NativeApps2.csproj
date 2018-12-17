@@ -92,6 +92,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Hash.cs" />
     <Compile Include="Model\Evenement.cs" />
     <Compile Include="Model\Gebruiker.cs" />
     <Compile Include="Model\IngelogdeGebruiker.cs" />
