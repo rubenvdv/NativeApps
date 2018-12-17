@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,6 @@ namespace NativeApps2.xaml_pages
     public sealed partial class OverzichtAbonnees : Page
     {
 
-        Services services;
-        public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
 
         public OverzichtAbonnees()
         {
@@ -40,10 +39,8 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
 
-            services = new Services();
-            IngelogdeGebruiker gebruiker = ((IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker);
-            ondernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
-            lvAbonnees.ItemsSource = ondernemingen;
+            OndernemingViewModel ondernemingViewModel = new OndernemingViewModel();
+            lvAbonnees.ItemsSource = await ondernemingViewModel.HaalOndernemingenOp();
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

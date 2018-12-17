@@ -92,80 +92,81 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Domain\Evenement.cs" />
-    <Compile Include="Domain\Gebruiker.cs" />
-    <Compile Include="Domain\IngelogdeGebruiker.cs" />
-    <Compile Include="Domain\Ondernemer.cs" />
-    <Compile Include="Domain\Onderneming.cs" />
+    <Compile Include="Model\Evenement.cs" />
+    <Compile Include="Model\Gebruiker.cs" />
+    <Compile Include="Model\IngelogdeGebruiker.cs" />
+    <Compile Include="Model\Ondernemer.cs" />
+    <Compile Include="Model\Onderneming.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Promotie.cs" />
+    <Compile Include="Model\Promotie.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="xaml pages\Aanmelden.xaml.cs">
+    <Compile Include="ViewModel\OndernemingViewModel.cs" />
+    <Compile Include="Views\Aanmelden.xaml.cs">
       <DependentUpon>Aanmelden.xaml</DependentUpon>
     </Compile>
     <Compile Include="HashAlgProviderApp.cs" />
     <Compile Include="Services.cs" />
-    <Compile Include="xaml pages\Account.xaml.cs">
+    <Compile Include="Views\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\EvenementAanmaken.xaml.cs">
+    <Compile Include="Views\EvenementAanmaken.xaml.cs">
       <DependentUpon>EvenementAanmaken.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\EvenementGegevens.xaml.cs">
+    <Compile Include="Views\EvenementGegevens.xaml.cs">
       <DependentUpon>EvenementGegevens.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\help.xaml.cs">
+    <Compile Include="Views\help.xaml.cs">
       <DependentUpon>help.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\Instellingen.xaml.cs">
+    <Compile Include="Views\Instellingen.xaml.cs">
       <DependentUpon>Instellingen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\Login.xaml.cs">
+    <Compile Include="Views\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\LoginZakelijk.xaml.cs">
+    <Compile Include="Views\LoginZakelijk.xaml.cs">
       <DependentUpon>LoginZakelijk.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="xaml pages\OndernemerBeheer.xaml.cs">
+    <Compile Include="Views\OndernemerBeheer.xaml.cs">
       <DependentUpon>OndernemerBeheer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\OndernemingAanmaken.xaml.cs">
+    <Compile Include="Views\OndernemingAanmaken.xaml.cs">
       <DependentUpon>OndernemingAanmaken.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\OndernemingGegevens.xaml.cs">
+    <Compile Include="Views\OndernemingGegevens.xaml.cs">
       <DependentUpon>OndernemingGegevens.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\Overzicht.xaml.cs">
+    <Compile Include="Views\Overzicht.xaml.cs">
       <DependentUpon>Overzicht.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\OverzichtAbonnees.xaml.cs">
+    <Compile Include="Views\OverzichtAbonnees.xaml.cs">
       <DependentUpon>OverzichtAbonnees.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\OverzichtEvenementen.xaml.cs">
+    <Compile Include="Views\OverzichtEvenementen.xaml.cs">
       <DependentUpon>OverzichtEvenementen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\OverzichtPromoties.xaml.cs">
+    <Compile Include="Views\OverzichtPromoties.xaml.cs">
       <DependentUpon>OverzichtPromoties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\PromotieAanmaken.xaml.cs">
+    <Compile Include="Views\PromotieAanmaken.xaml.cs">
       <DependentUpon>PromotieAanmaken.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\PromotieGegevens.xaml.cs">
+    <Compile Include="Views\PromotieGegevens.xaml.cs">
       <DependentUpon>PromotieGegevens.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\SplashScreen.xaml.cs">
+    <Compile Include="Views\SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\StartschermAnoniem.xaml.cs">
+    <Compile Include="Views\StartschermAnoniem.xaml.cs">
       <DependentUpon>StartschermAnoniem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="xaml pages\WijzigEvenement.xaml.cs">
+    <Compile Include="Views\WijzigEvenement.xaml.cs">
       <DependentUpon>WijzigEvenement.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -198,87 +199,87 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="xaml pages\Aanmelden.xaml">
+    <Page Include="Views\Aanmelden.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\Account.xaml">
+    <Page Include="Views\Account.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\EvenementAanmaken.xaml">
+    <Page Include="Views\EvenementAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\EvenementGegevens.xaml">
+    <Page Include="Views\EvenementGegevens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\help.xaml">
+    <Page Include="Views\help.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\Instellingen.xaml">
+    <Page Include="Views\Instellingen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\Login.xaml">
+    <Page Include="Views\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\LoginZakelijk.xaml">
+    <Page Include="Views\LoginZakelijk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\MainPage.xaml">
+    <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="xaml pages\OndernemerBeheer.xaml">
+    <Page Include="Views\OndernemerBeheer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\OndernemingAanmaken.xaml">
+    <Page Include="Views\OndernemingAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\OndernemingGegevens.xaml">
+    <Page Include="Views\OndernemingGegevens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\Overzicht.xaml">
+    <Page Include="Views\Overzicht.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\OverzichtAbonnees.xaml">
+    <Page Include="Views\OverzichtAbonnees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\OverzichtEvenementen.xaml">
+    <Page Include="Views\OverzichtEvenementen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\OverzichtPromoties.xaml">
+    <Page Include="Views\OverzichtPromoties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\PromotieAanmaken.xaml">
+    <Page Include="Views\PromotieAanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\PromotieGegevens.xaml">
+    <Page Include="Views\PromotieGegevens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\SplashScreen.xaml">
+    <Page Include="Views\SplashScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\StartschermAnoniem.xaml">
+    <Page Include="Views\StartschermAnoniem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="xaml pages\WijzigEvenement.xaml">
+    <Page Include="Views\WijzigEvenement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

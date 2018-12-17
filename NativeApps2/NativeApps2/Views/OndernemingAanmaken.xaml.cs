@@ -28,7 +28,7 @@ namespace NativeApps2.xaml_pages
             services = new Services();
             Ondernemer ondernemer = (Ondernemer) ((App)Application.Current).huidigeGebruiker;
             int ondernemerId = ondernemer.OndernemerID;
-            Onderneming onderneming = new Onderneming(naam.Text, categorie.Text, adres.Text, openingsuren.Text, ondernemerId);
+            Onderneming onderneming = new Onderneming { Naam = naam.Text, Categorie = categorie.Text, Adres = adres.Text, Openingsuren = openingsuren.Text, OndernemerID = ondernemerId };
             await services.voegOndernemingToe(onderneming);
             
 

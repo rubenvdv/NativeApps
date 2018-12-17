@@ -17,7 +17,7 @@
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Abonnees" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-                <ListView x:Name="lvAbonnees" HorizontalAlignment="Center">
+                <ListView x:Name="lvAbonnees" HorizontalAlignment="Center" ItemsSource="{Binding Path=Ondernemingen}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Tapped="Onderneming_Tapped">
@@ -25,10 +25,10 @@
                                 <Image Width = "100" Height="100" Source="{Binding Logo}"
                                    VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>-->
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Categorie}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Adres}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
-                                    <TextBlock Text="{Binding Openingsuren}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Path=Naam, Mode=TwoWay}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Path=Categorie, Mode=TwoWay}" Style="{ThemeResource BaseTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Path=Adres, Mode=TwoWay}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Path=Openingsuren, Mode=TwoWay}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
                                     <Line Stroke="White" X1="0" X2="600" Y1="5" Y2="5"/>
                                 </StackPanel>
                             </StackPanel>
