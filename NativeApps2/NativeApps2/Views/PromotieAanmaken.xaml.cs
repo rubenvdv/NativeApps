@@ -38,7 +38,7 @@ namespace NativeApps2.xaml_pages
         {
             Onderneming onderneming = cmbOndernemingen.SelectedItem as Onderneming;
 
-            Promotie promotie = new Promotie(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID, korting.Text);
+            Promotie promotie = new Promotie { Naam = naam.Text, Omschrijving = omschrijving.Text, Begindatum = begindatum.Date.DateTime, Einddatum = einddatum.Date.DateTime, OndernemingID = onderneming.OndernemingID, Korting = korting.Text };
             await services.voegPromotieToe(promotie);
 
 

@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -29,8 +30,8 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class Overzicht : Page
     {
-        private Services services;
-        public ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
+        private OndernemingViewModel ondernemingViewModel = new OndernemingViewModel();
+        private ObservableCollection<Onderneming> ondernemingen = new ObservableCollection<Onderneming>();
         public string abonnementName = "Geabonneerd";
         public string AbonnementName { get { return abonnementName; } }
         public Overzicht()
@@ -59,9 +60,7 @@ namespace NativeApps2.xaml_pages
             {
                 VisualStateManager.GoToState(this, "zakelijk", false);
             }
-
-            services = new Services();
-            ondernemingen = await services.getOndernemingen();
+            ondernemingen = await ondernemingViewModel.HaalAlleOndernemingenOp();
             myLV.ItemsSource = ondernemingen;
 
         }

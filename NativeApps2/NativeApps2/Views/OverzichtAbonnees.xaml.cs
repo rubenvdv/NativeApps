@@ -28,7 +28,6 @@ namespace NativeApps2.xaml_pages
     public sealed partial class OverzichtAbonnees : Page
     {
 
-
         public OverzichtAbonnees()
         {
             
@@ -40,7 +39,7 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
 
             OndernemingViewModel ondernemingViewModel = new OndernemingViewModel();
-            lvAbonnees.ItemsSource = await ondernemingViewModel.HaalOndernemingenOp();
+            lvAbonnees.ItemsSource = await ondernemingViewModel.HaalVolgendeOnderenmingenVanGebruikerOp();
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

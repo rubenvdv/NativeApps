@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,18 +46,9 @@ namespace NativeApps2.xaml_pages
 
             }
 
-
-            IList<Promotie> promotiesVanOnderneming = new List<Promotie>();
-            foreach (Onderneming o in volgendeOndernemingen)
-            {
-                promotiesVanOnderneming = await services.getPromotiesVanOnderneming(o);
-                foreach (Promotie promo in promotiesVanOnderneming)
-                {
-                    promoties.Add(promo);
-                }
-            }
             //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
-
+            PromotieViewModel promotieViewModel = new PromotieViewModel();
+            promoties = await promotieViewModel.HaalPromotiesVanVolgendeOndernemingenOp(volgendeOndernemingen);
             int aantalElementen = promoties.Count;
 
             if (aantalElementen > 0)
