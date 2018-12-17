@@ -1,4 +1,6 @@
 ﻿using NativeApps2.Domain;
+using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -38,21 +40,53 @@ namespace NativeApps2.xaml_pages
         {
             if (!naam.Text.Equals("") && !voorNaam.Text.Equals("") && !mail.Text.Equals("") && !gebruikersnaam.Text.Equals(""))
             {
-                Gebruiker g = ((App)Application.Current).huidigeGebruiker;
-                //int gebruikersId = g.gebruikersId;
-                g.Voornaam = voorNaam.Text;
-                g.Naam = naam.Text;
-                g.Email = mail.Text;
-                g.Gebruikersnaam = gebruikersnaam.Text;
+                Gebruiker gebr = ((App)Application.Current).huidigeGebruiker;
+                IEnumerable<Gebruiker> gebruikers;
+                if (gebr.GetType() == typeof(IngelogdeGebruiker))
+                {
+                    gebruikers = await services.getIngelogdeGebruikers();
+                }
+                else
+                {
+                    gebruikers = await services.getOndernemers();
+                }
 
-                await services.UpdateGebruikerGegevens(g);
-                succesMessage.Text = "Gegevens succesvol aangepast!";
-                foutmelding.Text = "";
+                Gebruiker gMetGNaam = gebruikers.FirstOrDefault(ge => ge.Gebruikersnaam.Equals(gebruikersnaam.Text));
+                Gebruiker gMetEmail = gebruikers.FirstOrDefault(ge => ge.Email.Equals(mail.Text));
+
+                if ((gMetGNaam == null && gMetEmail == null) || (gebr.Gebruikersnaam == gebruikersnaam.Text && gMetEmail == null) || (gMetGNaam == null && gebr.Email == mail.Text) || (gebr.Gebruikersnaam == gebruikersnaam.Text && gebr.Email == mail.Text))
+                {
+                    Gebruiker g = ((App)Application.Current).huidigeGebruiker;
+                    //int gebruikersId = g.gebruikersId;
+                    g.Voornaam = voorNaam.Text;
+                    g.Naam = naam.Text;
+                    g.Email = mail.Text;
+                    g.Gebruikersnaam = gebruikersnaam.Text;
+
+                    await services.UpdateGebruikerGegevens(g);
+                    succesMessage.Text = "Gegevens succesvol aangepast!";
+                    foutmeldingGegevens.Text = "";
+                }
+                else
+                {
+                    if (gMetGNaam != null)
+                    {
+                        succesMessage.Text = "Gegevens succesvol aangepast!";
+                        foutmeldingGegevens.Text = "Er bestaat al een gebruiker met deze gebruikersnaam!";
+                    }
+                    else
+                    {
+                        succesMessage.Text = "Gegevens succesvol aangepast!";
+                        foutmeldingGegevens.Text = "Er bestaat al een gebruiker met dit emailadres!";
+                    }
+                    gMetGNaam = null;
+                    gMetEmail = null;
+                }
             }
             else
             {
                 succesMessage.Text = "";
-                foutmelding.Text = "Gelieve alle gegevens in te vullen!";
+                foutmeldingGegevens.Text = "Gelieve alle gegevens in te vullen!";
             }
 
         }
@@ -66,12 +100,12 @@ namespace NativeApps2.xaml_pages
 
                 await services.UpdateGebruikerPassword(g);
                 succesMessage.Text = "Wachtwoord succesvol aangepast!";
-                foutmelding.Text = "";
+                foutmeldingPasswd.Text = "";
             }
             else
             {
                 succesMessage.Text = "";
-                foutmelding.Text = "Gelieve een correct wachtwoord in te vullen!";
+                foutmeldingPasswd.Text = "Gelieve een correct wachtwoord in te vullen!";
             }
         }
     }

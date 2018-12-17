@@ -96,9 +96,16 @@
                     <TextBox x:Name="naamOnderneming" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                    <TextBox x:Name="categorieOnderneming" Grid.Row="1" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
+                    <ComboBox PlaceholderText="Categorie" x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="1" Grid.Column="1" Margin="10"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <TextBox x:Name="adresOnderneming" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
@@ -121,6 +128,20 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
+
+                <Button x:Name="annuleer" Click="annuleer_Click"  Content="Annuleren" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Ik heb reeds een account" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubtitleTextBlockStyle}"/>

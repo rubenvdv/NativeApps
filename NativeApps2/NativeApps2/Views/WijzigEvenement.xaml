@@ -16,9 +16,6 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Wijzig evenement" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
-                       Margin="20"
-                       Foreground="Red" FontSize="20"/>
             <TextBlock x:Name="succesMessage" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
                        Margin="20"
                        Foreground="DarkGreen" FontSize="20"/>
@@ -59,6 +56,10 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
+
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
 
             <Button x:Name="WijzigenGegevensButton" Click="WijzigenGegevensButton_Click"
                     Content="Wijzig gegevens" 

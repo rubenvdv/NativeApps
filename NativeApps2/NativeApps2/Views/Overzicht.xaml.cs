@@ -81,16 +81,16 @@ namespace NativeApps2.xaml_pages
             filterLijst();
         }
 
-        private void KeerTerug_Click(object sender, RoutedEventArgs e)
+        /*private void KeerTerug_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            
             NavigationService ns = this.NavigationService;
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();
             }
-            */
-        }
+            
+        }*/
 
 
         /*private void radiobtnCategorie_Click(object sender, RoutedEventArgs e)

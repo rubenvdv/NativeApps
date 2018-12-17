@@ -75,6 +75,11 @@
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
             </Grid>
+
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
+
             <Button Click="Button_Click" Content="Toevoegen" 
                 Grid.Row="5" Grid.Column="1" 
                 HorizontalAlignment="Center"

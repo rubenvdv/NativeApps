@@ -89,8 +89,8 @@ namespace NativeApps2Service.Migrations
             var gebruikers = new List<IngelogdeGebruiker>
             {
                 new IngelogdeGebruiker { Naam = "Van De Velde", Voornaam = "Ruben", Gebruikersnaam = "rubenvdv", Wachtwoord = "hCcYm/HNUJ1+lnzjUFkGi/feZX8qNuJDLWtsgfjSaYtz3vcgHeboVjwqd1DvoWE4i+rcf/nfD9UBM7EId/FyQg==", Email = "rubenvdv26@live.com" , VolgendeOndernemingen = ondernemingen.GetRange(1, 2)}, //password rubenvdv
-                new IngelogdeGebruiker { Naam = "Roelants", Voornaam = "Jeroen", Gebruikersnaam = "jeroenroelants", Wachtwoord = "04Lcqi1CyOavmpLPmPL7M/dBIiR5QTKvOipjgE2E0jFOL6fFWmJ6Rkmo22pRZjh5zscCx9XUpC9BX7eSOBKTSQ==", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, 2) }, //password jeroenroelants
-                new IngelogdeGebruiker { Naam = "Janssens", Voornaam = "Bavo", Gebruikersnaam = "bavojanssens", Wachtwoord = "G0CgLdnlWsSoiRHmML6y0VVxQggSXIodr9LryE9k/n0QpEvXWg0NGlDmLIHgwPCyVGXh3UCDTAyMlAw9+WmCNw==", Email = "rubenvdv26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, ondernemingen.Count()) }, //password bavojanssens
+                new IngelogdeGebruiker { Naam = "Roelants", Voornaam = "Jeroen", Gebruikersnaam = "jeroenroelants", Wachtwoord = "04Lcqi1CyOavmpLPmPL7M/dBIiR5QTKvOipjgE2E0jFOL6fFWmJ6Rkmo22pRZjh5zscCx9XUpC9BX7eSOBKTSQ==", Email = "jeroenroelants26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, 2) }, //password jeroenroelants
+                new IngelogdeGebruiker { Naam = "Janssens", Voornaam = "Bavo", Gebruikersnaam = "bavojanssens", Wachtwoord = "G0CgLdnlWsSoiRHmML6y0VVxQggSXIodr9LryE9k/n0QpEvXWg0NGlDmLIHgwPCyVGXh3UCDTAyMlAw9+WmCNw==", Email = "bavojanssens26@live.com", VolgendeOndernemingen = ondernemingen.GetRange(0, ondernemingen.Count()) }, //password bavojanssens
             };
 
             gebruikers.ForEach(g => context.IngelogdeGebruikers.AddOrUpdate(ig => ig.IngelogdeGebruikerID, g));

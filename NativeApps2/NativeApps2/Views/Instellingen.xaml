@@ -15,9 +15,6 @@
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Instellingen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
-            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
-                       Margin="20"
-                       Foreground="Red" FontSize="20"/>
             <TextBlock x:Name="succesMessage" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
                        Margin="20"
                        Foreground="DarkGreen" FontSize="20"/>
@@ -63,6 +60,10 @@
 
             </Grid>
 
+            <TextBlock x:Name="foutmeldingGegevens" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="20"/>
+            
             <Button x:Name="WijzigenGegevensButton" Click="WijzigenGegevens_Click"
                     Content="Wijzig gegevens" 
                 Grid.Row="5" Grid.Column="1" 
@@ -100,6 +101,10 @@
                    Width="200"/>
             </Grid>
 
+            <TextBlock x:Name="foutmeldingPasswd" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="20"/>
+            
             <Button x:Name="WijzigenPasswordButton" Click="WijzigenPassword_Click"
                     Content="Wijzig password" 
                 Grid.Row="5" Grid.Column="1" 

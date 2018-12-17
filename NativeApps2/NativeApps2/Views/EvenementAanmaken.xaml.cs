@@ -47,27 +47,52 @@ namespace NativeApps2.xaml_pages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            Onderneming onderneming = cmbOndernemingen.SelectedItem as Onderneming;
+            if (!naam.Text.Equals("") && !omschrijving.Text.Equals("") && begindatum.Date != null && cmbOndernemingen.SelectedItem != null && !(begindatum.Date.DateTime < DateTime.Today) && !(begindatum.Date.DateTime > einddatum.Date.DateTime))
+            {
+                IEnumerable<Evenement> evenementen = await services.getEvenementen();
+                Evenement ev = evenementen.FirstOrDefault(eve => eve.Naam.Equals(naam.Text));
 
-            Evenement evenement = new Evenement(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID);
-            await services.voegEvenementToe(evenement);
+                if (ev == null)
+                {
+                    Onderneming onderneming = cmbOndernemingen.SelectedItem as Onderneming;
 
-            frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
+                    Evenement evenement = new Evenement(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID);
+                    await services.voegEvenementToe(evenement);
 
-            //Notifications manier 1
-            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-            XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-            toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Evenementen"));
-            toastTekstElementen[1].AppendChild(toastXml.CreateTextNode(String.Format("Evenement {0} aangemaakt!", naam.Text)));
-            XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-            ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-            ((XmlElement)toastNode).SetAttribute("duration", "long");
-            ToastNotification toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
+                    frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
 
-            
+                    //Notifications manier 1
+                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+                    XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
+                    toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Evenementen"));
+                    toastTekstElementen[1].AppendChild(toastXml.CreateTextNode(String.Format("Evenement {0} aangemaakt!", naam.Text)));
+                    XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
+                    ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
+                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+                    ((XmlElement)toastNode).SetAttribute("duration", "long");
+                    ToastNotification toast = new ToastNotification(toastXml);
+                    ToastNotificationManager.CreateToastNotifier().Show(toast);
+                }
+                else
+                {
+                    foutmelding.Text = "Er bestaat al een evenement met deze naam!";
+                }
+                ev = null;
+            }
+            else if (begindatum.Date.DateTime < DateTime.Today)
+            {
+                foutmelding.Text = "De begindatum moet vandaag of later zijn!";
+            }
+            else if (begindatum.Date.DateTime > einddatum.Date.DateTime)
+            {
+                foutmelding.Text = "De einddatum mag niet voor de begindatum liggen!";
+            }
+            else
+            {
+                foutmelding.Text = "Vul alle gegevens correct in!";
+            }
+
         }
     }
 }

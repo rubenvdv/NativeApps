@@ -31,13 +31,16 @@ namespace NativeApps2.xaml_pages
             {
                 IEnumerable<Gebruiker> gebruikers = await services.getIngelogdeGebruikers();
 
-                Gebruiker ig = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+                Gebruiker igGNaam = gebruikers.FirstOrDefault(g => g.Gebruikersnaam.Equals(gebruikersnaam.Text));
+                Gebruiker igEmail = gebruikers.FirstOrDefault(g => g.Email.Equals(mail.Text));
 
-                if (ig == null)
+                if (igGNaam == null && igEmail == null)
                 {
                     IngelogdeGebruiker user = new IngelogdeGebruiker(naam.Text, voorNaam.Text, gebruikersnaam.Text, wachtwoord.Password, mail.Text);
                     await services.registreerGewonegebruiker(user);
-                    ((App)Application.Current).huidigeGebruiker = user;
+
+                    IngelogdeGebruiker iGMetId = await services.getIngelogdeGebruiker(gebruikersnaam.Text);
+                    ((App)Application.Current).huidigeGebruiker = iGMetId;
 
                     //Notificatie
                     ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
@@ -56,7 +59,18 @@ namespace NativeApps2.xaml_pages
                 }
                 else
                 {
-                    foutmelding.Text = "Er bestaat al een gebruiker met deze gebruikersnaam!";
+                    if (igGNaam != null)
+                    {
+                        foutmelding.Text = "Er bestaat al een gebruiker met deze gebruikersnaam!";
+                    }
+                    else
+                    {
+                        foutmelding.Text = "Er bestaat al een gebruiker met dit emailadres!";
+                    }
+
+                    igGNaam = null;
+                    igEmail = null;
+
                 }
                 
             }
@@ -71,6 +85,11 @@ namespace NativeApps2.xaml_pages
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             frameLogIn.Navigate(typeof(Aanmelden));
+        }
+
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameLogIn.Navigate(typeof(MainPage));
         }
     }
 }

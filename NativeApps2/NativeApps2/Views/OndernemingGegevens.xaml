@@ -30,9 +30,9 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <StackPanel>
-            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
+            <!--<Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
                     Foreground="White" HorizontalAlignment="Left"
-                    Margin="20"/>
+                    Margin="20"/>-->
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Onderneming" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
