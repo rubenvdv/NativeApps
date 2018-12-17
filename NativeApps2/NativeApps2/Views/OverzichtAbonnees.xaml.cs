@@ -39,7 +39,8 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
 
             OndernemingViewModel ondernemingViewModel = new OndernemingViewModel();
-            lvAbonnees.ItemsSource = await ondernemingViewModel.HaalVolgendeOnderenmingenVanGebruikerOp();
+            lvAbonnees.ItemsSource = ((IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker).VolgendeOndernemingen;
+                //await ondernemingViewModel.HaalVolgendeOnderenmingenVanGebruikerOp();
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

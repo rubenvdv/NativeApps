@@ -62,6 +62,7 @@ namespace NativeApps2.xaml_pages
             }
             ondernemingen = await ondernemingViewModel.HaalAlleOndernemingenOp();
             myLV.ItemsSource = ondernemingen;
+            cmbCategorie.DataContext = new CategorieViewModel();
 
         }
 
@@ -84,7 +85,11 @@ namespace NativeApps2.xaml_pages
                 filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             } else if(radiobtnCategorie.IsChecked == true)
             {
-                filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                string cat = cmbCategorie.SelectedItem as string;
+                if (cat.Equals("Alle"))
+                    filterLijst = ondernemingen.ToList();
+                else
+                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             } else
             {
                 filterLijst = ondernemingen.Where(o => o.Adres.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
@@ -105,5 +110,22 @@ namespace NativeApps2.xaml_pages
         }
 
 
+        private void radiobtnCategorie_Click(object sender, RoutedEventArgs e)
+        {
+            List<Onderneming> filterLijst = new List<Onderneming>();
+
+            string cat = cmbCategorie.SelectedItem as string;
+            if (cat==null || cat.Equals("Alle") || cat.Equals(""))
+                filterLijst = ondernemingen.ToList();
+            else
+                filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+
+            myLV.ItemsSource = filterLijst;
+        }
+
+        private void radiobtn_Click(object sender, RoutedEventArgs e)
+        {
+            myLV.ItemsSource = ondernemingen.ToList();
+        }
     }
 }

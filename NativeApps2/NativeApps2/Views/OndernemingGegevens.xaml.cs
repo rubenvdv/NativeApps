@@ -1,6 +1,9 @@
 ﻿using NativeApps2.Domain;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -32,7 +35,27 @@ namespace NativeApps2.xaml_pages
             _onderneming = (Onderneming)e.Parameter;
             ondernemingGrid.DataContext = _onderneming;
 
-            AbonnementName = "Hallo";
+            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
+            if (check == typeof(IngelogdeGebruiker))
+            {
+                VisualStateManager.GoToState(this, "IngelogdeGebruiker", false);
+                IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
+
+                List<Onderneming> volgend = gebruiker.VolgendeOndernemingen.ToList();
+
+                Onderneming o = volgend.FirstOrDefault(ond => ond.Naam.Equals(_onderneming.Naam));
+
+                if (o != null)
+                    abonneer.Content = "Geabonneerd";
+                else
+                    abonneer.Content = "Abonneren";
+
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "nietIngelogdeGebruiker", false);
+            }
+
             services = new Services();
             //Met deze methode nog de onderneming waarover het gaat weergeven
             //evenementen = await services.getEvenementenVanOnderneming(onderneming);
@@ -54,28 +77,23 @@ namespace NativeApps2.xaml_pages
         private async void Abonneer_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
-            Onderneming o = b.DataContext as Onderneming;
             IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
 
             if (b.Content.ToString() == "Geabonneerd")
             {
-                gebruiker.VolgendeOndernemingen.Remove(o);
-                await services.UpdateGebruikerGegevens(gebruiker);
-
+                gebruiker.VolgendeOndernemingen.Remove(_onderneming);
                 b.Content = "Abonneer";
 
             }
             else
             {
-                gebruiker.VolgendeOndernemingen.Add(o);
+                gebruiker.VolgendeOndernemingen.Add(_onderneming);
+                await services.VoegVolgendeOndernemingToe(gebruiker, _onderneming.OndernemingID);
                 b.Content = "Geabonneerd";
             }
 
         }
 
-        private void KeerTerug_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }

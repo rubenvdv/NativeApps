@@ -11,7 +11,7 @@
     <ScrollViewer>
         <Frame x:Name="frameOverzicht">
             <StackPanel>
-                
+
                 <StackPanel.Background>
                     <ImageBrush ImageSource="/Images/background.jpg"/>
                 </StackPanel.Background>
@@ -29,9 +29,20 @@
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Ik filter op"
                        Margin="20"
                        Foreground="White" Style="{ThemeResource TitleTextBlockStyle}"/>
-                        <RadioButton x:Name="radiobtnNaam" Foreground="White" IsChecked="True">Naam</RadioButton>
-                        <RadioButton x:Name="radiobtnCategorie" Foreground="White">Categorie</RadioButton>
-                        <RadioButton x:Name="radiobtnAdres" Foreground="White">Adres</RadioButton>
+                        <RadioButton x:Name="radiobtnNaam" Click="radiobtn_Click" Foreground="White" IsChecked="True">Naam</RadioButton>
+                            <RadioButton x:Name="radiobtnCategorie" Click="radiobtnCategorie_Click"  HorizontalAlignment="Center" Foreground="White">
+                                <ComboBox x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="0" Grid.Column="1" Margin="10"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                        </RadioButton>
+                        <RadioButton x:Name="radiobtnAdres" Click="radiobtn_Click" Foreground="White">Adres</RadioButton>
                         <TextBox TextChanged="TextBox_TextChanged" Width="170px" 
                                  PlaceholderText="Zoek ondernemingen" Margin="10" 
                                  Foreground="White" HorizontalAlignment="Center"

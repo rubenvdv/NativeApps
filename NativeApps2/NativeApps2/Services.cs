@@ -244,13 +244,13 @@ namespace NativeApps2
         */
 
         //UPDATE VOLGENDE ONDERNEMINGEN (klopt niet)
-        /* public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsId)
+         public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsid)
          {
-             var gebruikerJson = JsonConvert.SerializeObject(onderneming met id ondernemingsId);
+             var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
              HttpClient client = new HttpClient();
-             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.GebruikersId}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.Gebruikersnaam}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
              return res;
-         }*/
+         }
 
 
         public string HashPassword(string passwd)
