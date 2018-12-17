@@ -29,10 +29,15 @@
                         <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Ik filter op"
                        Margin="20"
                        Foreground="White" Style="{ThemeResource TitleTextBlockStyle}"/>
-                        <RadioButton x:Name="radiobtnNaam" Click="radiobtn_Click" Foreground="White" IsChecked="True">Naam</RadioButton>
-                            <RadioButton x:Name="radiobtnCategorie" Click="radiobtnCategorie_Click"  HorizontalAlignment="Center" Foreground="White">
-                                <ComboBox x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="0" Grid.Column="1" Margin="10"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200">
+                        <!--<RadioButton x:Name="radiobtnNaam" Click="radiobtn_Click" Foreground="White" IsChecked="True">Naam</RadioButton>
+                        <RadioButton x:Name="radiobtnAdres" Click="radiobtn_Click" Foreground="White">Adres</RadioButton>-->
+                        <TextBox Name="NaamTextBox" TextChanged="TextBox_TextChanged" Width="170px" 
+                                 PlaceholderText="Naam" Margin="10" 
+                                 Foreground="White" HorizontalAlignment="Center"
+                                 Height="20"/>    
+                        <!--<RadioButton x:Name="radiobtnCategorie" Click="radiobtnCategorie_Click"  HorizontalAlignment="Center" Foreground="White">-->
+                                <ComboBox PlaceholderText="Categorie" x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="0" Grid.Column="1" Margin="10"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200" SelectionChanged="cmbCategorie_SelectionChanged">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
@@ -41,12 +46,8 @@
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                        </RadioButton>
-                        <RadioButton x:Name="radiobtnAdres" Click="radiobtn_Click" Foreground="White">Adres</RadioButton>
-                        <TextBox TextChanged="TextBox_TextChanged" Width="170px" 
-                                 PlaceholderText="Zoek ondernemingen" Margin="10" 
-                                 Foreground="White" HorizontalAlignment="Center"
-                                 Height="20"/>
+                        <!--</RadioButton>-->
+                        
                     </StackPanel>
                 </StackPanel>
                 <ListView x:Name="myLV" ItemsSource="{Binding}" HorizontalAlignment="Center">

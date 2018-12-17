@@ -44,9 +44,16 @@
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>
-                <TextBox x:Name="categorie" Grid.Row="1" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
+                <ComboBox PlaceholderText="Categorie" x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="1" Grid.Column="1" Margin="10"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
                 <TextBox x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200"/>

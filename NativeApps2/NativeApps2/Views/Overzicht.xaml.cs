@@ -78,24 +78,7 @@ namespace NativeApps2.xaml_pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var tekstbox = sender as TextBox;
-            List<Onderneming> filterLijst = new List<Onderneming>();
-            if(radiobtnNaam.IsChecked == true)
-            {
-                filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            } else if(radiobtnCategorie.IsChecked == true)
-            {
-                string cat = cmbCategorie.SelectedItem as string;
-                if (cat.Equals("Alle"))
-                    filterLijst = ondernemingen.ToList();
-                else
-                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            } else
-            {
-                filterLijst = ondernemingen.Where(o => o.Adres.IndexOf(tekstbox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-            }
-            
-            myLV.ItemsSource = filterLijst;
+            filterLijst();
         }
 
         private void KeerTerug_Click(object sender, RoutedEventArgs e)
@@ -110,7 +93,7 @@ namespace NativeApps2.xaml_pages
         }
 
 
-        private void radiobtnCategorie_Click(object sender, RoutedEventArgs e)
+        /*private void radiobtnCategorie_Click(object sender, RoutedEventArgs e)
         {
             List<Onderneming> filterLijst = new List<Onderneming>();
 
@@ -121,11 +104,57 @@ namespace NativeApps2.xaml_pages
                 filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 
             myLV.ItemsSource = filterLijst;
-        }
+        }*/
 
-        private void radiobtn_Click(object sender, RoutedEventArgs e)
+        /*private void radiobtn_Click(object sender, RoutedEventArgs e)
         {
             myLV.ItemsSource = ondernemingen.ToList();
+        }*/
+
+        private void cmbCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            filterLijst();
+        }
+
+        /*private void cmbCategorie_DropDownClosed(object sender, object e)
+        {
+            filterLijst();
+        }*/
+
+        private void filterLijst()
+        {
+            List<Onderneming> filterLijst = new List<Onderneming>();
+
+            string cat = cmbCategorie.SelectedItem as string;
+            string naam = NaamTextBox.Text as string;
+
+            if (cat == null || cat.Equals("Alle") || cat.Equals("")) {
+                if (naam == null || naam.Equals(""))
+                {
+                    myLV.ItemsSource = ondernemingen;
+                }
+                else
+                {
+                    filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(NaamTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    myLV.ItemsSource = filterLijst;
+                }
+            }
+            else
+            {
+                if (naam == null || naam.Equals(""))
+                {
+                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    myLV.ItemsSource = filterLijst;
+                }
+                else
+                {
+                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0 && o.Naam.IndexOf(NaamTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                    myLV.ItemsSource = filterLijst;
+                }
+            }
+
+            //myLV.ItemsSource = filterLijst;
+
         }
     }
 }

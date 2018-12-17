@@ -45,9 +45,9 @@ namespace NativeApps2Service.Migrations
 
             var ondernemingen = new List<Onderneming>
             {
-                new Onderneming{Naam="Ikea Gent", Categorie="Meubilair", Adres="Maaltekouter 2, 9051 Gent", Openingsuren="MA-DO 10u-20u, VRIJ 10u-21u, ZAT 09u-20u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("JesperBrodin")).OndernemerID},
+                new Onderneming{Naam="Ikea Gent", Categorie="Meubelwinkel", Adres="Maaltekouter 2, 9051 Gent", Openingsuren="MA-DO 10u-20u, VRIJ 10u-21u, ZAT 09u-20u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("JesperBrodin")).OndernemerID},
                 new Onderneming{Naam="OKay Gent", Categorie="Grootwarenhuis", Adres="Voskenslaan 228, 9000 Gent", Openingsuren="MA-ZAT 8u30-19u30", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("JefColruyt")).OndernemerID},
-                new Onderneming{Naam="Claeyssens optiek Gent", Categorie="Optiek", Adres="Voskenslaan 32, 9000 Gent", Openingsuren="DI-VRIJ 09u-18u, ZAT 09u-12u30 & 13u30-18u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("MichelClaeyssens")).OndernemerID},
+                new Onderneming{Naam="Claeyssens optiek Gent", Categorie="Optieker", Adres="Voskenslaan 32, 9000 Gent", Openingsuren="DI-VRIJ 09u-18u, ZAT 09u-12u30 & 13u30-18u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("MichelClaeyssens")).OndernemerID},
                 new Onderneming{Naam="Colruyt Gent", Categorie="Grootwarenhuis", Adres="Drongensesteenweg 197, 9000 Gent", Openingsuren="MA-DO 08u30-20u, VRIJ 08u30-21u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("JefColruyt")).OndernemerID},
                 new Onderneming{Naam="Starbucks station Gent-Sint-Pieters", Categorie="Koffiehuis", Adres="Kon. Maria Hendrikaplein 1, 9000 Gent", Openingsuren="MA-VRIJ 05u30-21u30, ZAT 06u30-21u30, ZON 07u30-21u30", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("KevinJohnson")).OndernemerID},
                 new Onderneming{Naam="Starbucks Korenmarkt", Categorie="Koffiehuis", Adres="Korenmarkt 4, 9000 Gent", Openingsuren="MA-VRIJ 08u-19u, ZAT 08u-20u, ZON 10u-19u", OndernemerID = ondernemers.Single(o => o.Gebruikersnaam.Equals("KevinJohnson")).OndernemerID},

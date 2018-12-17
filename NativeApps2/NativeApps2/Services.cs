@@ -13,7 +13,7 @@ namespace NativeApps2
 {
     class Services
     {
-        HashAlgProviderApp hashAlgorithm;
+        //HashAlgProviderApp hashAlgorithm;
         //Hash hash;
 
         //GET ALLE ONDERNEMINGEN

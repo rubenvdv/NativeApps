@@ -34,7 +34,7 @@ namespace NativeApps2.xaml_pages
             this.InitializeComponent();
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e) //Indien we de services methode (Via het viewmodel) gebruiken hier async bijzetten
         {
             base.OnNavigatedTo(e);
 

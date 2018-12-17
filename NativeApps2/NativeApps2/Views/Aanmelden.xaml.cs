@@ -59,7 +59,7 @@ namespace NativeApps2.xaml_pages
             {
                 correct = await services.controleerInlogGegevensIngelogdeGebruiker(gebruikersnaam.Text, wachtwoord.Password);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 foutmelding.Text = "Geen gebruiker met deze inlognaam gevonden";
             }
@@ -83,7 +83,7 @@ namespace NativeApps2.xaml_pages
             {
                 correct = await services.controleerInlogGegevensOndernemer(gebruikersnaam.Text, wachtwoord.Password);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 foutmelding.Text = "Geen ondernemer met deze inlognaam gevonden";
             }
