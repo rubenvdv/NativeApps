@@ -237,6 +237,16 @@ namespace NativeApps2
             return res;
         }
 
+        //UPDATE PROMOTIE
+        public async Task<HttpResponseMessage> UpdatePromotie(Promotie promotie)
+        {
+            HttpClient client = new HttpClient();
+            int promotieId = promotie.PromotieID;
+            var promotieJson = JsonConvert.SerializeObject(promotie);
+            var res = await client.PutAsync($"http://localhost:57003/api/promoties/{promotieId}", new StringContent(promotieJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
         //VERWIJDER EVENEMENT
         public async Task<HttpResponseMessage> verwijderEvenement(Evenement evenement)
         {
