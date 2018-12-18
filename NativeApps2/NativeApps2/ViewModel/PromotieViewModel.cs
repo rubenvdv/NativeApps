@@ -55,6 +55,7 @@ namespace NativeApps2.ViewModel
             Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
             Type typeGebruiker = gebruiker.GetType();
             ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
+            services = new Services();
 
             if (typeGebruiker == typeof(IngelogdeGebruiker))
             {

@@ -59,20 +59,7 @@ namespace NativeApps2.xaml_pages
                     await services.voegOndernemingToe(onderneming);
 
                     ((App)Application.Current).huidigeGebruiker = ondernemerMetId;
-
-                    //Notificatie
-                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                    XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                    toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Welkom"));
-                    toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U heeft zich succesvol geregistreerd!"));
-                    XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                    ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                    ((XmlElement)toastNode).SetAttribute("duration", "long");
-                    ToastNotification toast = new ToastNotification(toastXml);
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-
+                    new NotificatieViewModel("Welkom", "U heeft zich succesvol geregistreerd!");
                     frameZakelijk.Navigate(typeof(StartschermAnoniem));
                 }
                 else

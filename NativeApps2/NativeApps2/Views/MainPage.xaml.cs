@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using NativeApps2.xaml_pages;
 using Windows.Data.Xml.Dom;
 using Windows.UI.Notifications;
@@ -22,20 +23,7 @@ namespace NativeApps2
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ((App)Application.Current).huidigeGebruiker = new Gebruiker();
-
-            //Notificatie
-            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-            XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-            toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Welkom"));
-            toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U bent klaar om Gent te ontdekken!"));
-            XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-            ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-            ((XmlElement)toastNode).SetAttribute("duration", "long");
-            ToastNotification toast = new ToastNotification(toastXml);
-            //ToastNotificationManager.CreateToastNotifier().Show(toast);
-
+            new NotificatieViewModel("Welkom", "U bent klaar om Gent te ontdekken!");
             mainFrame.Navigate(typeof(StartschermAnoniem));
         }
 

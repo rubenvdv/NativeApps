@@ -49,5 +49,35 @@ namespace NativeApps2.ViewModel
             return Ondernemingen;
         }
 
+        public List<Onderneming> FilterLijst(string cat, string naam, ObservableCollection<Onderneming> ondernemingen)
+        {
+            List<Onderneming> filterLijst = new List<Onderneming>();
+
+            if (cat == null || cat.Equals("Alle") || cat.Equals(""))
+            {
+                if (naam == null || naam.Equals(""))
+                {
+                    return ondernemingen.ToList();
+                }
+                else
+                {
+                    filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(naam, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
+            }
+            else
+            {
+                if (naam == null || naam.Equals(""))
+                {
+                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
+                else
+                {
+                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0 && o.Naam.IndexOf(naam, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
+            }
+
+            return filterLijst;
+        }
+
     }
 }

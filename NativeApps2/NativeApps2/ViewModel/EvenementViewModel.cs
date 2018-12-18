@@ -70,6 +70,7 @@ namespace NativeApps2.ViewModel
             }
             else
             {
+                services = new Services();
                 volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
                 resultaat =  "Uw ondernemingen hebben momenteel geen lopende/aankomende evenementen";
             }

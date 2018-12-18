@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -44,8 +45,8 @@ namespace NativeApps2.xaml_pages
             gebruikersnaam.Text = huidig.Gebruikersnaam;
 
             services = new Services();
-            volgendeOndernemingen = await services.getVolgendeOndernemingenVanGebruiker(huidig);
-            lvAccountAbonnees.ItemsSource = volgendeOndernemingen;
+            OndernemingViewModel ondernemingViewModel = new OndernemingViewModel();
+            lvAccountAbonnees.ItemsSource = await ondernemingViewModel.HaalVolgendeOnderenmingenVanGebruikerOp();
         }
 
         private void Onderneming_Tapped(object sender, TappedRoutedEventArgs e)

@@ -48,20 +48,7 @@ namespace NativeApps2.xaml_pages
                     Onderneming onderneming = new Onderneming { Naam = naam.Text, Categorie = cmbCategorie.SelectedItem as string, Adres = adres.Text, Openingsuren = openingsuren.Text, OndernemerID = ondernemerId };
                     await services.voegOndernemingToe(onderneming);
 
-
-                    //Notificatie
-                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                    XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                    toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Ondernemingen"));
-                    toastTekstElementen[1].AppendChild(toastXml.CreateTextNode(String.Format("Onderneming {0} toegevoegd!", naam.Text)));
-                    XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                    ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                    ((XmlElement)toastNode).SetAttribute("duration", "long");
-                    ToastNotification toast = new ToastNotification(toastXml);
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-
+                    new NotificatieViewModel("Ondernemingen", String.Format("Onderneming {0} toegevoegd!", naam.Text));
                     frameOnderneming.Navigate(typeof(OndernemerBeheer));
                 }
                 else

@@ -105,6 +105,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ViewModel\CategorieViewModel.cs" />
     <Compile Include="ViewModel\EvenementViewModel.cs" />
+    <Compile Include="ViewModel\NotificationViewModel.cs" />
     <Compile Include="ViewModel\OndernemingViewModel.cs" />
     <Compile Include="ViewModel\PromotieViewModel.cs" />
     <Compile Include="Views\Aanmelden.xaml.cs">

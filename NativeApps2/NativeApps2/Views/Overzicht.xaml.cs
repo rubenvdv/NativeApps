@@ -78,7 +78,7 @@ namespace NativeApps2.xaml_pages
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            filterLijst();
+            FilterLijst();
         }
 
         /*private void KeerTerug_Click(object sender, RoutedEventArgs e)
@@ -113,7 +113,7 @@ namespace NativeApps2.xaml_pages
 
         private void cmbCategorie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            filterLijst();
+            FilterLijst();
         }
 
         /*private void cmbCategorie_DropDownClosed(object sender, object e)
@@ -121,39 +121,11 @@ namespace NativeApps2.xaml_pages
             filterLijst();
         }*/
 
-        private void filterLijst()
+        private void FilterLijst()
         {
-            List<Onderneming> filterLijst = new List<Onderneming>();
-
             string cat = cmbCategorie.SelectedItem as string;
             string naam = NaamTextBox.Text as string;
-
-            if (cat == null || cat.Equals("Alle") || cat.Equals("")) {
-                if (naam == null || naam.Equals(""))
-                {
-                    myLV.ItemsSource = ondernemingen;
-                }
-                else
-                {
-                    filterLijst = ondernemingen.Where(o => o.Naam.IndexOf(NaamTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-                    myLV.ItemsSource = filterLijst;
-                }
-            }
-            else
-            {
-                if (naam == null || naam.Equals(""))
-                {
-                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-                    myLV.ItemsSource = filterLijst;
-                }
-                else
-                {
-                    filterLijst = ondernemingen.Where(o => o.Categorie.IndexOf(cat, StringComparison.OrdinalIgnoreCase) >= 0 && o.Naam.IndexOf(NaamTextBox.Text, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
-                    myLV.ItemsSource = filterLijst;
-                }
-            }
-
-            //myLV.ItemsSource = filterLijst;
+            myLV.ItemsSource = ondernemingViewModel.FilterLijst(cat, naam, ondernemingen);
 
         }
     }

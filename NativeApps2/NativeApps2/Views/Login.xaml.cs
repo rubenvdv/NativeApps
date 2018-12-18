@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,20 +42,7 @@ namespace NativeApps2.xaml_pages
 
                     IngelogdeGebruiker iGMetId = await services.getIngelogdeGebruiker(gebruikersnaam.Text);
                     ((App)Application.Current).huidigeGebruiker = iGMetId;
-
-                    //Notificatie
-                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                    XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                    toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Welkom"));
-                    toastTekstElementen[1].AppendChild(toastXml.CreateTextNode("U heeft zich succesvol geregistreerd!"));
-                    XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                    ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                    ((XmlElement)toastNode).SetAttribute("duration", "long");
-                    ToastNotification toast = new ToastNotification(toastXml);
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
-
+                    new NotificatieViewModel("Welkom", "U heeft zich succesvol geregistreerd!");
                     frameLogIn.Navigate(typeof(StartschermAnoniem));
                 }
                 else

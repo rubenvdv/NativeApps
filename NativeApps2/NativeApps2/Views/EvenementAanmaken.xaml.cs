@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -58,21 +59,8 @@ namespace NativeApps2.xaml_pages
 
                     Evenement evenement = new Evenement { Naam = naam.Text, Omschrijving = omschrijving.Text, Begindatum = begindatum.Date.DateTime, Einddatum = einddatum.Date.DateTime, OndernemingID = onderneming.OndernemingID };
                     await services.voegEvenementToe(evenement);
-
+                    new NotificatieViewModel("Evenementen", String.Format("Evenement {0} aangemaakt!", naam.Text));
                     frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));
-
-                    //Notifications manier 1
-                    ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-                    XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-                    XmlNodeList toastTekstElementen = toastXml.GetElementsByTagName("text");
-                    toastTekstElementen[0].AppendChild(toastXml.CreateTextNode("Evenementen"));
-                    toastTekstElementen[1].AppendChild(toastXml.CreateTextNode(String.Format("Evenement {0} aangemaakt!", naam.Text)));
-                    XmlNodeList toastAfbeeldingElementen = toastXml.GetElementsByTagName("image");
-                    ((XmlElement)toastAfbeeldingElementen[0]).SetAttribute("src", "/Images/notification.png");
-                    IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-                    ((XmlElement)toastNode).SetAttribute("duration", "long");
-                    ToastNotification toast = new ToastNotification(toastXml);
-                    ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }
                 else
                 {
