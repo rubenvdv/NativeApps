@@ -5,33 +5,6 @@ namespace NativeApps2.Domain
 {
     public class Promotie : INotifyPropertyChanged
     {
-        /*
-        public int PromotieID { get; set; }
-        public string Naam { get; set; }
-        public string Omschrijving { get; set; }
-        public DateTime Begindatum { get; set; }
-        public DateTime Einddatum { get; set; }
-        public int OndernemingID { get; set; }
-        public string Korting { get; set; }
-
-        public virtual Onderneming Onderneming { get; set; }
-
-        public Promotie()
-        {
-               
-        }
-
-        public Promotie(string naam, string omschrijving, DateTime start, DateTime einde, int ondernemingId, string korting)
-        {
-            Naam = naam;
-            Omschrijving = omschrijving;
-            Begindatum = start;
-            Einddatum = einde;
-            OndernemingID = ondernemingId;
-            Korting = korting;
-        }*/
-
-        
         private int promotieID;
         private string naam;
         private string omschrijving;

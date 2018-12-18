@@ -13,6 +13,7 @@ namespace NativeApps2.ViewModel
     {
         private Services services;
         private ObservableCollection<Onderneming> ondernemingen;
+        private ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
 
         public ObservableCollection<Onderneming> Ondernemingen
         {
@@ -26,6 +27,15 @@ namespace NativeApps2.ViewModel
             services = new Services();
             IngelogdeGebruiker gebruiker = ((IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker);
             ondernemingen = await services.getVolgendeOndernemingenVanGebruiker(gebruiker);
+            Ondernemingen = ondernemingen;
+            return Ondernemingen;
+        }
+
+        public async Task<ObservableCollection<Onderneming>> HaalOnderenmingenVanOndernemerOp(Ondernemer ondernemer)
+        {
+            ondernemingen = new ObservableCollection<Onderneming>();
+            services = new Services();
+            ondernemingen = await services.getOndernemingenVanOndernemer(ondernemer);
             Ondernemingen = ondernemingen;
             return Ondernemingen;
         }

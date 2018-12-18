@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
+using NativeApps2.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,9 +27,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtEvenementen : Page
     {
-        private Services services;
-        private ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
-        private ObservableCollection<Evenement> lijstVanEvenementen = new ObservableCollection<Evenement>();
+        
 
         public OverzichtEvenementen()
         {
@@ -66,12 +65,17 @@ namespace NativeApps2.xaml_pages
             //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             lvEvenementen.ItemsSource = lijstVanEvenementen;
 
-            int aantalElementen = lijstVanEvenementen.Count;
+            int aantalElementen = lijstVanEvenementen.Count; 
 
             if (aantalElementen > 0)
             {
                 bericht.Text = "";
             }
+            
+            EvenementViewModel evenementViewModel = new EvenementViewModel();
+            bericht.Text = await evenementViewModel.BepaalString();
+            lvEvenementen.ItemsSource = evenementViewModel.Evenementen;
+            
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
