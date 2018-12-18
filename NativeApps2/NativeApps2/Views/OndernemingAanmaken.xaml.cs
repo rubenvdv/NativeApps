@@ -32,6 +32,7 @@ namespace NativeApps2.xaml_pages
             base.OnNavigatedTo(e);
             cmbCategorie.DataContext = new CategorieViewModel();
             services = new Services();
+            cmbCategorie.SelectedItem = "Andere";
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)

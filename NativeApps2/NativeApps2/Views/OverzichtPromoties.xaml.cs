@@ -38,11 +38,13 @@ namespace NativeApps2.xaml_pages
             {
                 volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
                 bericht.Text = "Er worden voorlopig geen promoties georganiseerd door uw gevolgde ondernemingen";
+                Titel.Text = "Promoties waarop u geabonneerd bent";
             }
             else
             {
                 volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
                 bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende promoties";
+                Titel.Text = "Promoties van uw onderneming(en)";
 
             }
 

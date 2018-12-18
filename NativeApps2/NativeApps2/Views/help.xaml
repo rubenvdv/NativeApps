@@ -43,7 +43,19 @@
                 <ListViewItem>
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Margin="10" Symbol="Calendar" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Op deze pagina wordt een overzicht weergeven van alle aankomende evenementen waarop u geabonneerd bent."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="CalendarWeek" Foreground="White"/>
                         <TextBlock Margin="10" Foreground="White" Text="Op deze pagina wordt een overzicht weergeven van alle aankomende evenementen."/>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Margin="10" Symbol="Shop" Foreground="White"/>
+                        <TextBlock Margin="10" Foreground="White" Text="Op deze pagina wordt een overzicht weergeven van alle lopende promoties waarop u geabonneerd bent."/>
                     </StackPanel>
                 </ListViewItem>
                 <ListViewItem>

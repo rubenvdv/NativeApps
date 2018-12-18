@@ -91,7 +91,20 @@
                 </Button.Background>
             </Button>
 
-            <Button x:Name="verwijderOnderneming" Content="Verwijderen" 
+                <Button x:Name="wijzigOnderneming" Click="wijzigOnderneming_Click"  Content="Wijzigen" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                    <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="Green" Offset="0.0" />
+                            <GradientStop Color="LimeGreen" Offset="0.75" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+
+                <Button x:Name="verwijderOnderneming" Content="Verwijderen" 
                 Grid.Row="5" Grid.Column="1" 
                 HorizontalAlignment="Center"
                     Width="200"

@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.OverzichtEvenementen"
+    x:Class="NativeApps2.Views.AlleEvenementen"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:NativeApps2.xaml_pages"
+    xmlns:local="using:NativeApps2.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -17,7 +17,7 @@
 
 
             <StackPanel>
-                <TextBlock x:Name="Titel" VerticalAlignment="Center" HorizontalAlignment="center" Text="Evenementen" 
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Alle evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
 

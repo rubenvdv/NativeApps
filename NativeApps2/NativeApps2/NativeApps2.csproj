@@ -114,6 +114,12 @@
     <Compile Include="Views\Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AlleEvenementen.xaml.cs">
+      <DependentUpon>AlleEvenementen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AllePromoties.xaml.cs">
+      <DependentUpon>AllePromoties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EvenementAanmaken.xaml.cs">
       <DependentUpon>EvenementAanmaken.xaml</DependentUpon>
     </Compile>
@@ -172,6 +178,9 @@
     <Compile Include="Views\WijzigEvenement.xaml.cs">
       <DependentUpon>WijzigEvenement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WijzigOnderneming.xaml.cs">
+      <DependentUpon>WijzigOnderneming.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WijzigPromotie.xaml.cs">
       <DependentUpon>WijzigPromotie.xaml</DependentUpon>
     </Compile>
@@ -210,6 +219,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Account.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AlleEvenementen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AllePromoties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,6 +303,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WijzigEvenement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WijzigOnderneming.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

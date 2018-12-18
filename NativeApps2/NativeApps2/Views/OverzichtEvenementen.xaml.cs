@@ -47,11 +47,13 @@ namespace NativeApps2.xaml_pages
             {
                 volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
                 bericht.Text = "Er worden voorlopig geen evenementen georganiseerd door uw gevolgde ondernemingen";
+                Titel.Text = "Evenementen waarop u geabonneerd bent";
 
             }
             else {
                 volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
                 bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende evenementen";
+                Titel.Text = "Evenementen van uw onderneming(en)";
             }
 
             IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
