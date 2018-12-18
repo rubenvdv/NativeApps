@@ -20,6 +20,7 @@ namespace NativeApps2.xaml_pages
     {
         Services services;
         public ObservableCollection<Evenement> _evenementen = new ObservableCollection<Evenement>();
+        public ObservableCollection<Promotie> _promoties = new ObservableCollection<Promotie>();
         private Onderneming _onderneming;
         public string AbonnementName { get; set; }
 
@@ -51,6 +52,10 @@ namespace NativeApps2.xaml_pages
                     abonneer.Content = "Abonneren";
 
             }
+            if (check == typeof(Ondernemer))
+            {
+                VisualStateManager.GoToState(this, "ondernemer", false);
+            }
             else
             {
                 VisualStateManager.GoToState(this, "nietIngelogdeGebruiker", false);
@@ -62,6 +67,9 @@ namespace NativeApps2.xaml_pages
 
             _evenementen = await services.getEvenementenVanOnderneming(_onderneming);
             lvOndernemingEvenementen.ItemsSource = _evenementen;
+
+            _promoties = await services.getPromotiesVanOnderneming(_onderneming);
+            lvOndernemingPromoties.ItemsSource = _promoties;
         }
 
 
@@ -94,6 +102,32 @@ namespace NativeApps2.xaml_pages
 
         }
 
-        
+        private void wijzigOnderneming_Click(object sender, RoutedEventArgs e)
+        {
+            //Nog implementeren frameOndernemingGegevens.Navigate(typeof(WijzigOnderneming), _onderneming);
+        }
+
+        private async void verwijderOnderneming_Click(object sender, RoutedEventArgs e)
+        {
+            IEnumerable<Promotie> promoties = await services.getPromotiesVanOnderneming(_onderneming);
+            IEnumerable<Evenement> ondernemingen = await services.getEvenementenVanOnderneming(_onderneming);
+
+            if (promoties.Count().Equals(0) && ondernemingen.Count().Equals(0))
+            {
+                await services.verwijderOnderneming(_onderneming);
+                frameOndernemingGegevens.Navigate(typeof(OndernemerBeheer));
+            }
+            else
+            {
+                foutmelding.Text = "Een onderneming kan niet verwijderd worden zolang ze evenementen of promoties heeft!";
+            }
+        }
+
+        private void Promotie_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            StackPanel sp = sender as StackPanel;
+            Promotie promotie = sp.DataContext as Promotie;
+            frameOndernemingGegevens.Navigate(typeof(PromotieGegevens), promotie);
+        }
     }
 }

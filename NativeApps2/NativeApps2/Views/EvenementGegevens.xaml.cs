@@ -68,5 +68,11 @@ namespace NativeApps2.xaml_pages
         {
             frameEvenementGegevens.Navigate(typeof(WijzigEvenement), _evenement);
         }
+
+        private async void verwijderEvenement_Click(object sender, RoutedEventArgs e)
+        {
+            await services.verwijderEvenement(_evenement);
+            frameEvenementGegevens.Navigate(typeof(OndernemerBeheer));
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using NativeApps2.Domain;
+using System;
 using Windows.Data.Pdf;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
@@ -13,6 +15,7 @@ namespace NativeApps2.xaml_pages
     public sealed partial class PromotieGegevens : Page
     {
         private Promotie _promotie;
+        Services services;
 
         public PromotieGegevens()
         {
@@ -23,6 +26,18 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
 
+            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
+            if (check == typeof(Ondernemer))
+            {
+                VisualStateManager.GoToState(this, "zakelijk", false);
+
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "nietzakelijk", false);
+            }
+
+            services = new Services();
             _promotie = (Promotie)e.Parameter;
             promotieGrid.DataContext = _promotie;
             onderneming.DataContext = _promotie.Onderneming;
@@ -50,6 +65,17 @@ namespace NativeApps2.xaml_pages
 
             doc.Save("test.pdf");
             doc.Close();*/
+        }
+
+        private void wijzigPromotie_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            //Nog implementeren framePromotieGegevens.Navigate(typeof(WijzigPromotie), _promotie);
+        }
+
+        private async void verwijderPromotie_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            await services.verwijderPromotie(_promotie);
+            framePromotieGegevens.Navigate(typeof(OndernemerBeheer));
         }
     }
 }

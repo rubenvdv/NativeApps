@@ -15,11 +15,13 @@
                 <VisualState x:Name="nietzakelijk">
                     <VisualState.Setters>
                         <Setter Target="wijzigEvenement.Visibility" Value="Collapsed"/>
+                        <Setter Target="verwijderEvenement.Visibility" Value="Collapsed"/>
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="zakelijk">
                     <VisualState.Setters>
                         <Setter Target="wijzigEvenement.Visibility" Value="Visible"/>
+                        <Setter Target="verwijderEvenement.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -77,6 +79,28 @@
                 HorizontalAlignment="Center"
                     Width="200"
                 VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button x:Name="verwijderEvenement" Content="Verwijderen" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Dit evenement wordt verwijderd. Bent u zeker?" Margin="0,0,0,12" />
+                            <Button Click="verwijderEvenement_Click" Content="Ja, verwijder dit evenement." />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+
                 <Button.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
                         <GradientStop Color="Green" Offset="0.0" />

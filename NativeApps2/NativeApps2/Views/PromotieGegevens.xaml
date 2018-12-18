@@ -9,6 +9,24 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Frame x:Name="framePromotieGegevens">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="nietzakelijk">
+                    <VisualState.Setters>
+                        <Setter Target="wijzigPromotie.Visibility" Value="Collapsed"/>
+                        <Setter Target="verwijderPromotie.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="zakelijk">
+                    <VisualState.Setters>
+                        <Setter Target="wijzigPromotie.Visibility" Value="Visible"/>
+                        <Setter Target="verwijderPromotie.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
@@ -67,6 +85,40 @@
                 </Button.Background>
             </Button>
             -->
+            <Button x:Name="wijzigPromotie" Click="wijzigPromotie_Click"  Content="Wijzigen" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            
+            <Button x:Name="verwijderPromotie" Content="Verwijderen" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Deze promotie wordt verwijderd. Bent u zeker?" Margin="0,0,0,12" />
+                            <Button Click="verwijderPromotie_Click" Content="Ja, verwijder deze promotie." />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
             <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Behoort tot onderstaande onderneming"
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>

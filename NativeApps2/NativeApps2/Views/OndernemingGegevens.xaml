@@ -7,24 +7,30 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Frame x:Name="frameOndernemingGegevens">
+    <ScrollViewer>
+        <Frame x:Name="frameOndernemingGegevens">
         <Frame.Background>
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
-                <VisualState x:Name="nietIngelogdeGebruiker">
-
-                    <VisualState.Setters>
-                   <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                    <VisualState x:Name="nietIngelogdeGebruiker">
+                        <VisualState.Setters>
+                        <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                        <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
                     </VisualState.Setters>
                 </VisualState>
-                <VisualState x:Name="IngelogdeGebruiker">
-
-                    <VisualState.Setters>
+                    <VisualState x:Name="IngelogdeGebruiker">
+                        <VisualState.Setters>
                         <Setter Target="abonneer.Visibility" Value="Visible"/>
+                        <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
+                    </VisualState.Setters>
+                </VisualState>
+                    <VisualState x:Name="ondernemer">
+                        <VisualState.Setters>
+                        <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                        <Setter Target="verwijderOnderneming.Visibility" Value="Visible"/>
                     </VisualState.Setters>
                 </VisualState>
             </VisualStateGroup>
@@ -83,7 +89,33 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Aankomende evenementen" 
+
+            <Button x:Name="verwijderOnderneming" Content="Verwijderen" 
+                Grid.Row="5" Grid.Column="1" 
+                HorizontalAlignment="Center"
+                    Width="200"
+                VerticalAlignment="Center" Margin="15" Foreground="White">
+                <Button.Flyout>
+                    <Flyout>
+                        <StackPanel>
+                            <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="Deze onderneming wordt verwijderd. Bent u zeker?" Margin="0,0,0,12" />
+                            <Button Click="verwijderOnderneming_Click" Content="Ja, verwijder deze onderneming." />
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+                <Button.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                        <GradientStop Color="Green" Offset="0.0" />
+                        <GradientStop Color="LimeGreen" Offset="0.75" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
+                       Margin="20"
+                       Foreground="Red" FontSize="13"/>
+
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Lopende evenementen" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
             <ListView x:Name="lvOndernemingEvenementen" ItemsSource="{Binding}" HorizontalAlignment="Center">
@@ -108,6 +140,34 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-        </StackPanel>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Lopende promoties" 
+                       Margin="20"
+                       Foreground="White" Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                <ListView x:Name="lvOndernemingPromoties" ItemsSource="{Binding}" HorizontalAlignment="Center">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Tapped="Promotie_Tapped">
+                                <Image Width = "100" Height="100" Source="{Binding Logo}"
+                                   VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 0, 10, 0"/>
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="{Binding Naam}" Style="{ThemeResource HeaderTextBlockStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Korting}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                       HorizontalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Omschrijving}" Style="{ThemeResource BodyTextBlockStyle}" Foreground="White" 
+                                       HorizontalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <TextBlock Text="{Binding Begindatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                        <TextBlock Text=" - " Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                        <TextBlock Text="{Binding Einddatum}" Style="{ThemeResource CaptionTextBlockStyle}" Foreground="White"/>
+                                    </StackPanel>
+                                    <Line Stroke="White" X1="0" X2="300" Y1="5" Y2="5" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </StackPanel>
     </Frame>
+  </ScrollViewer>
 </Page>

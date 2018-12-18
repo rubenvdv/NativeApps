@@ -227,12 +227,58 @@ namespace NativeApps2
             }
         }
 
+        //UPDATE EVENEMENT
         public async Task<HttpResponseMessage> UpdateEvenement(Evenement evenement)
         {
             HttpClient client = new HttpClient();
             int evenementId = evenement.EvenementID;
             var evenementJson = JsonConvert.SerializeObject(evenement);
             var res = await client.PutAsync($"http://localhost:57003/api/evenements/{evenementId}", new StringContent(evenementJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
+        //VERWIJDER EVENEMENT
+        public async Task<HttpResponseMessage> verwijderEvenement(Evenement evenement)
+        {
+            HttpClient client = new HttpClient();
+            int evenementId = evenement.EvenementID;
+            var res = await client.DeleteAsync($"http://localhost:57003/api/evenements/{evenementId}");
+            return res;
+        }
+
+        //VERWIJDER PROMOTIE
+        public async Task<HttpResponseMessage> verwijderPromotie(Promotie promotie)
+        {
+            HttpClient client = new HttpClient();
+            int promotieId = promotie.PromotieID;
+            var res = await client.DeleteAsync($"http://localhost:57003/api/promoties/{promotieId}");
+            return res;
+        }
+
+        //VERWIJDER ONDERNEMING (ENKEL DOEN NADAT DE PROMOTIES EN EVENEMENTEN VAN DEZE ONDERNEMING VERWIJDERD ZIJN)
+        public async Task<HttpResponseMessage> verwijderOnderneming(Onderneming onderneming)
+        {
+            HttpClient client = new HttpClient();
+            int ondernemingId = onderneming.OndernemingID;
+            var res = await client.DeleteAsync($"http://localhost:57003/api/ondernemings/{ondernemingId}");
+            return res;
+        }
+
+        //VERWIJDER ONDERNEMER (ENKEL DOEN NADAT DE ONDERNEMINGEN VAN DEZE ONDERNEMER VERWIJDERD ZIJN)
+        public async Task<HttpResponseMessage> verwijderOndernemer(Ondernemer ondernemer)
+        {
+            HttpClient client = new HttpClient();
+            int ondernemerId = ondernemer.OndernemerID;
+            var res = await client.DeleteAsync($"http://localhost:57003/api/ondernemers/{ondernemerId}");
+            return res;
+        }
+
+        //VERWIJDER INGELOGDEGEBRUIKER
+        public async Task<HttpResponseMessage> verwijderIngelogdegebruiker(IngelogdeGebruiker IngelogdeGebruiker)
+        {
+            HttpClient client = new HttpClient();
+            int ingelogdeGebruikerId = IngelogdeGebruiker.IngelogdeGebruikerID;
+            var res = await client.DeleteAsync($"http://localhost:57003/api/ingelogdeGebruikers/{ingelogdeGebruikerId}");
             return res;
         }
 
@@ -244,7 +290,7 @@ namespace NativeApps2
         */
 
         //UPDATE VOLGENDE ONDERNEMINGEN (klopt niet)
-         public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsid)
+        public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsid)
          {
              var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
              HttpClient client = new HttpClient();
