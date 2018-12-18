@@ -101,7 +101,7 @@
                         <TextBlock Text="Evenementen" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="Alleevenementen" Tapped="AlleEvenementen_Tapped" Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE7BF;"
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE715;"
                             Width="50"
                             Height="50"/>
                         <TextBlock Text="Alle evenementen" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
@@ -113,7 +113,7 @@
                         <TextBlock Text="Promoties" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
                     </StackPanel>
                     <StackPanel x:Name="Allepromoties" Tapped="AllePromoties_Tapped" Orientation="Horizontal">
-                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE719;"
+                        <Button FontFamily="Segoe MDL2 Assets" Content="&#xE7BF;"
                             Width="50"
                             Height="50"/>
                         <TextBlock Text="Alle promoties" FontSize="18" VerticalAlignment="Center" Margin="10,0,0,0"/>
