@@ -37,6 +37,40 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            /*services = new Services();
+
+            Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
+            Type typeGebruiker = gebruiker.GetType();
+
+            if(typeGebruiker == typeof(IngelogdeGebruiker))
+            {
+                volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
+                bericht.Text = "Er worden voorlopig geen evenementen georganiseerd door uw gevolgde ondernemingen";
+                Titel.Text = "Evenementen waarop u geabonneerd bent";
+
+            }
+            else {
+                volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
+                bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende evenementen";
+                Titel.Text = "Evenementen van uw onderneming(en)";
+            }
+
+            IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
+            foreach (Onderneming o in volgendeOndernemingen)
+            {
+                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o);
+                foreach (Evenement ev in evenementenVanOnderneming)
+                    lijstVanEvenementen.Add(ev);
+            }
+            //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
+            lvEvenementen.ItemsSource = lijstVanEvenementen;
+
+            int aantalElementen = lijstVanEvenementen.Count; 
+
+            if (aantalElementen > 0)
+            {
+                bericht.Text = "";
+            }*/
             
             EvenementViewModel evenementViewModel = new EvenementViewModel();
             bericht.Text = await evenementViewModel.BepaalString();

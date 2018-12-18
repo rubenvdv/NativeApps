@@ -84,5 +84,10 @@ namespace NativeApps2.xaml_pages
                 foutmelding.Text = "Evenement niet aangepast, controleer of u alle gegevens correct hebt ingevuld!!";
             }
         }
+
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameInstellingen.Navigate(typeof(EvenementGegevens), _evenement);
+        }
     }
 }

@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="NativeApps2.xaml_pages.WijzigEvenement"
+    x:Class="NativeApps2.Views.WijzigOnderneming"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:NativeApps2.xaml_pages"
+    xmlns:local="using:NativeApps2.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -13,13 +13,13 @@
             <ImageBrush ImageSource="/Images/background.jpg"/>
         </Frame.Background>
         <StackPanel>
-            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Wijzig evenement" 
+            <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Wijzig onderneming" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
             <TextBlock x:Name="succesMessage" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 
                        Margin="20"
                        Foreground="DarkGreen" FontSize="20"/>
-            <Grid x:Name="evenementGegevens" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid x:Name="OndernemingGegevens" VerticalAlignment="Center" HorizontalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
@@ -35,26 +35,35 @@
                    Text="Naam" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="1" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Omschrijving" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Categorie" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="2" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Begindatum" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Adres" Foreground="White" FontWeight="SemiBold"/>
                 <TextBlock Grid.Row="3" Grid.Column="0" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Right" 
-                   Text="Einddatum" Foreground="White" FontWeight="SemiBold"/>
+                   Text="Openingsuren" Foreground="White" FontWeight="SemiBold"/>
+
 
                 <TextBox x:Name="naam" Grid.Row="0" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
                    Width="200" Text="{Binding Naam}" Foreground="White"/>
-                <TextBox x:Name="omschrijving" Grid.Row="1" Grid.Column="1" Margin="10"
+                <ComboBox PlaceholderText="Categorie" x:Name="cmbCategorie" ItemsSource="{Binding Categorieen}" Grid.Row="1" Grid.Column="1" Margin="10"
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Width="200">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBox x:Name="adres" Grid.Row="2" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200" Text="{Binding Omschrijving}" Foreground="White"/>
-                <DatePicker x:Name="begindatum" Grid.Row="2" Grid.Column="1" Margin="10"
+                   Width="200" Text="{Binding Adres}" Foreground="White"/>
+                <TextBox x:Name="openingsuren" Grid.Row="3" Grid.Column="1" Margin="10"
                    VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
-                <DatePicker x:Name="einddatum" Grid.Row="3" Grid.Column="1" Margin="10"
-                   VerticalAlignment="Center" HorizontalAlignment="Left" 
-                   Width="200"/>
+                   Width="200" Text="{Binding Openingsuren}" Foreground="White"/>
+
             </Grid>
 
             <TextBlock x:Name="foutmelding" VerticalAlignment="Center" HorizontalAlignment="center" Text="" 

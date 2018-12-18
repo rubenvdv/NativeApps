@@ -15,15 +15,11 @@
             </Frame.Background>
 
             <StackPanel>
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" Text="Promoties" 
+                <TextBlock x:Name="Titel" VerticalAlignment="Center" HorizontalAlignment="center" Text="Promoties" 
                        Margin="20"
                        Foreground="White" Style="{ThemeResource HeaderTextBlockStyle}"/>
 
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock x:Name="bericht" Margin="0,200,0,0" Foreground="White" 
-                               Text=""
-                               Style="{ThemeResource SubheaderTextBlockStyle}"/>
-                </StackPanel>
+                
 
                 <ListView x:Name="lvPromoties" ItemsSource="{Binding Path = Promoties}" HorizontalAlignment="Center">
                     <ListView.ItemTemplate>
@@ -44,6 +40,11 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock x:Name="bericht" Margin="0,200,0,0" Foreground="White" 
+                               Text=""
+                               Style="{ThemeResource SubheaderTextBlockStyle}"/>
+                </StackPanel>
             </StackPanel>
         </Frame>
     </ScrollViewer>

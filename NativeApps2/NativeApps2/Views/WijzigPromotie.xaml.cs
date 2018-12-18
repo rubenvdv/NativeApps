@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.xaml_pages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -85,5 +86,9 @@ namespace NativeApps2.Views
             }
         }
 
+        private void annuleer_Click(object sender, RoutedEventArgs e)
+        {
+            frameInstellingen.Navigate(typeof(PromotieGegevens), _promotie);
+        }
     }
 }

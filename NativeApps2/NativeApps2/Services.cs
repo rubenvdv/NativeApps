@@ -247,6 +247,16 @@ namespace NativeApps2
             return res;
         }
 
+        //UPDATE ONDERNEMING
+        public async Task<HttpResponseMessage> UpdateOnderneming(Onderneming onderneming)
+        {
+            HttpClient client = new HttpClient();
+            int ondernemingId = onderneming.OndernemingID;
+            var ondernemingJson = JsonConvert.SerializeObject(onderneming);
+            var res = await client.PutAsync($"http://localhost:57003/api/ondernemings/{ondernemingId}", new StringContent(ondernemingJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
         //VERWIJDER EVENEMENT
         public async Task<HttpResponseMessage> verwijderEvenement(Evenement evenement)
         {

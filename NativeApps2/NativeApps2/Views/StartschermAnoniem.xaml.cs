@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.Views;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -115,6 +116,16 @@ namespace NativeApps2.xaml_pages
         {
             ((App)Application.Current).huidigeGebruiker = null;
             volledigscherm.Navigate(typeof(MainPage));
+        }
+
+        private void AlleEvenementen_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(AlleEvenementen));
+        }
+
+        private void AllePromoties_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            frameRechts.Navigate(typeof(AllePromoties));
         }
     }
 }

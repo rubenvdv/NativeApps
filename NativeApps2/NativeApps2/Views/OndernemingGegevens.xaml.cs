@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -52,6 +53,7 @@ namespace NativeApps2.xaml_pages
 
                 abonneer.Visibility = Visibility.Visible;
                 verwijderOnderneming.Visibility = Visibility.Collapsed;
+                wijzigOnderneming.Visibility = Visibility.Collapsed;
 
             }
             else if (check == typeof(Ondernemer))
@@ -65,6 +67,7 @@ namespace NativeApps2.xaml_pages
                 //VisualStateManager.GoToState(this, "nietIngelogdeGebruiker", false);
                 abonneer.Visibility = Visibility.Collapsed;
                 verwijderOnderneming.Visibility = Visibility.Collapsed;
+                wijzigOnderneming.Visibility = Visibility.Collapsed;
             }
 
             services = new Services();
@@ -111,7 +114,7 @@ namespace NativeApps2.xaml_pages
 
         private void wijzigOnderneming_Click(object sender, RoutedEventArgs e)
         {
-            //Nog implementeren frameOndernemingGegevens.Navigate(typeof(WijzigOnderneming), _onderneming);
+            frameOndernemingGegevens.Navigate(typeof(WijzigOnderneming), _onderneming);
         }
 
         private async void verwijderOnderneming_Click(object sender, RoutedEventArgs e)
