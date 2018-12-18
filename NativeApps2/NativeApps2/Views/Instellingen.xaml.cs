@@ -80,12 +80,12 @@ namespace NativeApps2.xaml_pages
                 {
                     if (gMetGNaam != null)
                     {
-                        succesMessage.Text = "Gegevens succesvol aangepast!";
+                        succesMessage.Text = "";
                         foutmeldingGegevens.Text = "Er bestaat al een gebruiker met deze gebruikersnaam!";
                     }
                     else
                     {
-                        succesMessage.Text = "Gegevens succesvol aangepast!";
+                        succesMessage.Text = "";
                         foutmeldingGegevens.Text = "Er bestaat al een gebruiker met dit emailadres!";
                     }
                     gMetGNaam = null;
