@@ -56,7 +56,7 @@ namespace NativeApps2.xaml_pages
                 {
                     Onderneming onderneming = cmbOndernemingen.SelectedItem as Onderneming;
 
-                    Evenement evenement = new Evenement(naam.Text, omschrijving.Text, begindatum.Date.DateTime, einddatum.Date.DateTime, onderneming.OndernemingID);
+                    Evenement evenement = new Evenement { Naam = naam.Text, Omschrijving = omschrijving.Text, Begindatum = begindatum.Date.DateTime, Einddatum = einddatum.Date.DateTime, OndernemingID = onderneming.OndernemingID };
                     await services.voegEvenementToe(evenement);
 
                     frameEvenementAanmaken.Navigate(typeof(OverzichtEvenementen));

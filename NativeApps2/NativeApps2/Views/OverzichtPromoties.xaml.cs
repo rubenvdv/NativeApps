@@ -17,10 +17,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtPromoties : Page
     {
-        private Services services;
-        private ObservableCollection<Promotie> promoties = new ObservableCollection<Promotie>();
-        private ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
-
+        
         public OverzichtPromoties()
         {
             this.InitializeComponent();
@@ -29,33 +26,10 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            services = new Services();
 
-            Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
-            Type typeGebruiker = gebruiker.GetType();
-
-            if (typeGebruiker == typeof(IngelogdeGebruiker))
-            {
-                volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
-                bericht.Text = "Er worden voorlopig geen promoties georganiseerd door uw gevolgde ondernemingen";
-            }
-            else
-            {
-                volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
-                bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende promoties";
-
-            }
-
-            //Hier moeten enkel alle promoties die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
             PromotieViewModel promotieViewModel = new PromotieViewModel();
-            promoties = await promotieViewModel.HaalPromotiesVanVolgendeOndernemingenOp(volgendeOndernemingen);
-            int aantalElementen = promoties.Count;
-
-            if (aantalElementen > 0)
-            {
-                bericht.Text = "";
-                lvPromoties.ItemsSource = promoties;
-            }
+            bericht.Text = await promotieViewModel.BepaalString();
+            lvPromoties.ItemsSource = promotieViewModel.Promoties;
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?

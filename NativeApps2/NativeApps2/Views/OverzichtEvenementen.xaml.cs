@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
+using NativeApps2.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -26,9 +27,7 @@ namespace NativeApps2.xaml_pages
     /// </summary>
     public sealed partial class OverzichtEvenementen : Page
     {
-        private Services services;
-        private ObservableCollection<Onderneming> volgendeOndernemingen = new ObservableCollection<Onderneming>();
-        private ObservableCollection<Evenement> lijstVanEvenementen = new ObservableCollection<Evenement>();
+        
 
         public OverzichtEvenementen()
         {
@@ -38,38 +37,11 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            services = new Services();
-
-            Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
-            Type typeGebruiker = gebruiker.GetType();
-
-            if(typeGebruiker == typeof(IngelogdeGebruiker))
-            {
-                volgendeOndernemingen = ((IngelogdeGebruiker)gebruiker).VolgendeOndernemingen;
-                bericht.Text = "Er worden voorlopig geen evenementen georganiseerd door uw gevolgde ondernemingen";
-
-            }
-            else {
-                volgendeOndernemingen = await services.getOndernemingenVanOndernemer((Ondernemer)gebruiker);
-                bericht.Text = "Uw ondernemingen hebben momenteel geen lopende/aankomende evenementen";
-            }
-
-            IList<Evenement> evenementenVanOnderneming = new List<Evenement>();
-            foreach (Onderneming o in volgendeOndernemingen)
-            {
-                evenementenVanOnderneming = await services.getEvenementenVanOnderneming(o);
-                foreach (Evenement ev in evenementenVanOnderneming)
-                    lijstVanEvenementen.Add(ev);
-            }
-            //Hier moeten enkel alle evenementen die de gebruiker volgt meegegeven worden maar dat bestaat nog niet.
-            lvEvenementen.ItemsSource = lijstVanEvenementen;
-
-            int aantalElementen = lijstVanEvenementen.Count;
-
-            if (aantalElementen > 0)
-            {
-                bericht.Text = "";
-            }
+            
+            EvenementViewModel evenementViewModel = new EvenementViewModel();
+            bericht.Text = await evenementViewModel.BepaalString();
+            lvEvenementen.ItemsSource = evenementViewModel.Evenementen;
+            
         }
 
         //VRAAG: moet hier geen onderneming meegegeven worden als parameter?
