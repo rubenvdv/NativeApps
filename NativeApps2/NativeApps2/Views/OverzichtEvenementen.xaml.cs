@@ -37,7 +37,7 @@ namespace NativeApps2.xaml_pages
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            services = new Services();
+            /*services = new Services();
 
             Gebruiker gebruiker = ((App)Application.Current).huidigeGebruiker;
             Type typeGebruiker = gebruiker.GetType();
@@ -70,7 +70,7 @@ namespace NativeApps2.xaml_pages
             if (aantalElementen > 0)
             {
                 bericht.Text = "";
-            }
+            }*/
             
             EvenementViewModel evenementViewModel = new EvenementViewModel();
             bericht.Text = await evenementViewModel.BepaalString();
