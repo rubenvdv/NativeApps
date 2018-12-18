@@ -9,33 +9,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <ScrollViewer>
         <Frame x:Name="frameOndernemingGegevens">
-        <Frame.Background>
-            <ImageBrush ImageSource="/Images/background.jpg"/>
-        </Frame.Background>
-
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
+            <Frame.Background>
+                <ImageBrush ImageSource="/Images/background.jpg"/>
+            </Frame.Background>
+            
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
                     <VisualState x:Name="nietIngelogdeGebruiker">
                         <VisualState.Setters>
-                        <Setter Target="abonneer.Visibility" Value="Collapsed"/>
-                        <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
+                            <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                            <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
                     <VisualState x:Name="IngelogdeGebruiker">
                         <VisualState.Setters>
-                        <Setter Target="abonneer.Visibility" Value="Visible"/>
-                        <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
-                    </VisualState.Setters>
-                </VisualState>
+                            <Setter Target="abonneer.Visibility" Value="Visible"/>
+                            <Setter Target="verwijderOnderneming.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
                     <VisualState x:Name="ondernemer">
                         <VisualState.Setters>
-                        <Setter Target="abonneer.Visibility" Value="Collapsed"/>
-                        <Setter Target="verwijderOnderneming.Visibility" Value="Visible"/>
-                    </VisualState.Setters>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-        <StackPanel>
+                            <Setter Target="abonneer.Visibility" Value="Collapsed"/>
+                            <Setter Target="verwijderOnderneming.Visibility" Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            
+            <StackPanel>
             <!--<Button FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" 
                     Foreground="White" HorizontalAlignment="Left"
                     Margin="20"/>-->

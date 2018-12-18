@@ -304,9 +304,18 @@ namespace NativeApps2
          {
              var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
              HttpClient client = new HttpClient();
-             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.Gebruikersnaam}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.IngelogdeGebruikerID}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
              return res;
          }
+
+
+        internal async Task<HttpResponseMessage> VerwijderVolgendeOnderneming(IngelogdeGebruiker gebruiker, int ondernemingsid)
+        {
+            var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
+            HttpClient client = new HttpClient();
+            var res = await client.DeleteAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.IngelogdeGebruikerID}");
+            return res;
+        }
 
 
         public string HashPassword(string passwd)
