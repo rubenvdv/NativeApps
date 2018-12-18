@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using NativeApps2.Views;
 using System;
 using Windows.Data.Pdf;
 using Windows.UI.Xaml;
@@ -69,7 +70,7 @@ namespace NativeApps2.xaml_pages
 
         private void wijzigPromotie_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
-            //Nog implementeren framePromotieGegevens.Navigate(typeof(WijzigPromotie), _promotie);
+            framePromotieGegevens.Navigate(typeof(WijzigPromotie), _promotie);
         }
 
         private async void verwijderPromotie_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

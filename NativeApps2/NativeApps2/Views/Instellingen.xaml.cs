@@ -1,4 +1,5 @@
 ﻿using NativeApps2.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
@@ -33,7 +34,15 @@ namespace NativeApps2.xaml_pages
 
         private void Annuleer_Click(object sender, RoutedEventArgs e)
         {
-            frameInstellingen.Navigate(typeof(Overzicht));
+            Type check = ((App)Application.Current).huidigeGebruiker.GetType();
+            if (check == typeof(IngelogdeGebruiker))
+            {
+                frameInstellingen.Navigate(typeof(Overzicht));
+            }
+            else
+            {
+                frameInstellingen.Navigate(typeof(OndernemerBeheer));
+            }
         }
 
         private async void WijzigenGegevens_Click(object sender, RoutedEventArgs e)

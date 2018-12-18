@@ -153,10 +153,5 @@ namespace NativeApps2.Domain
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public override bool Equals(object obj)
-        {
-            Promotie p = (Promotie)obj;
-            return this.Naam.Equals(p.Naam);
-        }
     }
 }

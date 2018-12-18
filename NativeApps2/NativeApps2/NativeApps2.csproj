@@ -173,6 +173,9 @@
     <Compile Include="Views\WijzigEvenement.xaml.cs">
       <DependentUpon>WijzigEvenement.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WijzigPromotie.xaml.cs">
+      <DependentUpon>WijzigPromotie.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -284,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\WijzigEvenement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WijzigPromotie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

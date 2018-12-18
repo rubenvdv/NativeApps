@@ -16,18 +16,17 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace NativeApps2.xaml_pages
+namespace NativeApps2.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class WijzigEvenement : Page
+    public sealed partial class WijzigPromotie : Page
     {
-
-        private Evenement _evenement;
+        private Promotie _promotie;
         private Services services;
 
-        public WijzigEvenement()
+        public WijzigPromotie()
         {
             this.InitializeComponent();
             services = new Services();
@@ -36,37 +35,38 @@ namespace NativeApps2.xaml_pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            _evenement = e.Parameter as Evenement;
-            evenementGegevens.DataContext = _evenement;
-            begindatum.Date = _evenement.Begindatum.Date;
-            einddatum.Date = _evenement.Einddatum.Date;
+            _promotie = e.Parameter as Promotie;
+            PromotieGegevens.DataContext = _promotie;
+            begindatum.Date = _promotie.Begindatum.Date;
+            einddatum.Date = _promotie.Einddatum.Date;
         }
 
         private async void WijzigenGegevensButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if(!naam.Text.Equals("") && !omschrijving.Text.Equals("") && !(begindatum.Date.DateTime < DateTime.Today) && !(begindatum.Date.DateTime > einddatum.Date.DateTime))
+            if (!naam.Text.Equals("") && !omschrijving.Text.Equals("") && !korting.Text.Equals("") && !(begindatum.Date.DateTime < DateTime.Today) && !(begindatum.Date.DateTime > einddatum.Date.DateTime))
             {
-                IEnumerable<Evenement> evenementen = await services.getEvenementen();
-                Evenement ev = evenementen.FirstOrDefault(eve => eve.Naam.Equals(naam.Text));
+                IEnumerable<Promotie> promoties = await services.getPromoties();
+                Promotie p = promoties.FirstOrDefault(pr => pr.Naam.Equals(naam.Text));
 
-                if (ev == null || _evenement.Naam == naam.Text)
+                if (p == null || _promotie.Naam == naam.Text)
                 {
-                    _evenement.Naam = naam.Text;
-                    _evenement.Omschrijving = omschrijving.Text;
-                    _evenement.Begindatum = begindatum.Date.DateTime;
-                    _evenement.Einddatum = einddatum.Date.DateTime;
-                    await services.UpdateEvenement(_evenement);
+                    _promotie.Naam = naam.Text;
+                    _promotie.Omschrijving = omschrijving.Text;
+                    _promotie.Korting = korting.Text;
+                    _promotie.Begindatum = begindatum.Date.DateTime;
+                    _promotie.Einddatum = einddatum.Date.DateTime;
+                    await services.UpdatePromotie(_promotie);
 
                     foutmelding.Text = "";
-                    succesMessage.Text = "Evenement aangepast";
+                    succesMessage.Text = "Promotie aangepast";
                 }
                 else
                 {
                     succesMessage.Text = "";
-                    foutmelding.Text = "Er bestaat al een evenement met deze naam!";
+                    foutmelding.Text = "Er bestaat al een promotie met deze naam!";
                 }
-                ev = null;
+                p = null;
             }
             else if (begindatum.Date.DateTime < DateTime.Today)
             {
@@ -81,8 +81,9 @@ namespace NativeApps2.xaml_pages
             else
             {
                 succesMessage.Text = "";
-                foutmelding.Text = "Evenement niet aangepast, controleer of u alle gegevens correct hebt ingevuld!!";
+                foutmelding.Text = "Promotie niet aangepast, controleer of u alle gegevens correct hebt ingevuld!!";
             }
         }
+
     }
 }

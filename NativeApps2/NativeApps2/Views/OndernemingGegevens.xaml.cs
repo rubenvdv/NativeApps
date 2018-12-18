@@ -39,26 +39,32 @@ namespace NativeApps2.xaml_pages
             Type check = ((App)Application.Current).huidigeGebruiker.GetType();
             if (check == typeof(IngelogdeGebruiker))
             {
-                VisualStateManager.GoToState(this, "IngelogdeGebruiker", false);
+                //VisualStateManager.GoToState(this, "IngelogdeGebruiker", false);
                 IngelogdeGebruiker gebruiker = (IngelogdeGebruiker)((App)Application.Current).huidigeGebruiker;
 
                 List<Onderneming> volgend = gebruiker.VolgendeOndernemingen.ToList();
 
                 Onderneming o = volgend.FirstOrDefault(ond => ond.Naam.Equals(_onderneming.Naam));
-
                 if (o != null)
                     abonneer.Content = "Geabonneerd";
                 else
                     abonneer.Content = "Abonneren";
 
+                abonneer.Visibility = Visibility.Visible;
+                verwijderOnderneming.Visibility = Visibility.Collapsed;
+
             }
-            if (check == typeof(Ondernemer))
+            else if (check == typeof(Ondernemer))
             {
-                VisualStateManager.GoToState(this, "ondernemer", false);
+                //VisualStateManager.GoToState(this, "ondernemer", false);
+                abonneer.Visibility = Visibility.Collapsed;
+                //verwijderOnderneming.Visibility = Visibility.Visible;
             }
             else
             {
-                VisualStateManager.GoToState(this, "nietIngelogdeGebruiker", false);
+                //VisualStateManager.GoToState(this, "nietIngelogdeGebruiker", false);
+                abonneer.Visibility = Visibility.Collapsed;
+                verwijderOnderneming.Visibility = Visibility.Collapsed;
             }
 
             services = new Services();
@@ -90,13 +96,14 @@ namespace NativeApps2.xaml_pages
             if (b.Content.ToString() == "Geabonneerd")
             {
                 gebruiker.VolgendeOndernemingen.Remove(_onderneming);
+                //await services.VerwijderVolgendeOnderneming(gebruiker, _onderneming.OndernemingID);
                 b.Content = "Abonneer";
 
             }
             else
             {
                 gebruiker.VolgendeOndernemingen.Add(_onderneming);
-                await services.VoegVolgendeOndernemingToe(gebruiker, _onderneming.OndernemingID);
+                //await services.VoegVolgendeOndernemingToe(gebruiker, _onderneming.OndernemingID);
                 b.Content = "Geabonneerd";
             }
 

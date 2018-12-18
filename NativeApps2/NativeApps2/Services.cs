@@ -237,6 +237,16 @@ namespace NativeApps2
             return res;
         }
 
+        //UPDATE PROMOTIE
+        public async Task<HttpResponseMessage> UpdatePromotie(Promotie promotie)
+        {
+            HttpClient client = new HttpClient();
+            int promotieId = promotie.PromotieID;
+            var promotieJson = JsonConvert.SerializeObject(promotie);
+            var res = await client.PutAsync($"http://localhost:57003/api/promoties/{promotieId}", new StringContent(promotieJson, System.Text.Encoding.UTF8, "application/json"));
+            return res;
+        }
+
         //VERWIJDER EVENEMENT
         public async Task<HttpResponseMessage> verwijderEvenement(Evenement evenement)
         {
@@ -282,21 +292,30 @@ namespace NativeApps2
             return res;
         }
 
+        //UPDATE VOLGENDE ONDERNEMINGEN (klopt niet)
+        public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsid)
+         {
+             var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
+             HttpClient client = new HttpClient();
+             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.IngelogdeGebruikerID}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
+             return res;
+         }
+
+        internal async Task<HttpResponseMessage> VerwijderVolgendeOnderneming(IngelogdeGebruiker gebruiker, int ondernemingsid)
+        {
+            var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
+            HttpClient client = new HttpClient();
+            var res = await client.DeleteAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.IngelogdeGebruikerID}");
+            return res;
+        }
+
+
         /* Met deze code kan je in de client kijken of een object succesvol is gecreëerd in de db.
             if(res.StatusCode == System.Net.HttpStatusCode.Created)
                 {
                     //Code bij true
                 }
         */
-
-        //UPDATE VOLGENDE ONDERNEMINGEN (klopt niet)
-        public async Task<HttpResponseMessage> VoegVolgendeOndernemingToe(IngelogdeGebruiker gebruiker, int ondernemingsid)
-         {
-             var gebruikerJson = JsonConvert.SerializeObject(ondernemingsid);
-             HttpClient client = new HttpClient();
-             var res = await client.PutAsync($"http://localhost:57003/IngelogdeGebruikers/VoegVolgendeOndernemingToe/{gebruiker.Gebruikersnaam}", new StringContent(gebruikerJson, System.Text.Encoding.UTF8, "application/json"));
-             return res;
-         }
 
 
         public string HashPassword(string passwd)
@@ -336,42 +355,5 @@ namespace NativeApps2
             // Return the encoded string
             return strHashBase64;
         }
-
-        public string SampleDeriveFromPbkdf(
-    String strAlgName,
-    UInt32 targetSize)
-        {
-            // Open the specified algorithm.
-            KeyDerivationAlgorithmProvider objKdfProv = KeyDerivationAlgorithmProvider.OpenAlgorithm(strAlgName);
-
-            // Create a buffer that contains the secret used during derivation.
-            String strSecret = "MyPassword";
-            IBuffer buffSecret = CryptographicBuffer.ConvertStringToBinary(strSecret, BinaryStringEncoding.Utf8);
-
-            // Create a random salt value.
-            IBuffer buffSalt = CryptographicBuffer.GenerateRandom(32);
-
-            // Specify the number of iterations to be used during derivation.
-            UInt32 iterationCount = 10000;
-
-            // Create the derivation parameters.
-            KeyDerivationParameters pbkdf2Params = KeyDerivationParameters.BuildForPbkdf2(buffSalt, iterationCount);
-
-            // Create a key from the secret value.
-            CryptographicKey keyOriginal = objKdfProv.CreateKey(buffSecret);
-
-            // Derive a key based on the original key and the derivation parameters.
-            IBuffer keyDerived = CryptographicEngine.DeriveKeyMaterial(
-                keyOriginal,
-                pbkdf2Params,
-                targetSize);
-
-            // Encode the key to a hexadecimal value (for display)
-            String strKeyHex = CryptographicBuffer.EncodeToHexString(keyDerived);
-
-            // Return the encoded string
-            return strKeyHex;
-        }
-
     }
 }
