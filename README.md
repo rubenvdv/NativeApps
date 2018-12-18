@@ -10,6 +10,12 @@ Alvorens het project te openen, is het mogelijk om al data in de applicatie te l
 - Voer in de console het commando "update-database" uit en wacht.
 - Het commando is voltooid wanneer de tekst "Running seed method." verschijnt en je een nieuw commando kan toevoegen. De startdata zit nu in de database en de app kan gerund worden.
 
+Opmerking: wanneer u bij het laatste commando (update-database) een "No connection string found"-foutmelding krijgt, kan u volgende stappen doorlopen:
+- Set "NativeApps2Service" als startup project (rechtermuisklik op "NativeApps2Service" -> Set as startup project)
+- Run "NativeApps2Service"
+- Probeer het commando update-database opnieuw zoals hierboven beschreven. Nu zou dit moeten werken
+- Vergeet niet om nu terug NativeApps2 als startup project te zetten (rechtermuisklik op "NativeApps2" -> Set as startup project). Anders runt u steeds de service en niet de applicatie.
+
 
 ### Enkele gewone gebruikersaccounts:
 - Username: rubenvdv
