@@ -29,6 +29,7 @@ namespace NativeApps2.xaml_pages
         {
             base.OnNavigatedTo(e);
             cmbCategorie.DataContext = new CategorieViewModel();
+            cmbCategorie.SelectedItem = "Andere";
         }
 
         private async void Registreer_Ondernemer(object sender, RoutedEventArgs e)
@@ -55,7 +56,7 @@ namespace NativeApps2.xaml_pages
                     
 
                     Ondernemer ondernemerMetId = await services.getOndernemer(gebruikersnaam.Text);
-                    Onderneming onderneming = new Onderneming { Naam = naam.Text, Categorie = cmbCategorie.SelectedItem as string, Adres = adresOnderneming.Text, Openingsuren = openingsurenOnderneming.Text, OndernemerID = ondernemerMetId.OndernemerID };
+                    Onderneming onderneming = new Onderneming { Naam = naamOnderneming.Text, Categorie = cmbCategorie.SelectedItem as string, Adres = adresOnderneming.Text, Openingsuren = openingsurenOnderneming.Text, OndernemerID = ondernemerMetId.OndernemerID };
                     await services.voegOndernemingToe(onderneming);
 
                     ((App)Application.Current).huidigeGebruiker = ondernemerMetId;
