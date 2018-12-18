@@ -96,14 +96,14 @@ namespace NativeApps2.xaml_pages
             if (b.Content.ToString() == "Geabonneerd")
             {
                 gebruiker.VolgendeOndernemingen.Remove(_onderneming);
-                await services.VerwijderVolgendeOnderneming(gebruiker, _onderneming.OndernemingID);
+                //await services.VerwijderVolgendeOnderneming(gebruiker, _onderneming.OndernemingID);
                 b.Content = "Abonneer";
 
             }
             else
             {
                 gebruiker.VolgendeOndernemingen.Add(_onderneming);
-                await services.VoegVolgendeOndernemingToe(gebruiker, _onderneming.OndernemingID);
+                //await services.VoegVolgendeOndernemingToe(gebruiker, _onderneming.OndernemingID);
                 b.Content = "Geabonneerd";
             }
 
