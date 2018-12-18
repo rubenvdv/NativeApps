@@ -79,9 +79,9 @@ namespace NativeApps2Service.Migrations
             var promoties = new List<Promotie>
             {
                 new Promotie {Naam="Eindejaarspromo", Omschrijving="5% korting bij alle aankopen boven de 100 euro", Begindatum=DateTime.Parse("06/12/2018"), Einddatum=DateTime.Parse("02/01/2019"), OndernemingID= ondernemingen.Single(o => o.Naam.Equals("Ikea Gent") ).OndernemingID, Korting="5%"},
-               new Promotie {Naam="Graindor koffie", Omschrijving="10% korting bij aankoop vanaf 3 verpakkingen Graindor koffie, enkel geldig op vertoon van uw extra-kaart", Begindatum = DateTime.Parse("17/12/2018"), Einddatum=DateTime.Parse("30/12/2018"), OndernemingID= ondernemingen.Single(o => o.Naam.Equals("OKay Gent")).OndernemingID},
-               new Promotie {Naam="Graindor koffie", Omschrijving="10% korting bij aankoop vanaf 3 verpakkingen Graindor koffie, enkel geldig op vertoon van uw extra-kaart", Begindatum = DateTime.Parse("17/12/2018"), Einddatum=DateTime.Parse("30/12/2018"), OndernemingID= ondernemingen.Single(o => o.Naam.Equals("Colruyt Gent")).OndernemingID},
-               new Promotie {Naam="Winteractie", Omschrijving="15% korting op alle wintersportartikelen", Begindatum=DateTime.Parse("18/12/2018"), Einddatum=DateTime.Parse("05/01/2019"), OndernemingID=ondernemingen.Single(o => o.Naam.Equals("Sport utilities")).OndernemingID}
+               new Promotie {Naam="Graindor koffie", Omschrijving="10% korting bij aankoop vanaf 3 verpakkingen Graindor koffie, enkel geldig op vertoon van uw extra-kaart", Begindatum = DateTime.Parse("17/12/2018"), Einddatum=DateTime.Parse("30/12/2018"), OndernemingID= ondernemingen.Single(o => o.Naam.Equals("OKay Gent")).OndernemingID, Korting="10%"},
+               new Promotie {Naam="Graindor koffie", Omschrijving="10% korting bij aankoop vanaf 3 verpakkingen Graindor koffie, enkel geldig op vertoon van uw extra-kaart", Begindatum = DateTime.Parse("17/12/2018"), Einddatum=DateTime.Parse("30/12/2018"), OndernemingID= ondernemingen.Single(o => o.Naam.Equals("Colruyt Gent")).OndernemingID, Korting="10%"},
+               new Promotie {Naam="Winteractie", Omschrijving="15% korting op alle wintersportartikelen", Begindatum=DateTime.Parse("18/12/2018"), Einddatum=DateTime.Parse("05/01/2019"), OndernemingID=ondernemingen.Single(o => o.Naam.Equals("Sport utilities")).OndernemingID, Korting="15%"}
             };
             promoties.ForEach(s => context.Promoties.AddOrUpdate(p => p.PromotieID, s));
             context.SaveChanges();
